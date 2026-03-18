@@ -1,7 +1,6 @@
 site_name: AWS Certified Solutions Architect Associate (SAA-C03)
 site_description: Complete study guide for the AWS Certified Solutions Architect Associate exam (SAA-C03)
 site_author: AWS Study Guide
-
 docs_dir: docs
 site_dir: site
 
@@ -40,7 +39,10 @@ theme:
 
 plugins:
   - search
-  - mermaid2
+  - mermaid2:
+      arguments:
+        theme: |
+          ^(JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'light'
 
 markdown_extensions:
   - admonition
