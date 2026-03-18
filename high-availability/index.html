@@ -1,0 +1,3293 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete study guide for the AWS Certified Solutions Architect Associate exam (SAA-C03)">
+      
+      
+        <meta name="author" content="AWS Study Guide">
+      
+      
+      
+        <link rel="prev" href="../ec2-storage/">
+      
+      
+        <link rel="next" href="../rds-aurora-elasticache/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>High Availability & Scalability - AWS Certified Solutions Architect Associate (SAA-C03)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#high-availability-scalability" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-header__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Certified Solutions Architect Associate (SAA-C03)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              High Availability & Scalability
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-nav__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    AWS Certified Solutions Architect Associate (SAA-C03)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started with AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAM – Identity & Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-associate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Associate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Instance Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability & Scalability
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability & Scalability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scalability-high-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalability &amp; High Availability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ver-tical-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver tical Scalability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#horizontal-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Horizontal Scalability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Availability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability-scalability-for-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Availability &amp; Scalability For EC2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is load balancing?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-a-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use a load balancer?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-an-elastic-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use an Elastic Load Balancer?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health Checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-load-balancer-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of load balancer on AWS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-balancer-security-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancer Security Groups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classic-load-balancers-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classic Load Balancers (v1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-load-balancer-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-load-balancer-v2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puorg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        puorG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-load-balancer-v2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-load-balancer-v2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-load-balancer-v2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-load-balancer-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-load-balancer-v2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-load-balancer-target-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Load Balancer – Target Groups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gateway-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gateway Load Balancer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gateway-load-balancer-target-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gateway Load Balancer – Target Groups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sticky-sessions-session-affinity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sticky Sessions (Session Affinity)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sticky-sessions-cookie-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sticky Sessions – Cookie Names
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-zone-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Zone Load Balancing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-zone-load-balancing_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Zone Load Balancing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssltls-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL/TLS - Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-balancer-ssl-cer-tificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancer - SSL Cer tificates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssl-ser-ver-name-indication-sni" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL – Ser ver Name Indication (SNI)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elastic-load-balancers-ssl-cer-tificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elastic Load Balancers – SSL Cer tificates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-draining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection Draining
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-an-auto-scaling-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What’s an Auto Scaling Group?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-group-in-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Group in AWS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-group-in-aws-with-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Group in AWS With Load Balancer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-group-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Group Attributes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-cloudwatch-alarms-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling - CloudWatch Alarms &amp; Scaling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-groups-scaling-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Groups – Scaling Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-groups-scaling-policies_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Groups – Scaling Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#good-metrics-to-scale-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Good metrics to scale on
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-groups-scaling-cooldowns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Groups - Scaling Cooldowns
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rds-aurora-elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS, Aurora & ElastiCache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFront & Global Accelerator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage-extras/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Extras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration & Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics & ML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analytics & ML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security & Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring, Audit & Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Identity in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classic-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery & Migrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solutions-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scalability-high-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalability &amp; High Availability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ver-tical-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver tical Scalability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#horizontal-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Horizontal Scalability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Availability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability-scalability-for-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Availability &amp; Scalability For EC2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is load balancing?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-a-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use a load balancer?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-an-elastic-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use an Elastic Load Balancer?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health Checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-load-balancer-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of load balancer on AWS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-balancer-security-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancer Security Groups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classic-load-balancers-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classic Load Balancers (v1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-load-balancer-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-load-balancer-v2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puorg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        puorG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-load-balancer-v2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-load-balancer-v2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-load-balancer-v2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-load-balancer-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-load-balancer-v2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Load Balancer (v2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-load-balancer-target-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Load Balancer – Target Groups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gateway-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gateway Load Balancer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gateway-load-balancer-target-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gateway Load Balancer – Target Groups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sticky-sessions-session-affinity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sticky Sessions (Session Affinity)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sticky-sessions-cookie-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sticky Sessions – Cookie Names
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-zone-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Zone Load Balancing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-zone-load-balancing_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Zone Load Balancing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssltls-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL/TLS - Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-balancer-ssl-cer-tificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancer - SSL Cer tificates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssl-ser-ver-name-indication-sni" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL – Ser ver Name Indication (SNI)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elastic-load-balancers-ssl-cer-tificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elastic Load Balancers – SSL Cer tificates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-draining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection Draining
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-an-auto-scaling-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What’s an Auto Scaling Group?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-group-in-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Group in AWS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-group-in-aws-with-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Group in AWS With Load Balancer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-group-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Group Attributes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-cloudwatch-alarms-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling - CloudWatch Alarms &amp; Scaling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-groups-scaling-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Groups – Scaling Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-groups-scaling-policies_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Groups – Scaling Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#good-metrics-to-scale-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Good metrics to scale on
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling-groups-scaling-cooldowns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Scaling Groups - Scaling Cooldowns
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="high-availability-scalability">High Availability &amp; Scalability<a class="headerlink" href="#high-availability-scalability" title="Permanent link">&para;</a></h1>
+<h2 id="scalability-high-availability">Scalability &amp; High Availability<a class="headerlink" href="#scalability-high-availability" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Scalability means that an application / system can handle greater loads</li>
+</ul>
+<p>by adapting.
+- There are two kinds of scalability:
+- Vertical Scalability
+- Horizontal Scalability (= elasticity)
+- Scalability is linked but different to High Availability
+- Let’s deep dive into the distinction, using a call center as an example</p>
+<h2 id="ver-tical-scalability">Ver tical Scalability<a class="headerlink" href="#ver-tical-scalability" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Vertically scalability means increasing the size<ul>
+<li>of the instance</li>
+</ul>
+</li>
+<li>For example, your application runs on a<ul>
+<li>t2.micro</li>
+</ul>
+</li>
+<li>Scaling that application vertically means<ul>
+<li>running it on a t2.large</li>
+</ul>
+</li>
+<li>Vertical scalability is very common for non</li>
+</ul>
+<p>distributed systems, such as a database.
+- RDS, ElastiCache are services that can scale</p>
+<p>vertically.
+- There’s usually a limit to how much you can
+    - vertically scale (hardware limit)
+junior operator senior operator</p>
+<h2 id="horizontal-scalability">Horizontal Scalability<a class="headerlink" href="#horizontal-scalability" title="Permanent link">&para;</a></h2>
+<p>operator operator operator
+- Horizontal Scalability means increasing the
+    - number of instances / systems for your
+application
+- Horizontal scaling implies distributed systems.
+- This is very common for web applications /
+    - modern applications
+- It’s easy to horizontally scale thanks the cloud
+    - offerings such as Amazon EC2
+operator operator operator</p>
+<h2 id="high-availability">High Availability<a class="headerlink" href="#high-availability" title="Permanent link">&para;</a></h2>
+<p>first building in New York
+- High Availability usually goes hand in
+    - hand with horizontal scaling
+- High availability means running your
+    - application / system in at least 2 data
+centers (== Availability Zones)
+- The goal of high availability is to survive
+    - a data center loss
+second building in San Francisco
+- The high availability can be passive (for
+    - RDS Multi AZ for example)
+- The high availability can be active (for
+    - horizontal scaling)</p>
+<h2 id="high-availability-scalability-for-ec2">High Availability &amp; Scalability For EC2<a class="headerlink" href="#high-availability-scalability-for-ec2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Vertical Scaling: Increase instance size (= scale up / down)</li>
+<li>From: t2.nano - 0.5G of RAM, 1 vCPU</li>
+<li>To: u-12tb1.metal – 12.3 TB of RAM, 448 vCPUs</li>
+<li>Horizontal Scaling: Increase number of instances (= scale out / in)</li>
+<li>Auto Scaling Group</li>
+<li>Load Balancer</li>
+<li>High Availability: Run instances for the same application across multi AZ</li>
+<li>Auto Scaling Group multi AZ</li>
+<li>Load Balancer multi AZ</li>
+</ul>
+<h2 id="what-is-load-balancing">What is load balancing?<a class="headerlink" href="#what-is-load-balancing" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Load Balances are servers that forward traffic to multiple<ul>
+<li>servers (e.g., EC2 instances) downstream
+Elastic Load Balancer
+EC2 Instance
+EC2 Instance
+EC2 Instance</li>
+</ul>
+</li>
+</ul>
+<h2 id="why-use-a-load-balancer">Why use a load balancer?<a class="headerlink" href="#why-use-a-load-balancer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Spread load across multiple downstream instances</li>
+<li>Expose a single point of access (DNS) to your application</li>
+<li>Seamlessly handle failures of downstream instances</li>
+<li>Do regular health checks to your instances</li>
+<li>Provide SSL termination (HTTPS) for your websites</li>
+<li>Enforce stickiness with cookies</li>
+<li>High availability across zones</li>
+<li>Separate public traffic from private traffic</li>
+</ul>
+<h2 id="why-use-an-elastic-load-balancer">Why use an Elastic Load Balancer?<a class="headerlink" href="#why-use-an-elastic-load-balancer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>An Elastic Load Balancer is a managed load balancer</li>
+<li>AWS guarantees that it will be working</li>
+<li>AWS takes care of upgrades, maintenance, high availability</li>
+<li>AWS provides only a few configuration knobs</li>
+<li>It costs less to setup your own load balancer but it will be a lot more effort<ul>
+<li>on your end</li>
+</ul>
+</li>
+<li>It is integrated with many AWS offerings / services</li>
+<li>EC2, EC2 Auto Scaling Groups, Amazon ECS</li>
+<li>AWS Certificate Manager (ACM), CloudWatch</li>
+<li>Route 53, AWS WAF, AWS Global Accelerator</li>
+</ul>
+<h2 id="health-checks">Health Checks<a class="headerlink" href="#health-checks" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Health Checks are crucial for Load Balancers</li>
+<li>They enable the load balancer to know if instances it forwards traffic to<ul>
+<li>are available to reply to requests</li>
+</ul>
+</li>
+<li>The health check is done on a port and a route (/health is common)</li>
+<li>If the response is not 200 (OK), then the instance is unhealthy<ul>
+<li>Protocol: HTTP
+Port: 4567
+Health Checks
+Endpoint: /health
+EC2 Instance
+Elastic Load Balancer</li>
+</ul>
+</li>
+</ul>
+<h2 id="types-of-load-balancer-on-aws">Types of load balancer on AWS<a class="headerlink" href="#types-of-load-balancer-on-aws" title="Permanent link">&para;</a></h2>
+<ul>
+<li>AWS has 4 kinds of managed Load Balancers</li>
+<li>Classic Load Balancer (v1 - old generation) – 2009 – CLB</li>
+<li>HTTP, HTTPS, TCP, SSL (secure TCP)</li>
+<li>Application Load Balancer (v2 - new generation) – 2016 – ALB</li>
+<li>HTTP, HTTPS, WebSocket</li>
+<li>Network Load Balancer (v2 - new generation) – 2017 – NLB</li>
+<li>TCP, TLS (secure TCP), UDP</li>
+<li>Gateway Load Balancer – 2020 – GWLB</li>
+<li>Operates at layer 3 (Network layer) – IP Protocol</li>
+<li>Overall, it is recommended to use the newer generation load balancers as they<ul>
+<li>provide more features</li>
+</ul>
+</li>
+<li>Some load balancers can be setup as internal (private) or external (public) ELBs</li>
+</ul>
+<h2 id="load-balancer-security-groups">Load Balancer Security Groups<a class="headerlink" href="#load-balancer-security-groups" title="Permanent link">&para;</a></h2>
+<p>LOAD BALANCER
+HTTPS / HTTP HTTP Restricted
+From anywhere to Load balancer
+Users EC2
+Load Balancer Security Group:
+Application Security Group: Allow traffic only from Load Balancer</p>
+<h2 id="classic-load-balancers-v1">Classic Load Balancers (v1)<a class="headerlink" href="#classic-load-balancers-v1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Supports TCP (Layer 4), HTTP &amp;<ul>
+<li>HTTPS (Layer 7)
+listener internal</li>
+</ul>
+</li>
+<li>Health checks are TCP or HTTP<ul>
+<li>based</li>
+</ul>
+</li>
+<li>Fixed hostname<ul>
+<li>Client CLB EC2
+XXX.region.elb.amazonaws.com</li>
+</ul>
+</li>
+</ul>
+<h2 id="application-load-balancer-v2">Application Load Balancer (v2)<a class="headerlink" href="#application-load-balancer-v2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Application load balancers is Layer 7 (HTTP)</li>
+<li>Load balancing to multiple HTTP applications across machines<ul>
+<li>(target groups)</li>
+</ul>
+</li>
+<li>Load balancing to multiple applications on the same machine<ul>
+<li>(ex: containers)</li>
+</ul>
+</li>
+<li>Support for HTTP/2 and WebSocket</li>
+<li>Support redirects (from HTTP to HTTPS for example)</li>
+</ul>
+<h2 id="application-load-balancer-v2_1">Application Load Balancer (v2)<a class="headerlink" href="#application-load-balancer-v2_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Routing tables to different target groups:</li>
+<li>Routing based on path in URL (example.com/users &amp; example.com/posts)</li>
+<li>Routing based on hostname in URL (one.example.com &amp; other.example.com)</li>
+<li>Routing based on Query String, Headers<ul>
+<li>(example.com/users?id=123&amp;order=false)</li>
+</ul>
+</li>
+<li>ALB are a great fit for micro services &amp; container-based application<ul>
+<li>(example: Docker &amp; Amazon ECS)</li>
+</ul>
+</li>
+<li>Has a port mapping feature to redirect to a dynamic port in ECS</li>
+<li>In comparison, we’d need multiple Classic Load Balancer per application</li>
+</ul>
+<h2 id="puorg">puorG<a class="headerlink" href="#puorg" title="Permanent link">&para;</a></h2>
+<p>tegraT
+sresU
+rof
+noitacilppa
+Application Load Balancer (v2)
+HTTP Based Traffic
+WWW Route /user HTTP
+External
+Application
+Load Balancer
+(v2) puorG
+tegraT
+hcraeS
+rof
+noitacilppa
+WWW Route /search HTTP
+kcehC
+htlaeH
+kcehC
+htlaeH</p>
+<h2 id="application-load-balancer-v2_2">Application Load Balancer (v2)<a class="headerlink" href="#application-load-balancer-v2_2" title="Permanent link">&para;</a></h2>
+<p>Target Groups
+- EC2 instances (can be managed by an Auto Scaling Group) – HTTP
+- ECS tasks (managed by ECS itself) – HTTP
+- Lambda functions – HTTP request is translated into a JSON event
+- IP Addresses – must be private IPs
+- ALB can route to multiple target groups
+- Health checks are at the target group level</p>
+<h2 id="application-load-balancer-v2_3">Application Load Balancer (v2)<a class="headerlink" href="#application-load-balancer-v2_3" title="Permanent link">&para;</a></h2>
+<p>Quer y Strings/Parameters Routing
+Target Group 1
+?Platform=Mobile AWS – EC2 based
+External
+Requests
+WWW Application
+Load Balancer
+(v2)
+Target Group 2
+On-premises – Private IP routing
+?Platform=Desktop</p>
+<h2 id="application-load-balancer-v2_4">Application Load Balancer (v2)<a class="headerlink" href="#application-load-balancer-v2_4" title="Permanent link">&para;</a></h2>
+<p>Good to Know
+- Fixed hostname (XXX.region.elb.amazonaws.com)
+- The application servers don’t see the IP of the client directly
+- The true IP of the client is inserted in the header X-Forwarded-For
+- We can also get Port (X-Forwarded-Port) and proto (X-Forwarded-Proto)
+    - Load Balancer IP
+Client IP
+(Private IP)
+EC2
+12.34.56.78 Instance
+Connection termination</p>
+<h2 id="network-load-balancer-v2">Network Load Balancer (v2)<a class="headerlink" href="#network-load-balancer-v2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Network load balancers (Layer 4) allow to:</li>
+<li>Forward TCP &amp; UDP traffic to your instances</li>
+<li>Handle millions of request per seconds</li>
+<li>Ultra-low latency</li>
+<li>NLB has one static IP per AZ, and supports assigning Elastic IP<ul>
+<li>(helpful for whitelisting specific IP)</li>
+</ul>
+</li>
+<li>NLB are used for extreme performance, TCP or UDP traffic</li>
+</ul>
+<h2 id="network-load-balancer-v2_1">Network Load Balancer (v2)<a class="headerlink" href="#network-load-balancer-v2_1" title="Permanent link">&para;</a></h2>
+<p>TCP (Layer 4) Based Traffic
+puorG
+tegraT
+sresU
+rof
+noitacilppa
+WWW TCP + Rules TCP
+External
+Network Load
+Balancer (v2)
+puorG
+tegraT
+hcraeS
+rof
+noitacilppa
+WWW TCP + Rules HTTP
+kcehC
+htlaeH
+kcehC
+htlaeH</p>
+<h2 id="network-load-balancer-target-groups">Network Load Balancer – Target Groups<a class="headerlink" href="#network-load-balancer-target-groups" title="Permanent link">&para;</a></h2>
+<ul>
+<li>EC2 instances</li>
+<li>IP Addresses – must be private IPs</li>
+<li>Application Load Balancer</li>
+<li>Health Checks support the TCP, HTTP and HTTPS Protocols<ul>
+<li>Network Network Network
+Load Balancer Load Balancer Load Balancer
+i-1234567890abcdef0 i-1234567890abcdef0 192.168.1.118 10.0.4.21
+Target Group Target Group Target Group
+(EC2 Instances) (IP Addresses) (Application Load Balancer)</li>
+</ul>
+</li>
+</ul>
+<h2 id="gateway-load-balancer">Gateway Load Balancer<a class="headerlink" href="#gateway-load-balancer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Deploy, scale, and manage a fleet of 3rd party Route<ul>
+<li>Table
+network virtual appliances in AWS</li>
+</ul>
+</li>
+<li>Example: Firewalls, Intrusion Detection and<ul>
+<li>Users Application
+Prevention Systems, Deep Packet Inspection
+(source) (destination)
+Systems, payload manipulation, …
+traffic traffic</li>
+</ul>
+</li>
+<li>Operates at Layer 3 (Network Layer) – IP<ul>
+<li>Gateway
+Packets
+Load Balancer</li>
+</ul>
+</li>
+<li>Combines the following functions:</li>
+<li>Transparent Network Gateway – single entry/exit<ul>
+<li>for all traffic</li>
+</ul>
+</li>
+<li>Load Balancer – distributes traffic to your virtual<ul>
+<li>Target Group
+appliances</li>
+</ul>
+</li>
+<li>Uses the GENEVE protocol on port 6081<ul>
+<li>3rd Party Security
+Virtual Appliances</li>
+</ul>
+</li>
+</ul>
+<h2 id="gateway-load-balancer-target-groups">Gateway Load Balancer – Target Groups<a class="headerlink" href="#gateway-load-balancer-target-groups" title="Permanent link">&para;</a></h2>
+<ul>
+<li>EC2 instances</li>
+<li>IP Addresses – must be private IPs<ul>
+<li>Gateway Gateway
+Load Balancer Load Balancer
+i-1234567890abcdef0 i-1234567890abcdef0 192.168.1.118 10.0.4.21
+Target Group Target Group
+(EC2 Instances) (IP Addresses)</li>
+</ul>
+</li>
+</ul>
+<h2 id="sticky-sessions-session-affinity">Sticky Sessions (Session Affinity)<a class="headerlink" href="#sticky-sessions-session-affinity" title="Permanent link">&para;</a></h2>
+<ul>
+<li>It is possible to implement stickiness so that the<ul>
+<li>same client is always redirected to the same
+Client 1 Client 2 Client 3
+instance behind a load balancer</li>
+</ul>
+</li>
+<li>This works for Classic Load Balancer, Application<ul>
+<li>Load Balancer, and Network Load Balancer</li>
+</ul>
+</li>
+<li>For both CLB &amp; ALB, the “cookie” used for<ul>
+<li>stickiness has an expiration date you control</li>
+</ul>
+</li>
+<li>Use case: make sure the user doesn’t lose his<ul>
+<li>session data</li>
+</ul>
+</li>
+<li>Enabling stickiness may bring imbalance to the<ul>
+<li>load over the backend EC2 instances
+EC2 Instance EC2 Instance</li>
+</ul>
+</li>
+</ul>
+<h2 id="sticky-sessions-cookie-names">Sticky Sessions – Cookie Names<a class="headerlink" href="#sticky-sessions-cookie-names" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Application-based Cookies</li>
+<li>Custom cookie</li>
+<li>Generated by the target</li>
+<li>Can include any custom attributes required by the application</li>
+<li>Cookie name must be specified individually for each target group</li>
+<li>Don’t use AWSALB, AWSALBAPP, or AWSALBTG (reserved for use by the ELB)</li>
+<li>Application cookie</li>
+<li>Generated by the load balancer</li>
+<li>Cookie name is AWSALBAPP</li>
+<li>Duration-based Cookies</li>
+<li>Cookie generated by the load balancer</li>
+<li>Cookie name is AWSALB for ALB, AWSELB for CLB</li>
+</ul>
+<h2 id="cross-zone-load-balancing">Cross-Zone Load Balancing<a class="headerlink" href="#cross-zone-load-balancing" title="Permanent link">&para;</a></h2>
+<p>With Cross Zone Load Balancing: Without Cross Zone Load Balancing:
+each load balancer instance distributes evenly Requests are distributed in the instances of the
+across all registered instances in all AZ node of the Elastic Load Balancer
+50 50
+50 50
+10 10 10 10 6.25 6.25 6.25 6.25
+10 10 25 25
+10 10 10 10 6.25 6.25 6.25 6.25
+Availability Zone 1 Availability Zone 2 Availability Zone 1 Availability Zone 2</p>
+<h2 id="cross-zone-load-balancing_1">Cross-Zone Load Balancing<a class="headerlink" href="#cross-zone-load-balancing_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Application Load Balancer</li>
+<li>Enabled by default (can be disabled at the Target Group level)</li>
+<li>No charges for inter AZ data</li>
+<li>Network Load Balancer &amp; Gateway Load Balancer</li>
+<li>Disabled by default</li>
+<li>You pay charges ($) for inter AZ data if enabled</li>
+<li>Classic Load Balancer</li>
+<li>Disabled by default</li>
+<li>No charges for inter AZ data if enabled</li>
+</ul>
+<h2 id="ssltls-basics">SSL/TLS - Basics<a class="headerlink" href="#ssltls-basics" title="Permanent link">&para;</a></h2>
+<ul>
+<li>An SSL Certificate allows traffic between your clients and your load balancer<ul>
+<li>to be encrypted in transit (in-flight encryption)</li>
+</ul>
+</li>
+<li>SSL refers to Secure Sockets Layer, used to encrypt connections</li>
+<li>TLS refers to Transport Layer Security, which is a newer version</li>
+<li>Nowadays, TLS certificates are mainly used, but people still refer as SSL</li>
+<li>Public SSL certificates are issued by Certificate Authorities (CA)</li>
+<li>Comodo, Symantec, GoDaddy, GlobalSign, Digicert, Letsencrypt, etc…</li>
+<li>SSL certificates have an expiration date (you set) and must be renewed</li>
+</ul>
+<h2 id="load-balancer-ssl-cer-tificates">Load Balancer - SSL Cer tificates<a class="headerlink" href="#load-balancer-ssl-cer-tificates" title="Permanent link">&para;</a></h2>
+<p>LOAD BALANCER
+HTTPS (encrypted) HTTP
+Over www Over private VPC
+EC2
+Users
+Instance
+- The load balancer uses an X.509 certificate (SSL/TLS server certificate)
+- You can manage certificates using ACM (AWS Certificate Manager)
+- You can create upload your own certificates alternatively
+- HTTPS listener:
+- You must specify a default certificate
+- You can add an optional list of certs to support multiple domains
+- Clients can use SNI (Server Name Indication) to specify the hostname they reach
+- Ability to specify a security policy to support older versions of SSL / TLS (legacy clients)</p>
+<h2 id="ssl-ser-ver-name-indication-sni">SSL – Ser ver Name Indication (SNI)<a class="headerlink" href="#ssl-ser-ver-name-indication-sni" title="Permanent link">&para;</a></h2>
+<ul>
+<li>SNI solves the problem of loading multiple SSL<ul>
+<li>Target group for
+certificates onto one web server (to serve www.mycorp.com
+multiple websites)</li>
+</ul>
+</li>
+<li>It’s a “newer” protocol, and requires the client<ul>
+<li>to indicate the hostname of the target server
+in the initial SSL handshake Target group for
+Domain1.example.com</li>
+</ul>
+</li>
+<li>The server will then find the correct I would like<ul>
+<li>www.mycorp.com
+certificate, or return the default one
+Client ALB
+Note:
+SSL Cert:</li>
+</ul>
+</li>
+<li>Only works for ALB &amp; NLB (newer Domain1.example.com<ul>
+<li>Use the correct
+generation), CloudFront SSL cert</li>
+</ul>
+</li>
+<li>Does not work for CLB (older gen) SSL Cert:<ul>
+<li>www.mycorp.com
+….</li>
+</ul>
+</li>
+</ul>
+<h2 id="elastic-load-balancers-ssl-cer-tificates">Elastic Load Balancers – SSL Cer tificates<a class="headerlink" href="#elastic-load-balancers-ssl-cer-tificates" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Classic Load Balancer (v1)</li>
+<li>Support only one SSL certificate</li>
+<li>Must use multiple CLB for multiple hostname with multiple SSL certificates</li>
+<li>Application Load Balancer (v2)</li>
+<li>Supports multiple listeners with multiple SSL certificates</li>
+<li>Uses Server Name Indication (SNI) to make it work</li>
+<li>Network Load Balancer (v2)</li>
+<li>Supports multiple listeners with multiple SSL certificates</li>
+<li>Uses Server Name Indication (SNI) to make it work</li>
+</ul>
+<h2 id="connection-draining">Connection Draining<a class="headerlink" href="#connection-draining" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Feature naming</li>
+<li>Connection Draining – for CLB waiting for existing</li>
+<li>Deregistration Delay – for ALB &amp; NLB connections to complete<ul>
+<li>EC2 Instance</li>
+</ul>
+</li>
+<li>Time to complete “in-flight requests” while the<ul>
+<li>DRAINING
+instance is de-registering or unhealthy</li>
+</ul>
+</li>
+<li>Stops sending new requests to the EC2<ul>
+<li>instance which is de-registering
+EC2 Instance
+Users</li>
+</ul>
+</li>
+<li>Between 1 to 3600 seconds (default: 300<ul>
+<li>ELB
+seconds)</li>
+</ul>
+</li>
+<li>Can be disabled (set value to 0)<ul>
+<li>new connections
+established to all other instances</li>
+</ul>
+</li>
+<li>Set to a low value if your requests are short<ul>
+<li>EC2 Instance</li>
+</ul>
+</li>
+</ul>
+<h2 id="whats-an-auto-scaling-group">What’s an Auto Scaling Group?<a class="headerlink" href="#whats-an-auto-scaling-group" title="Permanent link">&para;</a></h2>
+<ul>
+<li>In real-life, the load on your websites and application can change</li>
+<li>In the cloud, you can create and get rid of servers very quickly</li>
+<li>The goal of an Auto Scaling Group (ASG) is to:</li>
+<li>Scale out (add EC2 instances) to match an increased load</li>
+<li>Scale in (remove EC2 instances) to match a decreased load</li>
+<li>Ensure we have a minimum and a maximum number of EC2 instances running</li>
+<li>Automatically register new instances to a load balancer</li>
+<li>Re-create an EC2 instance in case a previous one is terminated (ex: if unhealthy)</li>
+<li>ASG are free (you only pay for the underlying EC2 instances)</li>
+</ul>
+<h2 id="auto-scaling-group-in-aws">Auto Scaling Group in AWS<a class="headerlink" href="#auto-scaling-group-in-aws" title="Permanent link">&para;</a></h2>
+<p>Auto Scaling Group
+EC2 EC2 EC2 EC2 EC2 EC2 EC2
+Instance Instance Instance Instance Instance Instance Instance
+Minimum Capacity Scale Out as Needed
+Desired Capacity
+Maximum Capacity</p>
+<h2 id="auto-scaling-group-in-aws-with-load-balancer">Auto Scaling Group in AWS With Load Balancer<a class="headerlink" href="#auto-scaling-group-in-aws-with-load-balancer" title="Permanent link">&para;</a></h2>
+<p>Users
+Elastic Load Balancer
+ELB can check the health of your EC2 instances!
+Auto Scaling Group
+EC2 EC2 EC2 EC2 EC2 EC2 EC2
+Instance Instance Instance Instance Instance Instance Instance</p>
+<h2 id="auto-scaling-group-attributes">Auto Scaling Group Attributes<a class="headerlink" href="#auto-scaling-group-attributes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A Launch Template (older “Launch Configurations” are deprecated)</li>
+<li>AMI + Instance Type</li>
+<li>EC2 User Data ASG Launch Template</li>
+<li>EBS Volumes</li>
+<li>Security Groups</li>
+<li>SSH Key Pair AMI Instance EBS Volumes<ul>
+<li>Type</li>
+</ul>
+</li>
+<li>IAM Roles for your EC2 Instances</li>
+<li>Network + Subnets Information Security<ul>
+<li>Groups SSH Key Pair IAM Role</li>
+</ul>
+</li>
+<li>Load Balancer Information</li>
+<li>Min Size / Max Size / Initial Capacity<ul>
+<li>…</li>
+</ul>
+</li>
+<li>Scaling Policies<ul>
+<li>VPC + Subnets Load
+Balancer</li>
+</ul>
+</li>
+</ul>
+<h2 id="auto-scaling-cloudwatch-alarms-scaling">Auto Scaling - CloudWatch Alarms &amp; Scaling<a class="headerlink" href="#auto-scaling-cloudwatch-alarms-scaling" title="Permanent link">&para;</a></h2>
+<ul>
+<li>It is possible to scale an ASG based on CloudWatch alarms</li>
+<li>An alarm monitors a metric (such as Average CPU, or a custom metric)</li>
+<li>Metrics such as Average CPU are computed for the overall ASG instances</li>
+<li>Based on the alarm:</li>
+<li>We can create scale-out policies (increase the number of instances)</li>
+<li>We can create scale-in policies (decrease the number of instances)<ul>
+<li>Auto Scaling Group
+trigger Scaling
+EC2 EC2 EC2 EC2 EC2
+Instance Instance Instance Instance Instance
+CloudWatch
+Alarm</li>
+</ul>
+</li>
+</ul>
+<h2 id="auto-scaling-groups-scaling-policies">Auto Scaling Groups – Scaling Policies<a class="headerlink" href="#auto-scaling-groups-scaling-policies" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Dynamic Scaling</li>
+<li>Target Tracking Scaling</li>
+<li>Simple to set-up</li>
+<li>Example: I want the average ASG CPU to stay at around 40%</li>
+<li>Simple / Step Scaling</li>
+<li>When a CloudWatch alarm is triggered (example CPU &gt; 70%), then add 2 units</li>
+<li>When a CloudWatch alarm is triggered (example CPU &lt; 30%), then remove 1</li>
+<li>Scheduled Scaling</li>
+<li>Anticipate a scaling based on known usage patterns</li>
+<li>Example: increase the min capacity to 10 at 5 pm on Fridays</li>
+</ul>
+<h2 id="auto-scaling-groups-scaling-policies_1">Auto Scaling Groups – Scaling Policies<a class="headerlink" href="#auto-scaling-groups-scaling-policies_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Predictive scaling: continuously forecast load and schedule scaling ahead</li>
+</ul>
+<h2 id="good-metrics-to-scale-on">Good metrics to scale on<a class="headerlink" href="#good-metrics-to-scale-on" title="Permanent link">&para;</a></h2>
+<p>Users
+- CPUUtilization: Average CPU
+    - utilization across your instances
+- RequestCountPerTarget: to make sure
+    - the number of requests per EC2
+Application
+Load Balancer
+instances is stable
+- Average Network In / Out (if you’re RequestCountPerTarget
+    - Target Value: 3
+application is network bound)
+- Any custom metric (that you push
+    - using CloudWatch)
+Auto Scaling group</p>
+<h2 id="auto-scaling-groups-scaling-cooldowns">Auto Scaling Groups - Scaling Cooldowns<a class="headerlink" href="#auto-scaling-groups-scaling-cooldowns" title="Permanent link">&para;</a></h2>
+<ul>
+<li>After a scaling activity happens, you are in<ul>
+<li>Scaling Action
+the cooldown period (default 300 Occurs
+seconds)</li>
+</ul>
+</li>
+<li>During the cooldown period, the ASG will<ul>
+<li>not launch or terminate additional
+Default
+No
+instances (to allow for metrics to stabilize) Launch or
+Cooldown
+Teminate Instance
+in effect?</li>
+</ul>
+</li>
+<li>Advice: Use a ready-to-use AMI to reduce<ul>
+<li>Yes
+configuration time in order to be serving
+request fasters and reduce the cooldown
+Ignore Action
+period</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

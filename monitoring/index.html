@@ -1,0 +1,3349 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete study guide for the AWS Certified Solutions Architect Associate exam (SAA-C03)">
+      
+      
+        <meta name="author" content="AWS Study Guide">
+      
+      
+      
+        <link rel="prev" href="../machine-learning/">
+      
+      
+        <link rel="next" href="../advanced-identity/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Monitoring, Audit & Performance - AWS Certified Solutions Architect Associate (SAA-C03)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#monitoring-audit-performance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-header__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Certified Solutions Architect Associate (SAA-C03)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Monitoring, Audit & Performance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-nav__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    AWS Certified Solutions Architect Associate (SAA-C03)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started with AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAM – Identity & Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-associate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Associate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Instance Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../high-availability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability & Scalability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rds-aurora-elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS, Aurora & ElastiCache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFront & Global Accelerator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage-extras/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Extras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration & Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics & ML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analytics & ML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security & Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring, Audit & Performance
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring, Audit & Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-cloudwatch-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon CloudWatch Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-metric-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Metric Streams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs - Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-insights_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-s3-expor-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs – S3 Expor t
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-subscriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Subscriptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Aggregation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-subscriptions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Subscriptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-for-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs for EC2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-agent-unified-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Agent &amp; Unified Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-unified-agent-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Unified Agent – Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-alarms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Alarms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-alarm-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Alarm Targets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-alarms-composite-alarms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Alarms – Composite Alarms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-instance-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Instance Recovery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-alarm-good-to-know" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Alarm: good to know
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-network-synthetic-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Network Synthetic Monitor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-schema-registr-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge – Schema Registr y
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-resource-based-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge – Resource-based Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-container-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Container Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-lambda-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Lambda Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-contributor-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Contributor Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-application-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Application Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-insights-and-operational-visibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Insights and Operational Visibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloudtrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS CloudTrail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudtrail-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudTrail Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudtrail-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudTrail Events
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudtrail-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudTrail Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudtrail-events-retention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudTrail Events Retention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-intercept-api-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge – Intercept API Calls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-cloudtrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge + CloudTrail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-config-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Config Resource
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-rules-remediations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config Rules – Remediations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-rules-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config Rules – Notifications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-vs-cloudtrail-vs-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch vs CloudTrail vs Config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-an-elastic-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For an Elastic Load Balancer
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Identity in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classic-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery & Migrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solutions-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-cloudwatch-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon CloudWatch Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-metric-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Metric Streams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs - Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-insights_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-s3-expor-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs – S3 Expor t
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-subscriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Subscriptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Aggregation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-subscriptions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Subscriptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-for-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs for EC2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-logs-agent-unified-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Logs Agent &amp; Unified Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-unified-agent-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Unified Agent – Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-alarms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Alarms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-alarm-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Alarm Targets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-alarms-composite-alarms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Alarms – Composite Alarms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-instance-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Instance Recovery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-alarm-good-to-know" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Alarm: good to know
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-network-synthetic-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Network Synthetic Monitor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-schema-registr-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge – Schema Registr y
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-resource-based-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge – Resource-based Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-container-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Container Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-lambda-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Lambda Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-contributor-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Contributor Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-application-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Application Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-insights-and-operational-visibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch Insights and Operational Visibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloudtrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS CloudTrail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudtrail-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudTrail Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudtrail-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudTrail Events
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudtrail-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudTrail Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudtrail-events-retention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudTrail Events Retention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-intercept-api-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge – Intercept API Calls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-cloudtrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge + CloudTrail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-config-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Config Resource
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-rules-remediations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config Rules – Remediations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-rules-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config Rules – Notifications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-vs-cloudtrail-vs-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch vs CloudTrail vs Config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-an-elastic-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For an Elastic Load Balancer
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="monitoring-audit-performance">Monitoring, Audit &amp; Performance<a class="headerlink" href="#monitoring-audit-performance" title="Permanent link">&para;</a></h1>
+<h2 id="amazon-cloudwatch-metrics">Amazon CloudWatch Metrics<a class="headerlink" href="#amazon-cloudwatch-metrics" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CloudWatch provides metrics for every services in AWS</li>
+<li>Metric is a variable to monitor (CPUUtilization, NetworkIn…)</li>
+<li>Metrics belong to namespaces</li>
+<li>Dimension is an attribute of a metric (instance id, environment, etc…).</li>
+<li>Up to 30 dimensions per metric</li>
+<li>Metrics have timestamps</li>
+<li>Can create CloudWatch dashboards of metrics</li>
+<li>Can create CloudWatch Custom Metrics (for the RAM for example)</li>
+</ul>
+<h2 id="cloudwatch-metric-streams">CloudWatch Metric Streams<a class="headerlink" href="#cloudwatch-metric-streams" title="Permanent link">&para;</a></h2>
+<p>CloudWatch Metrics
+- Continually stream CloudWatch
+    - metrics to a destination of your choice,
+with near-real-time delivery and low Stream near-real-time
+latency.
+- Amazon Kinesis Data Firehose (and then
+    - Kinesis Data Firehose
+its destinations)
+- 3rd party service provider: Datadog,
+    - Dynatrace, New Relic, Splunk, Sumo
+Logic…
+- Option to filter metrics to only stream
+    - Amazon S3 Amazon Amazon
+a subset of them
+Redshift OpenSearch
+Athena</p>
+<h2 id="cloudwatch-logs">CloudWatch Logs<a class="headerlink" href="#cloudwatch-logs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Log groups: arbitrary name, usually representing an application</li>
+<li>Log stream: instances within application / log files / containers</li>
+<li>Can define log expiration policies (never expire, 1 day to 10 years…)</li>
+<li>CloudWatch Logs can send logs to:</li>
+<li>Amazon S3 (exports)</li>
+<li>Kinesis Data Streams</li>
+<li>Kinesis Data Firehose</li>
+<li>AWS Lambda</li>
+<li>OpenSearch</li>
+<li>Logs are encrypted by default</li>
+<li>Can setup KMS-based encryption with your own keys</li>
+</ul>
+<h2 id="cloudwatch-logs-sources">CloudWatch Logs - Sources<a class="headerlink" href="#cloudwatch-logs-sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>SDK, CloudWatch Logs Agent, CloudWatch Unified Agent</li>
+<li>Elastic Beanstalk: collection of logs from application</li>
+<li>ECS: collection from containers</li>
+<li>AWS Lambda: collection from function logs</li>
+<li>VPC Flow Logs: VPC specific logs</li>
+<li>API Gateway</li>
+<li>CloudTrail based on filter</li>
+<li>Route53: Log DNS queries</li>
+</ul>
+<h2 id="cloudwatch-logs-insights">CloudWatch Logs Insights<a class="headerlink" href="#cloudwatch-logs-insights" title="Permanent link">&para;</a></h2>
+<p>https://mng.workshop.aws/operations-2022/detect/cwlogs.html</p>
+<h2 id="cloudwatch-logs-insights_1">CloudWatch Logs Insights<a class="headerlink" href="#cloudwatch-logs-insights_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Search and analyze log data stored in CloudWatch Logs</li>
+<li>Example: find a specific IP inside a log, count occurrences of<ul>
+<li>“ERROR” in your logs…</li>
+</ul>
+</li>
+<li>Provides a purpose-built query language</li>
+<li>Automatically discovers fields from AWS services and JSON log<ul>
+<li>events</li>
+</ul>
+</li>
+<li>Fetch desired event fields, filter based on conditions, calculate<ul>
+<li>aggregate statistics, sort events, limit number of events…</li>
+</ul>
+</li>
+<li>Can save queries and add them to CloudWatch Dashboards</li>
+<li>Can query multiple Log Groups in different AWS accounts</li>
+<li>It’s a query engine, not a real-time engine</li>
+</ul>
+<h2 id="cloudwatch-logs-s3-expor-t">CloudWatch Logs – S3 Expor t<a class="headerlink" href="#cloudwatch-logs-s3-expor-t" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Log data can take up to 12 hours to<ul>
+<li>become available for export</li>
+</ul>
+</li>
+<li>The API call is CreateExportTask<ul>
+<li>CloudWatch Logs Amazon S3</li>
+</ul>
+</li>
+<li>Not near-real time or real-time… use<ul>
+<li>Logs Subscriptions instead</li>
+</ul>
+</li>
+</ul>
+<h2 id="cloudwatch-logs-subscriptions">CloudWatch Logs Subscriptions<a class="headerlink" href="#cloudwatch-logs-subscriptions" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Get a real-time log events from CloudWatch Logs for processing and analysis</li>
+<li>Send to Kinesis Data Streams, Kinesis Data Firehose, or Lambda</li>
+<li>Subscription Filter – filter which logs are events delivered to your destination<ul>
+<li>real-time OpenSearch
+Service
+Lambda
+near
+logs real-time
+S3
+CloudWatch Logs Kinesis Data Firehose
+Subscription Filter
+…
+KDF KDA EC2 Lambda
+Kinesis Data Streams</li>
+</ul>
+</li>
+</ul>
+<h2 id="cloudwatch-logs-aggregation">CloudWatch Logs Aggregation<a class="headerlink" href="#cloudwatch-logs-aggregation" title="Permanent link">&para;</a></h2>
+<p>Multi-Account &amp; Multi Region
+ACCOUNT A
+REGION 1
+CloudWatch Logs Subscription Filter
+ACCOUNT B
+Near
+REGION 2
+Real Time
+CloudWatch Logs Subscription Filter Kinesis Data Streams Kinesis Data Firehose Amazon S3
+ACCOUNT B
+REGION 3
+CloudWatch Logs Subscription Filter</p>
+<h2 id="cloudwatch-logs-subscriptions_1">CloudWatch Logs Subscriptions<a class="headerlink" href="#cloudwatch-logs-subscriptions_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Cross-Account Subscription – send log events to resources in a different AWS<ul>
+<li>account (KDS, KDF)
+IAM Role
+(Cross-Account)
+Account – Sender Account – Recipient
+(111111111111) (999999999999)
+logs logs
+CloudWatch Subscription Subscription Kinesis Data Streams
+Logs Filter Destination (RecipientStream)
+Destination
+Destination
+Access Policy
+Access Policy
+Can be assumed
+IAM Role
+allow PutRecord</li>
+</ul>
+</li>
+</ul>
+<h2 id="cloudwatch-logs-for-ec2">CloudWatch Logs for EC2<a class="headerlink" href="#cloudwatch-logs-for-ec2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>By default, no logs from your EC2<ul>
+<li>machine will go to CloudWatch
+CloudWatch Logs</li>
+</ul>
+</li>
+<li>You need to run a CloudWatch<ul>
+<li>agent on EC2 to push the log files
+you want</li>
+</ul>
+</li>
+<li>Make sure IAM permissions are<ul>
+<li>correct
+CloudWatch CloudWatch
+Logs Agent Logs Agent</li>
+</ul>
+</li>
+<li>The CloudWatch log agent can be<ul>
+<li>setup on-premises too On Premise
+EC2 Instance Server</li>
+</ul>
+</li>
+</ul>
+<h2 id="cloudwatch-logs-agent-unified-agent">CloudWatch Logs Agent &amp; Unified Agent<a class="headerlink" href="#cloudwatch-logs-agent-unified-agent" title="Permanent link">&para;</a></h2>
+<ul>
+<li>For virtual servers (EC2 instances, on-premises servers…)</li>
+<li>CloudWatch Logs Agent</li>
+<li>Old version of the agent</li>
+<li>Can only send to CloudWatch Logs</li>
+<li>CloudWatch Unified Agent</li>
+<li>Collect additional system-level metrics such as RAM, processes, etc…</li>
+<li>Collect logs to send to CloudWatch Logs</li>
+<li>Centralized configuration using SSM Parameter Store</li>
+</ul>
+<h2 id="cloudwatch-unified-agent-metrics">CloudWatch Unified Agent – Metrics<a class="headerlink" href="#cloudwatch-unified-agent-metrics" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Collected directly on your Linux server / EC2 instance</li>
+<li>CPU (active, guest, idle, system, user, steal)</li>
+<li>Disk metrics (free, used, total), Disk IO (writes, reads, bytes, iops)</li>
+<li>RAM (free, inactive, used, total, cached)</li>
+<li>Netstat (number of TCP and UDP connections, net packets, bytes)</li>
+<li>Processes (total, dead, bloqued, idle, running, sleep)</li>
+<li>Swap Space (free, used, used %)</li>
+<li>Reminder: out-of-the box metrics for EC2 – disk, CPU, network (high level)</li>
+</ul>
+<h2 id="cloudwatch-alarms">CloudWatch Alarms<a class="headerlink" href="#cloudwatch-alarms" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Alarms are used to trigger notifications for any metric</li>
+<li>Various options (sampling, %, max, min, etc…)</li>
+<li>Alarm States:</li>
+<li>OK</li>
+<li>INSUFFICIENT_DATA</li>
+<li>ALARM</li>
+<li>Period:</li>
+<li>Length of time in seconds to evaluate the metric</li>
+<li>High resolution custom metrics: 10 sec, 30 sec or multiples of 60 sec</li>
+</ul>
+<h2 id="cloudwatch-alarm-targets">CloudWatch Alarm Targets<a class="headerlink" href="#cloudwatch-alarm-targets" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Stop, Terminate, Reboot, or Recover an EC2 Instance</li>
+<li>Trigger Auto Scaling Action</li>
+<li>Send notification to SNS (from which you can do pretty much anything)<ul>
+<li>Amazon EC2 EC2 Auto Scaling Amazon SNS</li>
+</ul>
+</li>
+</ul>
+<h2 id="cloudwatch-alarms-composite-alarms">CloudWatch Alarms – Composite Alarms<a class="headerlink" href="#cloudwatch-alarms-composite-alarms" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CloudWatch Alarms are on a single metric</li>
+<li>Composite Alarms are monitoring the states of multiple other alarms</li>
+<li>AND and OR conditions</li>
+<li>Helpful to reduce “alarm noise” by creating complex composite alarms<ul>
+<li>Composite Alarm
+monitor CPU ALARM
+CW Alarm - A trigger
+EC2 Instance
+monitor IOPS ALARM
+Amazon SNS
+CW Alarm - B</li>
+</ul>
+</li>
+</ul>
+<h2 id="ec2-instance-recovery">EC2 Instance Recovery<a class="headerlink" href="#ec2-instance-recovery" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Status Check:</li>
+<li>Instance status = check the EC2 VM</li>
+<li>System status = check the underlying hardware</li>
+<li>Attached EBS status = check attached EBS volumes<ul>
+<li>monitor alert
+EC2 Instance CloudWatch Alarm SNS Topic
+StatusCheckFailed_System
+EC2 Instance Recovery</li>
+</ul>
+</li>
+<li>Recovery: Same Private, Public, Elastic IP, metadata, placement group</li>
+</ul>
+<h2 id="cloudwatch-alarm-good-to-know">CloudWatch Alarm: good to know<a class="headerlink" href="#cloudwatch-alarm-good-to-know" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Alarms can be created based on CloudWatch Logs Metrics Filters<ul>
+<li>CloudWatch
+Metric Filter
+Alert
+CW Logs
+CW Alarm
+Amazon SNS</li>
+</ul>
+</li>
+<li>To test alarms and notifications, set the alarm state to Alarm using CLI</li>
+</ul>
+<p>aws cloudwatch set-alarm-state --alarm-name "myalarm" --state-value
+ALARM --state-reason "testing purposes"</p>
+<h2 id="cloudwatch-network-synthetic-monitor">CloudWatch Network Synthetic Monitor<a class="headerlink" href="#cloudwatch-network-synthetic-monitor" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Monitor and detects network issues between<ul>
+<li>AWS Cloud
+your apps hosted on AWS and your on-
+Private Subnet
+premises data center
+EC2 instance</li>
+</ul>
+</li>
+<li>Identify any network performance<ul>
+<li>CloudWatch
+degradation (e.g., packet loss, latency, jitter…)
+Metrics</li>
+</ul>
+</li>
+<li>No agents required to be installed</li>
+<li>Tests ICMP or TCP traffic to IPv4/IPv4 on-<ul>
+<li>premises destinations through Direct
+DX Connection or VPN Connection
+Connect or S2S VPN connections</li>
+</ul>
+</li>
+<li>Publishes data to CloudWatch Metrics<ul>
+<li>Corporate Data Center
+Server</li>
+</ul>
+</li>
+</ul>
+<h2 id="amazon-eventbridge">Amazon EventBridge<a class="headerlink" href="#amazon-eventbridge" title="Permanent link">&para;</a></h2>
+<p>(formerly CloudWatch Events)
+- Schedule: Cron jobs (scheduled scripts)
+    - Schedule Every hour Trigger script on Lambda function
+- Event Pattern: Event rules to react to a service doing something</p>
+<p>IAM Root User Sign in Event SNS Topic with Email Notification
+- Trigger Lambda functions, send SQS/SNS messages…</p>
+<h2 id="amazon-eventbridge-rules">Amazon EventBridge Rules<a class="headerlink" href="#amazon-eventbridge-rules" title="Permanent link">&para;</a></h2>
+<p>Example Destinations
+Example Source
+JSON
+{
+Lambda AWS Batch ECS Task
+"version": "0",
+EC2 Instance CodeBuild "id": "6a7e8feb-b491",
+"detail-type": "EC2 Instance
+(ex: Start Instance) (ex: failed build)
+State-change Notification",
+Filter events ….
+(optional) }
+SQS SNS Kinesis Data
+Streams
+S3 Event Trusted Advisor
+(ex: upload object) (ex: new Finding) Amazon
+EventBridge
+Step CodePipeline CodeBuild
+Functions
+CloudTrail Schedule or Cron
+(any API call) (ex: every 4 hours)
+SSM EC2 Actions
+etupmoC
+noitargetnI
+noitartsehcrO
+ecnanetniaM</p>
+<h2 id="amazon-eventbridge_1">Amazon EventBridge<a class="headerlink" href="#amazon-eventbridge_1" title="Permanent link">&para;</a></h2>
+<p>AWS Services AWS SaaS Custom
+Partner Custom
+Default
+Partners Apps
+Event Bus Event Bus
+Event Bus
+- Event buses can be accessed by other AWS accounts using Resource-based Policies
+- You can archive events (all/filter) sent to an event bus (indefinitely or set period)
+- Ability to replay archived events</p>
+<h2 id="amazon-eventbridge-schema-registr-y">Amazon EventBridge – Schema Registr y<a class="headerlink" href="#amazon-eventbridge-schema-registr-y" title="Permanent link">&para;</a></h2>
+<ul>
+<li>EventBridge can analyze the events in<ul>
+<li>your bus and infer the schema</li>
+</ul>
+</li>
+<li>The Schema Registry allows you to<ul>
+<li>generate code for your application, that
+will know in advance how data is
+structured in the event bus</li>
+</ul>
+</li>
+<li>Schema can be versioned</li>
+</ul>
+<h2 id="amazon-eventbridge-resource-based-policy">Amazon EventBridge – Resource-based Policy<a class="headerlink" href="#amazon-eventbridge-resource-based-policy" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Manage permissions for a specific Event Bus</li>
+<li>Example: allow/deny events from another AWS account or AWS region</li>
+<li>Use case: aggregate all events from your AWS Organization in a single AWS<ul>
+<li>account or AWS region
+AWS Account AWS Account
+(123456789012) (111122223333)
+PutEvents
+Lambda function
+EventBridge Bus
+(central-event-bus)
+Allow events from another AWS account</li>
+</ul>
+</li>
+</ul>
+<h2 id="cloudwatch-container-insights">CloudWatch Container Insights<a class="headerlink" href="#cloudwatch-container-insights" title="Permanent link">&para;</a></h2>
+<p>ECS Container EKS Container
+- Collect, aggregate, summarize metrics and logs
+    - from containers
+- Available for containers on…
+    - Metrics and logs
+- Amazon Elastic Container Service (Amazon ECS)
+- Amazon Elastic Kubernetes Services (Amazon EKS)
+- Kubernetes platforms on EC2 CloudWatch
+    - Container Insights
+- Fargate (both for ECS and EKS)
+- In Amazon EKS and Kubernetes, CloudWatch
+    - Insights is using a containerized version of the
+CloudWatch Agent to discover containers</p>
+<h2 id="cloudwatch-lambda-insights">CloudWatch Lambda Insights<a class="headerlink" href="#cloudwatch-lambda-insights" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Monitoring and troubleshooting<ul>
+<li>solution for serverless applications
+running on AWS Lambda</li>
+</ul>
+</li>
+<li>Collects, aggregates, and summarizes<ul>
+<li>system-level metrics including CPU
+time, memory, disk, and network</li>
+</ul>
+</li>
+<li>Collects, aggregates, and summarizes<ul>
+<li>diagnostic information such as cold
+starts and Lambda worker shutdowns</li>
+</ul>
+</li>
+<li>Lambda Insights is provided as a<ul>
+<li>Lambda Layer</li>
+</ul>
+</li>
+</ul>
+<h2 id="cloudwatch-contributor-insights">CloudWatch Contributor Insights<a class="headerlink" href="#cloudwatch-contributor-insights" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Analyze log data and create time series that display</li>
+</ul>
+<p>contributor data.
+VPC Flow Logs
+- See metrics about the top-N contributors
+- The total number of unique contributors, and their usage.
+- This helps you find top talkers and understand who or</p>
+<p>what is impacting system performance.
+- Works for any AWS-generated logs (VPC, DNS, etc..)
+    - CloudWatch Logs
+- For example, you can find bad hosts, identify the
+    - heaviest network users, or find the URLs that generate
+the most errors.
+- You can build your rules from scratch, or you can also
+    - use sample rules that AWS has created – leverages
+CloudWatch
+your CloudWatch Logs
+Contributor Insights
+- CloudWatch also provides built-in rules that you can</p>
+<p>use to analyze metrics from other AWS services.
+Top-10 IP addresses</p>
+<h2 id="cloudwatch-application-insights">CloudWatch Application Insights<a class="headerlink" href="#cloudwatch-application-insights" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Provides automated dashboards that show potential problems with<ul>
+<li>monitored applications, to help isolate ongoing issues</li>
+</ul>
+</li>
+<li>Your applications run on Amazon EC2 Instances with select technologies only<ul>
+<li>(Java, .NET, Microsoft IIS Web Server, databases…)</li>
+</ul>
+</li>
+<li>And you can use other AWS resources such as Amazon EBS, RDS, ELB, ASG,</li>
+</ul>
+<p>Lambda, SQS, DynamoDB, S3 bucket, ECS, EKS, SNS, API Gateway…
+- Powered by SageMaker
+- Enhanced visibility into your application health to reduce the time it will take
+    - you to troubleshoot and repair your applications
+- Findings and alerts are sent to Amazon EventBridge and SSM OpsCenter</p>
+<h2 id="cloudwatch-insights-and-operational-visibility">CloudWatch Insights and Operational Visibility<a class="headerlink" href="#cloudwatch-insights-and-operational-visibility" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CloudWatch Container Insights</li>
+<li>ECS, EKS, Kubernetes on EC2, Fargate, needs agent for Kubernetes</li>
+<li>Metrics and logs</li>
+<li>CloudWatch Lambda Insights</li>
+<li>Detailed metrics to troubleshoot serverless applications</li>
+<li>CloudWatch Contributors Insights</li>
+<li>Find “Top-N” Contributors through CloudWatch Logs</li>
+<li>CloudWatch Application Insights</li>
+<li>Automatic dashboard to troubleshoot your application and related AWS services</li>
+</ul>
+<h2 id="aws-cloudtrail">AWS CloudTrail<a class="headerlink" href="#aws-cloudtrail" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Provides governance, compliance and audit for your AWS Account</li>
+<li>CloudTrail is enabled by default!</li>
+<li>Get an history of events / API calls made within your AWS Account by:</li>
+<li>Console</li>
+<li>SDK</li>
+<li>CLI</li>
+<li>AWS Services</li>
+<li>Can put logs from CloudTrail into CloudWatch Logs or S3</li>
+<li>A trail can be applied to All Regions (default) or a single Region.</li>
+<li>If a resource is deleted in AWS, investigate CloudTrail first!</li>
+</ul>
+<h2 id="cloudtrail-diagram">CloudTrail Diagram<a class="headerlink" href="#cloudtrail-diagram" title="Permanent link">&para;</a></h2>
+<p>SDK
+CloudWatch Logs
+CloudTrail Console
+CLI
+Console
+Inspect &amp; Audit
+S3 Bucket
+IAM Users &amp;
+IAM Roles</p>
+<h2 id="cloudtrail-events">CloudTrail Events<a class="headerlink" href="#cloudtrail-events" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Management Events:</li>
+<li>Operations that are performed on resources in your AWS account</li>
+<li>Examples:</li>
+<li>Configuring security (IAM AttachRolePolicy)</li>
+<li>Configuring rules for routing data (Amazon EC2 CreateSubnet)</li>
+<li>Setting up logging (AWS CloudTrail CreateTrail)</li>
+<li>By default, trails are configured to log management events.</li>
+<li>Can separate Read Events (that don’t modify resources) from Write Events (that may modify resources)</li>
+<li>Data Events:</li>
+<li>By default, data events are not logged (because high volume operations)</li>
+<li>Amazon S3 object-level activity (ex: GetObject, DeleteObject, PutObject): can separate Read and Write Events</li>
+<li>AWS Lambda function execution activity (the Invoke API)</li>
+<li>CloudTrail Insights Events:</li>
+<li>See next slide J</li>
+</ul>
+<h2 id="cloudtrail-insights">CloudTrail Insights<a class="headerlink" href="#cloudtrail-insights" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Enable CloudTrail Insights to detect unusual activity in your account:</li>
+<li>inaccurate resource provisioning</li>
+<li>hitting service limits</li>
+<li>Bursts of AWS IAM actions</li>
+<li>Gaps in periodic maintenance activity</li>
+<li>CloudTrail Insights analyzes normal management events to create a baseline</li>
+<li>And then continuously analyzes write events to detect unusual patterns</li>
+<li>Anomalies appear in the CloudTrail console</li>
+<li>Event is sent to Amazon S3</li>
+<li>An EventBridge event is generated (for automation needs)<ul>
+<li>CloudTrail Console
+Continous analysis generate
+Management Events
+Insights Events
+S3 Bucket
+CloudTrail Insights
+EventBridge event</li>
+</ul>
+</li>
+</ul>
+<h2 id="cloudtrail-events-retention">CloudTrail Events Retention<a class="headerlink" href="#cloudtrail-events-retention" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Events are stored for 90 days in CloudTrail</li>
+<li>To keep events beyond this period, log them to S3 and use Athena<ul>
+<li>CloudTrail
+Management Events
+Athena
+log analyze
+Data Events
+S3 Bucket
+90 days
+Insights Events
+Long-term retention
+retention</li>
+</ul>
+</li>
+</ul>
+<h2 id="amazon-eventbridge-intercept-api-calls">Amazon EventBridge – Intercept API Calls<a class="headerlink" href="#amazon-eventbridge-intercept-api-calls" title="Permanent link">&para;</a></h2>
+<p>User
+DeleteTable API Call 💥
+alert
+Log API call event
+DynamoDB Amazon
+CloudTrail SNS
+EventBridge
+(any API call)</p>
+<h2 id="amazon-eventbridge-cloudtrail">Amazon EventBridge + CloudTrail<a class="headerlink" href="#amazon-eventbridge-cloudtrail" title="Permanent link">&para;</a></h2>
+<p>API Call logs event
+IAM CloudTrail EventBridge SNS
+AssumeRole
+User
+IAM Role
+API Call logs event
+AuthorizeSecurityGroupIngress
+EC2 CloudTrail EventBridge SNS
+edit SG
+User
+Security Group
+Inbound Rules</p>
+<h2 id="aws-config">AWS Config<a class="headerlink" href="#aws-config" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Helps with auditing and recording compliance of your AWS resources</li>
+<li>Helps record configurations and changes over time</li>
+<li>Questions that can be solved by AWS Config:</li>
+<li>Is there unrestricted SSH access to my security groups?</li>
+<li>Do my buckets have any public access?</li>
+<li>How has my ALB configuration changed over time?</li>
+<li>You can receive alerts (SNS notifications) for any changes</li>
+<li>AWS Config is a per-region service</li>
+<li>Can be aggregated across regions and accounts</li>
+<li>Possibility of storing the configuration data into S3 (analyzed by Athena)</li>
+</ul>
+<h2 id="config-rules">Config Rules<a class="headerlink" href="#config-rules" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Can use AWS managed config rules (over 75)</li>
+<li>Can make custom config rules (must be defined in AWS Lambda)</li>
+<li>Ex: evaluate if each EBS disk is of type gp2</li>
+<li>Ex: evaluate if each EC2 instance is t2.micro</li>
+<li>Rules can be evaluated / triggered:</li>
+<li>For each config change</li>
+<li>And / or: at regular time intervals</li>
+<li>AWS Config Rules does not prevent actions from happening (no deny)</li>
+<li>Pricing: no free tier, $0.003 per configuration item recorded per region,<ul>
+<li>$0.001 per config rule evaluation per region</li>
+</ul>
+</li>
+</ul>
+<h2 id="aws-config-resource">AWS Config Resource<a class="headerlink" href="#aws-config-resource" title="Permanent link">&para;</a></h2>
+<ul>
+<li>View compliance of a resource over time</li>
+<li>View configuration of a resource over time</li>
+<li>View CloudTrail API calls of a resource over time</li>
+</ul>
+<h2 id="config-rules-remediations">Config Rules – Remediations<a class="headerlink" href="#config-rules-remediations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Automate remediation of non-compliant resources using SSM Automation<ul>
+<li>Documents</li>
+</ul>
+</li>
+<li>Use AWS-Managed Automation Documents or create custom Automation<ul>
+<li>Documents</li>
+</ul>
+</li>
+<li>Tip: you can create custom Automation Documents that invokes Lambda function</li>
+<li>You can set Remediation Retries if the resource is still non-compliant after auto-<ul>
+<li>remediation
+expired Auto-Remediation Action
+monitor trigger
+(SSM Document: AWSConfigRemediation-
+RevokeUnusedIAMUserCredentials)
+IAM Access Key
+AWS Config Retries: 5
+(NON_COMPLIANT)
+deactivate</li>
+</ul>
+</li>
+</ul>
+<h2 id="config-rules-notifications">Config Rules – Notifications<a class="headerlink" href="#config-rules-notifications" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use EventBridge to trigger notifications when AWS resources are non-<ul>
+<li>compliant
+monitor
+AWS Resources
+trigger …
+Security group …
+NON_COMPLIANT
+Lambda SNS SQS
+AWS Config EventBridge</li>
+</ul>
+</li>
+<li>Ability to send configuration changes and compliance state notifications</li>
+</ul>
+<p>to SNS (all events – use SNS Filtering or filter at client-side)
+AWS Resources monitor
+trigger notification
+Security group …
+All events
+(configuration changes, Admin
+compliance state…) AWS Config SNS</p>
+<h2 id="cloudwatch-vs-cloudtrail-vs-config">CloudWatch vs CloudTrail vs Config<a class="headerlink" href="#cloudwatch-vs-cloudtrail-vs-config" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CloudWatch</li>
+<li>Performance monitoring (metrics, CPU, network, etc…) &amp; dashboards</li>
+<li>Events &amp; Alerting</li>
+<li>Log Aggregation &amp; Analysis</li>
+<li>CloudTrail</li>
+<li>Record API calls made within your Account by everyone</li>
+<li>Can define trails for specific resources</li>
+<li>Global Service</li>
+<li>Config</li>
+<li>Record configuration changes</li>
+<li>Evaluate resources against compliance rules</li>
+<li>Get timeline of changes and compliance</li>
+</ul>
+<h2 id="for-an-elastic-load-balancer">For an Elastic Load Balancer<a class="headerlink" href="#for-an-elastic-load-balancer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CloudWatch:</li>
+<li>Monitoring Incoming connections metric</li>
+<li>Visualize error codes as % over time</li>
+<li>Make a dashboard to get an idea of your load balancer performance</li>
+<li>Config:</li>
+<li>Track security group rules for the Load Balancer</li>
+<li>Track configuration changes for the Load Balancer</li>
+<li>Ensure an SSL certificate is always assigned to the Load Balancer (compliance)</li>
+<li>CloudTrail:</li>
+<li>Track who made any changes to the Load Balancer with API calls</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2602 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete study guide for the AWS Certified Solutions Architect Associate exam (SAA-C03)">
+      
+      
+        <meta name="author" content="AWS Study Guide">
+      
+      
+      
+        <link rel="prev" href="../ec2-associate/">
+      
+      
+        <link rel="next" href="../high-availability/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>EC2 Instance Storage - AWS Certified Solutions Architect Associate (SAA-C03)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ec2-instance-storage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-header__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Certified Solutions Architect Associate (SAA-C03)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              EC2 Instance Storage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-nav__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    AWS Certified Solutions Architect Associate (SAA-C03)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started with AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAM – Identity & Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-associate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Associate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Instance Storage
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Instance Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#whats-an-ebs-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What’s an EBS Volume?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume - Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-delete-on-termination-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS – Delete on Termination attribute
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Snapshots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-snapshots-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Snapshots Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ami-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMI Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ami-process-from-an-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMI Process (from an EC2 instance)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-instance-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Instance Store
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-ec2-instance-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local EC2 Instance Store
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-types-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume Types Use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-types-use-cases_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume Types Use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-types-use-cases_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume Types Use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-types-summar-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS – Volume Types Summar y
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-multi-attach-io1io2-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Multi-Attach – io1/io2 family
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Encryption
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encryption-encr-ypt-an-unencr-ypted-ebs-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encryption: encr ypt an unencr ypted EBS volume
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-efs-elastic-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EFS – Elastic File System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-efs-elastic-file-system_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EFS – Elastic File System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efs-performance-storage-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EFS – Performance &amp; Storage Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efs-storage-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EFS – Storage Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-vs-efs-elastic-block-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS vs EFS – Elastic Block Storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-vs-efs-elastic-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS vs EFS – Elastic File System
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../high-availability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability & Scalability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rds-aurora-elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS, Aurora & ElastiCache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFront & Global Accelerator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage-extras/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Extras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration & Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics & ML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analytics & ML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security & Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring, Audit & Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Identity in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classic-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery & Migrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solutions-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#whats-an-ebs-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What’s an EBS Volume?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume - Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-delete-on-termination-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS – Delete on Termination attribute
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Snapshots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-snapshots-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Snapshots Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ami-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMI Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ami-process-from-an-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMI Process (from an EC2 instance)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-instance-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Instance Store
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-ec2-instance-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local EC2 Instance Store
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-types-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume Types Use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-types-use-cases_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume Types Use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-types-use-cases_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Volume Types Use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-volume-types-summar-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS – Volume Types Summar y
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-multi-attach-io1io2-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Multi-Attach – io1/io2 family
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS Encryption
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encryption-encr-ypt-an-unencr-ypted-ebs-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encryption: encr ypt an unencr ypted EBS volume
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-efs-elastic-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EFS – Elastic File System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-efs-elastic-file-system_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EFS – Elastic File System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efs-performance-storage-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EFS – Performance &amp; Storage Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efs-storage-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EFS – Storage Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-vs-efs-elastic-block-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS vs EFS – Elastic Block Storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebs-vs-efs-elastic-file-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS vs EFS – Elastic File System
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ec2-instance-storage">EC2 – Instance Storage<a class="headerlink" href="#ec2-instance-storage" title="Permanent link">&para;</a></h1>
+<h2 id="whats-an-ebs-volume">What’s an EBS Volume?<a class="headerlink" href="#whats-an-ebs-volume" title="Permanent link">&para;</a></h2>
+<ul>
+<li>An EBS (Elastic Block Store) Volume is a network drive you can attach<ul>
+<li>to your instances while they run</li>
+</ul>
+</li>
+<li>It allows your instances to persist data, even after their termination</li>
+<li>They can only be mounted to one instance at a time (at the CCP level)</li>
+<li>They are bound to a specific availability zone</li>
+<li>Analogy: Think of them as a “network USB stick”</li>
+</ul>
+<h2 id="ebs-volume">EBS Volume<a class="headerlink" href="#ebs-volume" title="Permanent link">&para;</a></h2>
+<ul>
+<li>It’s a network drive (i.e. not a physical drive)</li>
+<li>It uses the network to communicate the instance, which means there might be a bit of<ul>
+<li>latency</li>
+</ul>
+</li>
+<li>It can be detached from an EC2 instance and attached to another one quickly</li>
+<li>It’s locked to an Availability Zone (AZ)</li>
+<li>An EBS Volume in us-east-1a cannot be attached to us-east-1b</li>
+<li>To move a volume across, you first need to snapshot it</li>
+<li>Have a provisioned capacity (size in GBs, and IOPS)</li>
+<li>You get billed for all the provisioned capacity</li>
+<li>You can increase the capacity of the drive over time</li>
+</ul>
+<h2 id="ebs-volume-example">EBS Volume - Example<a class="headerlink" href="#ebs-volume-example" title="Permanent link">&para;</a></h2>
+<p>US-EAST-1A US-EAST-1B
+EBS EBS EBS EBS EBS
+(10 GB) (100 GB) (50 GB) (50 GB) (10 GB)
+unattached</p>
+<h2 id="ebs-delete-on-termination-attribute">EBS – Delete on Termination attribute<a class="headerlink" href="#ebs-delete-on-termination-attribute" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Controls the EBS behaviour when an EC2 instance terminates</li>
+<li>By default, the root EBS volume is deleted (attribute enabled)</li>
+<li>By default, any other attached EBS volume is not deleted (attribute disabled)</li>
+<li>This can be controlled by the AWS console / AWS CLI</li>
+<li>Use case: preserve root volume when instance is terminated</li>
+</ul>
+<h2 id="ebs-snapshots">EBS Snapshots<a class="headerlink" href="#ebs-snapshots" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Make a backup (snapshot) of your EBS volume at a point in time</li>
+<li>Not necessary to detach volume to do snapshot, but recommended</li>
+<li>Can copy snapshots across AZ or Region<ul>
+<li>US-EAST-1A US-EAST-1B
+EBS Snapshot
+snapshot restore
+EBS EBS
+(50 GB) (50 GB)</li>
+</ul>
+</li>
+</ul>
+<h2 id="ebs-snapshots-features">EBS Snapshots Features<a class="headerlink" href="#ebs-snapshots-features" title="Permanent link">&para;</a></h2>
+<p>EBS Snapshot
+EBS Snapshot
+Archive
+- EBS Snapshot Archive
+- Move a Snapshot to an ”archive tier” that is
+    - archive
+75% cheaper
+- Takes within 24 to 72 hours for restoring the
+    - archive
+- Recycle Bin for EBS Snapshots EBS Snapshot Recycle Bin
+- Setup rules to retain deleted snapshots so you
+    - can recover them after an accidental deletion delete
+- Specify retention (from 1 day to 1 year)
+- Fast Snapshot Restore (FSR)
+- Force full initialization of snapshot to have no
+    - latency on the first use ($$$)</p>
+<h2 id="ami-overview">AMI Overview<a class="headerlink" href="#ami-overview" title="Permanent link">&para;</a></h2>
+<ul>
+<li>AMI = Amazon Machine Image</li>
+<li>AMI are a customization of an EC2 instance</li>
+<li>You add your own software, configuration, operating system, monitoring…</li>
+<li>Faster boot / configuration time because all your software is pre-packaged</li>
+<li>AMI are built for a specific region (and can be copied across regions)</li>
+<li>You can launch EC2 instances from:</li>
+<li>A Public AMI: AWS provided</li>
+<li>Your own AMI: you make and maintain them yourself</li>
+<li>An AWS Marketplace AMI: an AMI someone else made (and potentially sells)</li>
+</ul>
+<h2 id="ami-process-from-an-ec2-instance">AMI Process (from an EC2 instance)<a class="headerlink" href="#ami-process-from-an-ec2-instance" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Start an EC2 instance and customize it</li>
+<li>Stop the instance (for data integrity)</li>
+<li>Build an AMI – this will also create EBS snapshots</li>
+<li>Launch instances from other AMIs<ul>
+<li>Custom AMI
+US-EAST-1A US-EAST-1B
+Launch
+Create AMI from AMI</li>
+</ul>
+</li>
+</ul>
+<h2 id="ec2-instance-store">EC2 Instance Store<a class="headerlink" href="#ec2-instance-store" title="Permanent link">&para;</a></h2>
+<ul>
+<li>EBS volumes are network drives with good but “limited” performance</li>
+<li>If you need a high-performance hardware disk, use EC2 Instance Store</li>
+<li>Better I/O performance</li>
+<li>EC2 Instance Store lose their storage if they’re stopped (ephemeral)</li>
+<li>Good for buffer / cache / scratch data / temporary content</li>
+<li>Risk of data loss if hardware fails</li>
+<li>Backups and Replication are your responsibility</li>
+</ul>
+<h2 id="local-ec2-instance-store">Local EC2 Instance Store<a class="headerlink" href="#local-ec2-instance-store" title="Permanent link">&para;</a></h2>
+<p>Very high IOPS</p>
+<h2 id="ebs-volume-types">EBS Volume Types<a class="headerlink" href="#ebs-volume-types" title="Permanent link">&para;</a></h2>
+<ul>
+<li>EBS Volumes come in 6 types</li>
+<li>gp2 / gp3 (SSD): General purpose SSD volume that balances price and performance for<ul>
+<li>a wide variety of workloads</li>
+</ul>
+</li>
+<li>io1 / io2 Block Express (SSD): Highest-performance SSD volume for mission-critical<ul>
+<li>low-latency or high-throughput workloads</li>
+</ul>
+</li>
+<li>st1 (HDD): Low cost HDD volume designed for frequently accessed, throughput-<ul>
+<li>intensive workloads</li>
+</ul>
+</li>
+<li>sc1 (HDD): Lowest cost HDD volume designed for less frequently accessed workloads</li>
+<li>EBS Volumes are characterized in Size | Throughput | IOPS (I/O Ops Per Sec)</li>
+<li>When in doubt always consult the AWS documentation – it’s good!</li>
+<li>Only gp2/gp3 and io1/io2 Block Express can be used as boot volumes</li>
+</ul>
+<h2 id="ebs-volume-types-use-cases">EBS Volume Types Use cases<a class="headerlink" href="#ebs-volume-types-use-cases" title="Permanent link">&para;</a></h2>
+<p>General Purpose SSD
+- Cost effective storage, low-latency
+- System boot volumes, Virtual desktops, Development and test environments
+- 1 GiB - 16 TiB
+- gp3:
+- Baseline of 3,000 IOPS and throughput of 125 MiB/s
+- Can increase IOPS up to 16,000 and throughput up to 1000 MiB/s independently
+- gp2:
+- Small gp2 volumes can burst IOPS to 3,000
+- Size of the volume and IOPS are linked, max IOPS is 16,000
+- 3 IOPS per GiB, means at 5,334 GiB we are at the max IOPS</p>
+<h2 id="ebs-volume-types-use-cases_1">EBS Volume Types Use cases<a class="headerlink" href="#ebs-volume-types-use-cases_1" title="Permanent link">&para;</a></h2>
+<p>Provisioned IOPS (PIOPS) SSD
+- Critical business applications with sustained IOPS performance
+- Or applications that need more than 16,000 IOPS
+- Great for databases workloads (sensitive to storage perf and consistency)
+- io1 (4 GiB - 16 TiB):
+- Max PIOPS: 64,000 for Nitro EC2 instances &amp; 32,000 for other
+- Can increase PIOPS independently from storage size
+- io2 Block Express (4 GiB – 64 TiB):
+- Sub-millisecond latency
+- Max PIOPS: 256,000 with an IOPS:GiB ratio of 1,000:1
+- Supports EBS Multi-attach</p>
+<h2 id="ebs-volume-types-use-cases_2">EBS Volume Types Use cases<a class="headerlink" href="#ebs-volume-types-use-cases_2" title="Permanent link">&para;</a></h2>
+<p>Hard Disk Drives (HDD)
+- Cannot be a boot volume
+- 125 GiB to 16 TiB
+- Throughput Optimized HDD (st1)
+- Big Data, Data Warehouses, Log Processing
+- Max throughput 500 MiB/s – max IOPS 500
+- Cold HDD (sc1):
+- For data that is infrequently accessed
+- Scenarios where lowest cost is important
+- Max throughput 250 MiB/s – max IOPS 250</p>
+<h2 id="ebs-volume-types-summar-y">EBS – Volume Types Summar y<a class="headerlink" href="#ebs-volume-types-summar-y" title="Permanent link">&para;</a></h2>
+<p>https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#solid-state-drives</p>
+<h2 id="ebs-multi-attach-io1io2-family">EBS Multi-Attach – io1/io2 family<a class="headerlink" href="#ebs-multi-attach-io1io2-family" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Attach the same EBS volume to multiple EC2<ul>
+<li>instances in the same AZ Availability Zone 1</li>
+</ul>
+</li>
+<li>Each instance has full read &amp; write permissions<ul>
+<li>to the high-performance volume</li>
+</ul>
+</li>
+<li>Use case:</li>
+<li>Achieve higher application availability in clustered<ul>
+<li>Linux applications (ex: Teradata)</li>
+</ul>
+</li>
+<li>Applications must manage concurrent write<ul>
+<li>operations</li>
+</ul>
+</li>
+<li>Up to 16 EC2 Instances at a time</li>
+<li>Must use a file system that’s cluster-aware (not<ul>
+<li>io2 volume with Multi-Attach
+XFS, EXT4, etc…)</li>
+</ul>
+</li>
+</ul>
+<h2 id="ebs-encryption">EBS Encryption<a class="headerlink" href="#ebs-encryption" title="Permanent link">&para;</a></h2>
+<ul>
+<li>When you create an encrypted EBS volume, you get the following:</li>
+<li>Data at rest is encrypted inside the volume</li>
+<li>All the data in flight moving between the instance and the volume is encrypted</li>
+<li>All snapshots are encrypted</li>
+<li>All volumes created from the snapshot</li>
+<li>Encryption and decryption are handled transparently (you have nothing to<ul>
+<li>do)</li>
+</ul>
+</li>
+<li>Encryption has a minimal impact on latency</li>
+<li>EBS Encryption leverages keys from KMS (AES-256)</li>
+<li>Copying an unencrypted snapshot allows encryption</li>
+<li>Snapshots of encrypted volumes are encrypted</li>
+</ul>
+<h2 id="encryption-encr-ypt-an-unencr-ypted-ebs-volume">Encryption: encr ypt an unencr ypted EBS volume<a class="headerlink" href="#encryption-encr-ypt-an-unencr-ypted-ebs-volume" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Create an EBS snapshot of the volume</li>
+<li>Encrypt the EBS snapshot ( using copy )</li>
+<li>Create new ebs volume from the snapshot ( the volume will also be<ul>
+<li>encrypted )</li>
+</ul>
+</li>
+<li>Now you can attach the encrypted volume to the original instance</li>
+</ul>
+<h2 id="amazon-efs-elastic-file-system">Amazon EFS – Elastic File System<a class="headerlink" href="#amazon-efs-elastic-file-system" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Managed NFS (network file system) that can be mounted on many EC2</li>
+<li>EFS works with EC2 instances in multi-AZ</li>
+<li>Highly available, scalable, expensive (3x gp2), pay per use<ul>
+<li>us-east-1a us-east-1b us-east-1c
+EC2 Instances EC2 Instances EC2 Instances
+Security Group
+EFS FileSystem</li>
+</ul>
+</li>
+</ul>
+<h2 id="amazon-efs-elastic-file-system_1">Amazon EFS – Elastic File System<a class="headerlink" href="#amazon-efs-elastic-file-system_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use cases: content management, web serving, data sharing, Wordpress</li>
+<li>Uses NFSv4.1 protocol</li>
+<li>Uses security group to control access to EFS</li>
+<li>Compatible with Linux based AMI (not Windows)</li>
+<li>Encryption at rest using KMS</li>
+<li>POSIX file system (~Linux) that has a standard file API</li>
+<li>File system scales automatically, pay-per-use, no capacity planning!</li>
+</ul>
+<h2 id="efs-performance-storage-classes">EFS – Performance &amp; Storage Classes<a class="headerlink" href="#efs-performance-storage-classes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>EFS Scale</li>
+<li>1000s of concurrent NFS clients, 10 GB+ /s throughput</li>
+<li>Grow to Petabyte-scale network file system, automatically</li>
+<li>Performance Mode (set at EFS creation time)</li>
+<li>General Purpose (default) – latency-sensitive use cases (web server, CMS, etc…)</li>
+<li>Max I/O – higher latency, throughput, highly parallel (big data, media processing)</li>
+<li>Throughput Mode</li>
+<li>Bursting – 1 TB = 50MiB/s + burst of up to 100MiB/s</li>
+<li>Provisioned – set your throughput regardless of storage size, ex: 1 GiB/s for 1 TB storage</li>
+<li>Elastic – automatically scales throughput up or down based on your workloads</li>
+<li>Up to 3GiB/s for reads and 1GiB/s for writes</li>
+<li>Used for unpredictable workloads</li>
+</ul>
+<h2 id="efs-storage-classes">EFS – Storage Classes<a class="headerlink" href="#efs-storage-classes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Storage Tiers (lifecycle management feature – move<ul>
+<li>file after N days)</li>
+</ul>
+</li>
+<li>Standard: for frequently accessed files</li>
+<li>Infrequent access (EFS-IA): cost to retrieve files, lower price</li>
+</ul>
+<p>to store.
+- Archive: rarely accessed data (few times each year), 50%
+    - cheaper no access
+for 60 days
+- Implement lifecycle policies to move files between storage
+    - tiers
+EFS Standard
+- Availability and durability move
+    - Lifecycle Policy
+- Standard: Multi-AZ, great for prod
+- One Zone: One AZ, great for dev, backup enabled by
+    - default, compatible with IA (EFS One Zone-IA)
+- Over 90% in cost savings EFS IA
+    - Amazon EFS File System</p>
+<h2 id="ebs-vs-efs-elastic-block-storage">EBS vs EFS – Elastic Block Storage<a class="headerlink" href="#ebs-vs-efs-elastic-block-storage" title="Permanent link">&para;</a></h2>
+<ul>
+<li>EBS volumes…<ul>
+<li>Availability Zone 1 Availability Zone 2</li>
+</ul>
+</li>
+<li>one instance (except multi-attach io1/io2)</li>
+<li>are locked at the Availability Zone (AZ) level</li>
+<li>gp2: IO increases if the disk size increases</li>
+<li>gp3 &amp; io1: can increase IO independently</li>
+<li>To migrate an EBS volume across AZ</li>
+<li>Take a snapshot</li>
+<li>Restore the snapshot to another AZ EBS EBS</li>
+<li>EBS backups use IO and you shouldn’t run<ul>
+<li>them while your application is handling a lot
+of traffic
+snapshot restore</li>
+</ul>
+</li>
+<li>Root EBS Volumes of instances get<ul>
+<li>terminated by default if the EC2 instance
+gets terminated. (you can disable that)
+EBS Snapshot</li>
+</ul>
+</li>
+</ul>
+<h2 id="ebs-vs-efs-elastic-file-system">EBS vs EFS – Elastic File System<a class="headerlink" href="#ebs-vs-efs-elastic-file-system" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Mounting 100s of instances across AZ<ul>
+<li>Availability Zone 1 Availability Zone 2</li>
+</ul>
+</li>
+<li>EFS share website files (WordPress)<ul>
+<li>Linux Linux</li>
+</ul>
+</li>
+<li>Only for Linux Instances (POSIX)</li>
+<li>EFS has a higher price point than EBS<ul>
+<li>EFS EFS</li>
+</ul>
+</li>
+<li>Can leverage Storage Tiers for cost savings<ul>
+<li>Mount Mount
+Target Target</li>
+</ul>
+</li>
+<li>Remember: EFS vs EBS vs Instance Store<ul>
+<li>EFS</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

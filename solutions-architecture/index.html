@@ -1,0 +1,4394 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete study guide for the AWS Certified Solutions Architect Associate exam (SAA-C03)">
+      
+      
+        <meta name="author" content="AWS Study Guide">
+      
+      
+      
+        <link rel="prev" href="../disaster-recovery/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>More Solutions Architecture - AWS Certified Solutions Architect Associate (SAA-C03)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#more-solutions-architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-header__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Certified Solutions Architect Associate (SAA-C03)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              More Solutions Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-nav__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    AWS Certified Solutions Architect Associate (SAA-C03)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started with AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAM – Identity & Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-associate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Associate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Instance Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../high-availability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability & Scalability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rds-aurora-elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS, Aurora & ElastiCache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFront & Global Accelerator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage-extras/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Extras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration & Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics & ML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analytics & ML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security & Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring, Audit & Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Identity in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classic-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery & Migrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lambda-sns-sqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lambda, SNS &amp; SQS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fan-out-pattern-deliver-to-multiple-sqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fan Out Pattern: deliver to multiple SQS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-event-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Event Notifications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-event-notifications_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Event Notifications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-intercept-api-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge – Intercept API Calls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-gateway-aws-service-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Gateway – AWS Service Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching Strategies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-an-ip-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocking an IP address
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-an-ip-address-with-an-alb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocking an IP address – with an ALB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-an-ip-address-with-an-nlb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocking an IP address – with an NLB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-an-ip-address-alb-waf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocking an IP address – ALB + WAF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-an-ip-address-alb-cloudfront-waf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocking an IP address – ALB, CloudFront &amp; WAF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-performance-computing-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Performance Computing (HPC)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-management-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Management &amp; Transfer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compute-and-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute and Networking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compute-and-networking_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute and Networking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automation-and-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automation and Orchestration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-highly-available-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a highly available EC2 instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-highly-available-ec2-instance_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a highly available EC2 instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-highly-available-ec2-instance_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a highly available EC2 instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-cloudformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is CloudFormation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits-of-aws-cloudformation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits of AWS CloudFormation (1/2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits-of-aws-cloudformation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits of AWS CloudFormation (2/2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudformation-infrastructure-composer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudFormation + Infrastructure Composer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudformation-service-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudFormation – Service Role
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-simple-email-service-amazon-ses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Simple Email Service (Amazon SES)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-pinpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Pinpoint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-manager-ssm-session-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems Manager – SSM Session Manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-manager-run-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems Manager – Run Command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-manager-patch-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems Manager – Patch Manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-manager-maintenance-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems Manager – Maintenance Windows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-manager-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems Manager - Automation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Explorer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-explorer-monthly-cost-by-aws-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Explorer – Monthly Cost by AWS Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-explorer-hourly-resource-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Explorer– Hourly &amp; Resource Level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-explorer-savings-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Explorer – Savings Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-explorer-forecast-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Explorer – Forecast Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cost-anomaly-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cost Anomaly Detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Outposts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-outposts_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Outposts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Batch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-batch-simplified-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Batch – Simplified Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-vs-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch vs Lambda
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-appflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon AppFlow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-appflow_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon AppFlow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-amplify-web-and-mobile-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Amplify - web and mobile applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-scheduler-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance Scheduler on AWS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#white-papers-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        White Papers &amp; Architectures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#well-architected-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Well Architected Framework
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#well-architected-framework_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Well Architected Framework
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-well-architected-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Well-Architected Tool
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trusted-advisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trusted Advisor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-architecture-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More Architecture Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-review-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Review &amp; Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-of-learning-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State of learning checkpoint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-makes-perfect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice makes perfect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proceed-by-elimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proceed by elimination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skim-the-aws-whitepapers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skim the AWS Whitepapers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-each-services-faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read each service’s FAQ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-into-the-aws-community" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get into the AWS Community
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-will-the-exam-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How will the exam work?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-aws-cer-tification-journey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your AWS Cer tification journey
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – DevOps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – Development &amp;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-data-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – Data Analytics &amp;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-aiml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – AI/ML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Congratulations!
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lambda-sns-sqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lambda, SNS &amp; SQS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fan-out-pattern-deliver-to-multiple-sqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fan Out Pattern: deliver to multiple SQS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-event-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Event Notifications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-event-notifications_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Event Notifications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-intercept-api-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge – Intercept API Calls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-gateway-aws-service-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Gateway – AWS Service Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching Strategies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-an-ip-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocking an IP address
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-an-ip-address-with-an-alb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocking an IP address – with an ALB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-an-ip-address-with-an-nlb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocking an IP address – with an NLB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-an-ip-address-alb-waf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocking an IP address – ALB + WAF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocking-an-ip-address-alb-cloudfront-waf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blocking an IP address – ALB, CloudFront &amp; WAF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-performance-computing-hpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Performance Computing (HPC)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-management-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Management &amp; Transfer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compute-and-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute and Networking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compute-and-networking_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute and Networking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automation-and-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automation and Orchestration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-highly-available-ec2-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a highly available EC2 instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-highly-available-ec2-instance_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a highly available EC2 instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-highly-available-ec2-instance_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a highly available EC2 instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other Services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-cloudformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is CloudFormation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits-of-aws-cloudformation-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits of AWS CloudFormation (1/2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits-of-aws-cloudformation-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits of AWS CloudFormation (2/2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudformation-infrastructure-composer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudFormation + Infrastructure Composer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudformation-service-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudFormation – Service Role
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-simple-email-service-amazon-ses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Simple Email Service (Amazon SES)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-pinpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Pinpoint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-manager-ssm-session-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems Manager – SSM Session Manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-manager-run-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems Manager – Run Command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-manager-patch-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems Manager – Patch Manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-manager-maintenance-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems Manager – Maintenance Windows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-manager-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems Manager - Automation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Explorer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-explorer-monthly-cost-by-aws-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Explorer – Monthly Cost by AWS Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-explorer-hourly-resource-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Explorer– Hourly &amp; Resource Level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-explorer-savings-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Explorer – Savings Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-explorer-forecast-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Explorer – Forecast Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cost-anomaly-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cost Anomaly Detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Outposts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-outposts_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Outposts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Batch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-batch-simplified-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Batch – Simplified Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-vs-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch vs Lambda
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-appflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon AppFlow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-appflow_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon AppFlow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-amplify-web-and-mobile-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Amplify - web and mobile applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-scheduler-on-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance Scheduler on AWS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#white-papers-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        White Papers &amp; Architectures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#well-architected-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Well Architected Framework
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#well-architected-framework_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Well Architected Framework
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-well-architected-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Well-Architected Tool
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trusted-advisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trusted Advisor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-architecture-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More Architecture Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-review-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Review &amp; Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-of-learning-checkpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State of learning checkpoint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-makes-perfect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice makes perfect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proceed-by-elimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proceed by elimination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skim-the-aws-whitepapers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skim the AWS Whitepapers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-each-services-faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read each service’s FAQ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-into-the-aws-community" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get into the AWS Community
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-will-the-exam-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How will the exam work?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-aws-cer-tification-journey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your AWS Cer tification journey
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – DevOps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – Development &amp;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-data-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – Data Analytics &amp;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tification-paths-aiml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tification Paths – AI/ML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Congratulations!
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="more-solutions-architecture">More Solutions Architecture<a class="headerlink" href="#more-solutions-architecture" title="Permanent link">&para;</a></h1>
+<h2 id="lambda-sns-sqs">Lambda, SNS &amp; SQS<a class="headerlink" href="#lambda-sns-sqs" title="Permanent link">&para;</a></h2>
+<p>Try, retry
+retries
+(poll)
+SQS asynchronous
+DLQ SQS + Lambda
+SNS
+DLQ
+Try, retry
+blocking
+SQS
+SQS FIFO
+SNS + Lambda
+DLQ
+SQS FIFO + Lambda</p>
+<h2 id="fan-out-pattern-deliver-to-multiple-sqs">Fan Out Pattern: deliver to multiple SQS<a class="headerlink" href="#fan-out-pattern-deliver-to-multiple-sqs" title="Permanent link">&para;</a></h2>
+<p>SQS SQS
+PUT #1
+SDK SDK
+SNS
+PUT #2 PUT subscribe
+PUT #3
+Option 1 Option 2 – Fan Out</p>
+<h2 id="s3-event-notifications">S3 Event Notifications<a class="headerlink" href="#s3-event-notifications" title="Permanent link">&para;</a></h2>
+<ul>
+<li>S3:ObjectCreated, S3:ObjectRemoved,<ul>
+<li>S3:ObjectRestore, S3:Replication…</li>
+</ul>
+</li>
+<li>Object name filtering possible (*.jpg) SNS</li>
+<li>Use case: generate thumbnails of images<ul>
+<li>uploaded to S3
+events</li>
+</ul>
+</li>
+<li>Can create as many “S3 events” as desired<ul>
+<li>SQS
+Amazon S3</li>
+</ul>
+</li>
+<li>S3 event notifications typically deliver events<ul>
+<li>in seconds but can sometimes take a minute
+or longer
+Lambda Function</li>
+</ul>
+</li>
+</ul>
+<h2 id="s3-event-notifications_1">S3 Event Notifications<a class="headerlink" href="#s3-event-notifications_1" title="Permanent link">&para;</a></h2>
+<p>with Amazon EventBridge
+events All events rules
+Over 18
+AWS services
+as destinations
+Amazon S3 Amazon
+bucket EventBridge
+- Advanced filtering options with JSON rules (metadata, object size, name...)
+- Multiple Destinations – ex Step Functions, Kinesis Streams / Firehose…
+- EventBridge Capabilities – Archive, Replay Events, Reliable delivery</p>
+<h2 id="amazon-eventbridge-intercept-api-calls">Amazon EventBridge – Intercept API Calls<a class="headerlink" href="#amazon-eventbridge-intercept-api-calls" title="Permanent link">&para;</a></h2>
+<p>User
+DeleteTable API Call 💥
+alert
+Log API call event
+DynamoDB Amazon
+CloudTrail SNS
+EventBridge
+(any API call)</p>
+<h2 id="api-gateway-aws-service-integration">API Gateway – AWS Service Integration<a class="headerlink" href="#api-gateway-aws-service-integration" title="Permanent link">&para;</a></h2>
+<p>Kinesis Data Streams example
+store .json
+requests send records files
+API Gateway Kinesis Data Kinesis Data Amazon S3
+Client
+Streams Firehose</p>
+<h2 id="caching-strategies">Caching Strategies<a class="headerlink" href="#caching-strategies" title="Permanent link">&para;</a></h2>
+<p>Redis
+Memcached
+DAX
+CloudFront API Gateway App logic
+Client
+EC2 / Lambda
+Database
+S3
+CloudFront (edge)
+Caching, TTL, Network, Computation, Cost, Latency</p>
+<h2 id="blocking-an-ip-address">Blocking an IP address<a class="headerlink" href="#blocking-an-ip-address" title="Permanent link">&para;</a></h2>
+<p>VPC
+Public Subnet
+Security Group (allow rules)
+NACL
+Client EC2 Instance
+Deny + Allow rules
+public IP + Firewall Software (optional)</p>
+<h2 id="blocking-an-ip-address-with-an-alb">Blocking an IP address – with an ALB<a class="headerlink" href="#blocking-an-ip-address-with-an-alb" title="Permanent link">&para;</a></h2>
+<p>VPC
+Public Subnet Private Subnet
+ALB Security Group EC2 Security Group
+Client NACL Application Load Balancer EC2 Instance
+Connection Termination Private IP</p>
+<h2 id="blocking-an-ip-address-with-an-nlb">Blocking an IP address – with an NLB<a class="headerlink" href="#blocking-an-ip-address-with-an-nlb" title="Permanent link">&para;</a></h2>
+<p>VPC
+Public Subnet Private Subnet
+NLB Security Group EC2 Security Group
+NACL
+Client Network Load Balancer EC2 Instance
+Private IP</p>
+<h2 id="blocking-an-ip-address-alb-waf">Blocking an IP address – ALB + WAF<a class="headerlink" href="#blocking-an-ip-address-alb-waf" title="Permanent link">&para;</a></h2>
+<p>VPC
+Public Subnet Private Subnet
+ALB Security Group EC2 Security Group
+NACL
+Client Application Load Balancer EC2 Instance
+Private IP
+IP Address Filtering
+AWS WAF</p>
+<h2 id="blocking-an-ip-address-alb-cloudfront-waf">Blocking an IP address – ALB, CloudFront &amp; WAF<a class="headerlink" href="#blocking-an-ip-address-alb-cloudfront-waf" title="Permanent link">&para;</a></h2>
+<p>VPC
+Public Subnet Private Subnet
+ALB Security Group EC2 Security Group
+CloudFront
+Public IPs
+NACL
+Client Application Load Balancer EC2 Instance
+CloudFront
+NOT helpful Public Private IP
+(Geo Restriction)
+AWS WAF
+(IP Address Filtering)</p>
+<h2 id="high-performance-computing-hpc">High Performance Computing (HPC)<a class="headerlink" href="#high-performance-computing-hpc" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The cloud is the perfect place to perform HPC</li>
+<li>You can create a very high number of resources in no time</li>
+<li>You can speed up time to results by adding more resources</li>
+<li>You can pay only for the systems you have used</li>
+<li>Perform genomics, computational chemistry, financial risk modeling,</li>
+</ul>
+<p>weather prediction, machine learning, deep learning, autonomous driving
+- Which services help perform HPC?</p>
+<h2 id="data-management-transfer">Data Management &amp; Transfer<a class="headerlink" href="#data-management-transfer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>AWS Direct Connect:</li>
+<li>Move GB/s of data to the cloud, over a private secure network</li>
+<li>Snowball &amp; Snowmobile</li>
+<li>Move PB of data to the cloud</li>
+<li>AWS DataSync</li>
+<li>Move large amount of data between on-premises and S3, EFS, FSx for Windows</li>
+</ul>
+<h2 id="compute-and-networking">Compute and Networking<a class="headerlink" href="#compute-and-networking" title="Permanent link">&para;</a></h2>
+<ul>
+<li>EC2 Instances:</li>
+<li>CPU optimized, GPU optimized</li>
+<li>Spot Instances / Spot Fleets for cost savings + Auto Scaling</li>
+<li>EC2 Placement Groups: Cluster for good network performance<ul>
+<li>EC2 EC2 EC2
+Placement group
+Cluster
+Same Rack
+Same AZ Low latency
+10Gbps network
+EC2 EC2 EC2</li>
+</ul>
+</li>
+</ul>
+<h2 id="compute-and-networking_1">Compute and Networking<a class="headerlink" href="#compute-and-networking_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>EC2 Enhanced Networking (SR-IOV)</li>
+<li>Higher bandwidth, higher PPS (packet per second), lower latency</li>
+<li>Option 1: Elastic Network Adapter (ENA) up to 100 Gbps</li>
+<li>Option 2: Intel 82599 VF up to 10 Gbps – LEGACY</li>
+<li>Elastic Fabric Adapter (EFA)</li>
+<li>Improved ENA for HPC, only works for Linux</li>
+<li>Great for inter-node communications, tightly coupled workloads</li>
+<li>Leverages Message Passing Interface (MPI) standard</li>
+<li>Bypasses the underlying Linux OS to provide low-latency, reliable transport</li>
+</ul>
+<h2 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Instance-attached storage:</li>
+<li>EBS: scale up to 256,000 IOPS with io2 Block Express</li>
+<li>Instance Store: scale to millions of IOPS, linked to EC2 instance, low latency</li>
+<li>Network storage:</li>
+<li>Amazon S3: large blob, not a file system</li>
+<li>Amazon EFS: scale IOPS based on total size, or use provisioned IOPS</li>
+<li>Amazon FSx for Lustre:</li>
+<li>HPC optimized distributed file system, millions of IOPS</li>
+<li>Backed by S3</li>
+</ul>
+<h2 id="automation-and-orchestration">Automation and Orchestration<a class="headerlink" href="#automation-and-orchestration" title="Permanent link">&para;</a></h2>
+<ul>
+<li>AWS Batch</li>
+<li>AWS Batch supports multi-node parallel jobs, which enables you to run single</li>
+</ul>
+<p>jobs that span multiple EC2 instances.
+- Easily schedule jobs and launch EC2 instances accordingly
+- AWS ParallelCluster
+- Open-source cluster management tool to deploy HPC on AWS
+- Configure with text files
+- Automate creation of VPC, Subnet, cluster type and instance types
+- Ability to enable EFA on the cluster (improves network performance)</p>
+<h2 id="creating-a-highly-available-ec2-instance">Creating a highly available EC2 instance<a class="headerlink" href="#creating-a-highly-available-ec2-instance" title="Permanent link">&para;</a></h2>
+<p>monitor
+Attachment
+CloudWatch Event
+What time is it?
+Public EC2
+(or Alarm based on metric)
+5:30 pm!
+Elastic IP Address
+Start the instance
+Attach the Elastic IP
+Standby EC2 instance</p>
+<h2 id="creating-a-highly-available-ec2-instance_1">Creating a highly available EC2 instance<a class="headerlink" href="#creating-a-highly-available-ec2-instance_1" title="Permanent link">&para;</a></h2>
+<p>With an Auto Scaling Group
+ASG Settings
+Auto Scaling group
+1 min
+Availability Zone 1
+1 max
+1 desired</p>
+<blockquote>
+<p>= 2 AZ
+What time is it?
+EC2 user data to attach
+Public EC2 The Elastic IP
+5:30 pm!
+Elastic IP Address EC2 instance role to
+Availability Zone 2
+Allow API calls to attach
+The Elastic IP
+EC2 User Data
+Attachment
+Based on Tag
+Replacement
+EC2 instance</p>
+</blockquote>
+<h2 id="creating-a-highly-available-ec2-instance_2">Creating a highly available EC2 instance<a class="headerlink" href="#creating-a-highly-available-ec2-instance_2" title="Permanent link">&para;</a></h2>
+<p>With ASG + EBS
+Auto Scaling group
+Availability Zone 1
+EBS Snapshot
+On ASG Terminate lifecycle hook
+What time is it?
+EBS Volume
+Public EC2
+5:30 pm!
+Elastic IP Address EBS Snapshot
+Availability Zone 2
++ tags
+EC2 User Data
+Attachment
+Based on Tag
+EBS Volume created + attached
+EBS
+On ASG Launch lifecycle hook
+Replacement
+EC2 instance</p>
+<h2 id="other-services">Other Services<a class="headerlink" href="#other-services" title="Permanent link">&para;</a></h2>
+<p>Overview of Services that might come up in a few questions</p>
+<h2 id="what-is-cloudformation">What is CloudFormation<a class="headerlink" href="#what-is-cloudformation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CloudFormation is a declarative way of outlining your AWS</li>
+</ul>
+<p>Infrastructure, for any resources (most of them are supported).
+- For example, within a CloudFormation template, you say:
+- I want a security group
+- I want two EC2 instances using this security group
+- I want an S3 bucket
+- I want a load balancer (ELB) in front of these machines
+- Then CloudFormation creates those for you, in the right order, with the
+    - exact configuration that you specify</p>
+<h2 id="benefits-of-aws-cloudformation-12">Benefits of AWS CloudFormation (1/2)<a class="headerlink" href="#benefits-of-aws-cloudformation-12" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Infrastructure as code</li>
+<li>No resources are manually created, which is excellent for control</li>
+<li>Changes to the infrastructure are reviewed through code</li>
+<li>Cost</li>
+<li>Each resources within the stack is tagged with an identifier so you can easily see how<ul>
+<li>much a stack costs you</li>
+</ul>
+</li>
+<li>You can estimate the costs of your resources using the CloudFormation template</li>
+<li>Savings strategy: In Dev, you could automation deletion of templates at 5 PM and<ul>
+<li>recreated at 8 AM, safely</li>
+</ul>
+</li>
+</ul>
+<h2 id="benefits-of-aws-cloudformation-22">Benefits of AWS CloudFormation (2/2)<a class="headerlink" href="#benefits-of-aws-cloudformation-22" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Productivity</li>
+<li>Ability to destroy and re-create an infrastructure on the cloud on the fly</li>
+<li>Automated generation of Diagram for your templates!</li>
+<li>Declarative programming (no need to figure out ordering and orchestration)</li>
+<li>Don’t re-invent the wheel</li>
+<li>Leverage existing templates on the web!</li>
+<li>Leverage the documentation</li>
+<li>Supports (almost) all AWS resources:</li>
+<li>Everything we’ll see in this course is supported</li>
+<li>You can use “custom resources” for resources that are not supported</li>
+</ul>
+<h2 id="cloudformation-infrastructure-composer">CloudFormation + Infrastructure Composer<a class="headerlink" href="#cloudformation-infrastructure-composer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Example: WordPress CloudFormation Stack<ul>
+<li>+
+CloudFormation Infrastructure</li>
+</ul>
+</li>
+<li>We can see all the resources<ul>
+<li>Composer</li>
+</ul>
+</li>
+<li>We can see the relations between the components</li>
+</ul>
+<h2 id="cloudformation-service-role">CloudFormation – Service Role<a class="headerlink" href="#cloudformation-service-role" title="Permanent link">&para;</a></h2>
+<p>Permissions
+- cloudformation:<em> User
+- iam:PassRole
+- IAM role that allows CloudFormation to
+    - create/update/delete stack resources on your
+behalf
+Template
+- Give ability to users to create/update/delete the
+    - stack resources even if they don’t have
+Service Role
+permissions to work with the resources in the
+- s3:</em>Bucket
+    - stack
+- Use cases: CloudFormation
+- You want to achieve the least privilege principle
+- But you don’t want to give the user all the required
+    - permissions to create the stack resources
+- User must have iam:PassRole permissions
+    - S3 bucket
+Stack</p>
+<h2 id="amazon-simple-email-service-amazon-ses">Amazon Simple Email Service (Amazon SES)<a class="headerlink" href="#amazon-simple-email-service-amazon-ses" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fully managed service to send emails securely, globally and at scale</li>
+<li>Allows inbound/outbound emails<ul>
+<li>Users</li>
+</ul>
+</li>
+<li>Reputation dashboard, performance insights, anti-spam feedback</li>
+<li>Provides statistics such as email deliveries, bounces, feedback loop<ul>
+<li>bulk emails
+results, email open</li>
+</ul>
+</li>
+<li>Supports DomainKeys Identified Mail (DKIM) and Sender Policy<ul>
+<li>Framework (SPF)</li>
+</ul>
+</li>
+<li>Flexible IP deployment: shared, dedicated, and customer-owned IPs<ul>
+<li>Amazon SES</li>
+</ul>
+</li>
+<li>Send emails using your application using AWS Console, APIs, or SMTP<ul>
+<li>APIs
+or SMTP</li>
+</ul>
+</li>
+<li>Use cases: transactional, marketing and bulk email communications<ul>
+<li>Application</li>
+</ul>
+</li>
+</ul>
+<h2 id="amazon-pinpoint">Amazon Pinpoint<a class="headerlink" href="#amazon-pinpoint" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Scalable 2-way (outbound/inbound) marketing<ul>
+<li>communications service</li>
+</ul>
+</li>
+<li>Supports email, SMS, push, voice, and in-app messaging<ul>
+<li>Amazon</li>
+</ul>
+</li>
+<li>Ability to segment and personalize messages with the<ul>
+<li>Pinpoint
+SMS
+right content to customers
+Customers</li>
+</ul>
+</li>
+<li>Possibility to receive replies</li>
+<li>Scales to billions of messages per day stream events<ul>
+<li>(e.g., TEXT_SUCCESS,</li>
+</ul>
+</li>
+<li>Use cases: run campaigns by sending marketing, bulk,<ul>
+<li>TEXT_DELIVERED, …)
+transactional SMS messages</li>
+</ul>
+</li>
+<li>Versus Amazon SNS or Amazon SES</li>
+<li>In SNS &amp; SES you managed each message's audience,<ul>
+<li>content, and delivery schedule</li>
+</ul>
+</li>
+<li>In Amazon Pinpoint, you create message templates,<ul>
+<li>delivery schedules, highly-targeted segments, and full
+campaigns
+SNS Kinesis Data CloudWatch
+Firehose Logs</li>
+</ul>
+</li>
+</ul>
+<h2 id="systems-manager-ssm-session-manager">Systems Manager – SSM Session Manager<a class="headerlink" href="#systems-manager-ssm-session-manager" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Allows you to start a secure shell on your EC2 and<ul>
+<li>EC2 Instance
+on-premises servers
+(SSM Agent)
+Execute</li>
+</ul>
+</li>
+<li>No SSH access, bastion hosts, or SSH keys needed commands</li>
+<li>No port 22 needed (better security)<ul>
+<li>Session
+Manager</li>
+</ul>
+</li>
+<li>Supports Linux, macOS, and Windows</li>
+<li>Send session log data to S3 or CloudWatch Logs IAM<ul>
+<li>Permissions
+User</li>
+</ul>
+</li>
+</ul>
+<h2 id="systems-manager-run-command">Systems Manager – Run Command<a class="headerlink" href="#systems-manager-run-command" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Execute a document (= script) or just run a<ul>
+<li>command</li>
+</ul>
+</li>
+<li>Run command across multiple instances<ul>
+<li>(using resource groups) Amazon SNS
+n
+o
+t EventBridge
+if
+ic</li>
+</ul>
+</li>
+<li>No need for SSH a<ul>
+<li>t
+io
+n
+trigger</li>
+</ul>
+</li>
+<li>Command Output can be shown in the AWS<ul>
+<li>Console, sent to S3 bucket or CloudWatch
+Logs Amazon S3 output</li>
+</ul>
+</li>
+<li>Send notifications to SNS about command<ul>
+<li>Run Command
+status (In progress, Success, Failed, …)</li>
+</ul>
+</li>
+<li>Integrated with IAM &amp; CloudTrail<ul>
+<li>CloudWatch</li>
+</ul>
+</li>
+<li>Can be invoked using EventBridge Logs<ul>
+<li>EC2 Instances EC2 Instances
+(with SSM Agent) (with SSM Agent)</li>
+</ul>
+</li>
+</ul>
+<h2 id="systems-manager-patch-manager">Systems Manager – Patch Manager<a class="headerlink" href="#systems-manager-patch-manager" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Automates the process of patching managed<ul>
+<li>instances</li>
+</ul>
+</li>
+<li>OS updates, applications updates, security<ul>
+<li>AWS Console AWS SDK Maintenance
+updates Windows</li>
+</ul>
+</li>
+<li>Supports EC2 instances and on-premises<ul>
+<li>run
+servers AWS-RunBatchBaseline</li>
+</ul>
+</li>
+<li>Supports Linux, macOS, and Windows</li>
+<li>Patch on-demand or on a schedule using<ul>
+<li>Run Command
+Maintenance Windows</li>
+</ul>
+</li>
+<li>Scan instances and generate patch compliance<ul>
+<li>report (missing patches)
+EC2 Instances EC2 Instances
+(with SSM Agent) (with SSM Agent)</li>
+</ul>
+</li>
+</ul>
+<h2 id="systems-manager-maintenance-windows">Systems Manager – Maintenance Windows<a class="headerlink" href="#systems-manager-maintenance-windows" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Defines a schedule for when to perform actions on your instances</li>
+<li>Example: OS patching, updating drivers, installing software, …</li>
+<li>Maintenance Window contains</li>
+<li>Schedule</li>
+<li>Duration</li>
+<li>Set of registered instances</li>
+<li>Set of registered tasks<ul>
+<li>EC2 Instances
+trigger every 24 hour update (with SSM Agent)
+Maintenance Windows Run Command
+EC2 Instances
+(with SSM Agent)</li>
+</ul>
+</li>
+</ul>
+<h2 id="systems-manager-automation">Systems Manager - Automation<a class="headerlink" href="#systems-manager-automation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Simplifies common maintenance and<ul>
+<li>deployment tasks of EC2 instances and other
+AWS resources
+AWS Console AWS SDK Maintenance Amazon AWS Config</li>
+</ul>
+</li>
+<li>Examples: restart instances, create an AMI,<ul>
+<li>Windows EventBridge Remediation
+EBS snapshot
+execute automation</li>
+</ul>
+</li>
+<li>Automation Runbook – SSM Documents to<ul>
+<li>(AWS-RestartEC2Instance)
+define actions preformed on your EC2
+instances or AWS resources (pre-defined or
+custom)
+Runbooks SSM Automation</li>
+</ul>
+</li>
+<li>Can be triggered using:<ul>
+<li>(automation documents)</li>
+</ul>
+</li>
+<li>Manually using AWS Console, AWS CLI or SDK<ul>
+<li>execute</li>
+</ul>
+</li>
+<li>Amazon EventBridge</li>
+<li>On a schedule using Maintenance Windows<ul>
+<li>AWS Resources</li>
+</ul>
+</li>
+<li>By AWS Config for rules remediations<ul>
+<li>…
+EC2 Instances
+EBS AMI RDS</li>
+</ul>
+</li>
+</ul>
+<h2 id="cost-explorer">Cost Explorer<a class="headerlink" href="#cost-explorer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Visualize, understand, and manage your AWS costs and usage over time</li>
+<li>Create custom reports that analyze cost and usage data.</li>
+<li>Analyze your data at a high level: total costs and usage across all accounts</li>
+<li>Or Monthly, hourly, resource level granularity</li>
+<li>Choose an optimal Savings Plan (to lower prices on your bill)</li>
+<li>Forecast usage up to 18 months based on previous usage</li>
+</ul>
+<h2 id="cost-explorer-monthly-cost-by-aws-service">Cost Explorer – Monthly Cost by AWS Service<a class="headerlink" href="#cost-explorer-monthly-cost-by-aws-service" title="Permanent link">&para;</a></h2>
+<h2 id="cost-explorer-hourly-resource-level">Cost Explorer– Hourly &amp; Resource Level<a class="headerlink" href="#cost-explorer-hourly-resource-level" title="Permanent link">&para;</a></h2>
+<h2 id="cost-explorer-savings-plan">Cost Explorer – Savings Plan<a class="headerlink" href="#cost-explorer-savings-plan" title="Permanent link">&para;</a></h2>
+<p>Alternative to Reser ved Instances</p>
+<h2 id="cost-explorer-forecast-usage">Cost Explorer – Forecast Usage<a class="headerlink" href="#cost-explorer-forecast-usage" title="Permanent link">&para;</a></h2>
+<h2 id="aws-cost-anomaly-detection">AWS Cost Anomaly Detection<a class="headerlink" href="#aws-cost-anomaly-detection" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Continuously monitor your cost and usage using ML to detect unusual spends</li>
+<li>It learns your unique, historic spend patterns to detect one-time cost spike</li>
+</ul>
+<p>and/or continuous cost increases (you don’t need to define thresholds)
+- Monitor AWS services, member accounts, cost allocation tags, or cost categories
+- Sends you the anomaly detection report with root-cause analysis
+- Get notified with individual alerts or daily/weekly summary (using SNS)</p>
+<p>AWS Cost Anomaly Create Cost Monitor Get Alerted Analyze Root Cause
+Detection Identify unusual spend at Receive alerts when Analyze the root cause
+reduce cost surprises the granularity level unusual spend is detected behind the anomaly and
+with Machine Learning that you specify the impact on your costs</p>
+<h2 id="aws-outposts">AWS Outposts<a class="headerlink" href="#aws-outposts" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Hybrid Cloud: businesses that keep an on-<ul>
+<li>premises infrastructure alongside a cloud
+infrastructure</li>
+</ul>
+</li>
+<li>Therefore, two ways of dealing with IT systems:<ul>
+<li>AWS Corporate</li>
+</ul>
+</li>
+<li>One for the AWS cloud (using the AWS console,<ul>
+<li>Cloud data center
+CLI, and AWS APIs)</li>
+</ul>
+</li>
+<li>One for their on-premises infrastructure<ul>
+<li>On-prem
+servers</li>
+</ul>
+</li>
+<li>AWS Outposts are “server racks” that offers the<ul>
+<li>same AWS infrastructure, services, APIs &amp; tools
+to build your own applications on-premises just as
+Extension of Outposts
+in the cloud
+AWS services Racks</li>
+</ul>
+</li>
+<li>AWS will setup and manage “Outposts Racks”<ul>
+<li>within your on-premises infrastructure and you
+can start leveraging AWS services on-premises</li>
+</ul>
+</li>
+<li>You are responsible for the Outposts Rack<ul>
+<li>physical security</li>
+</ul>
+</li>
+</ul>
+<h2 id="aws-outposts_1">AWS Outposts<a class="headerlink" href="#aws-outposts_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Benefits:</li>
+<li>Low-latency access to on-premises systems</li>
+<li>Local data processing</li>
+<li>Data residency</li>
+<li>Easier migration from on-premises to the cloud</li>
+<li>Fully managed service</li>
+<li>Some services that work on Outposts:</li>
+</ul>
+<p>Amazon EC2 Amazon EBS Amazon S3 Amazon EKS Amazon ECS Amazon RDS Amazon EMR</p>
+<h2 id="aws-batch">AWS Batch<a class="headerlink" href="#aws-batch" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fully managed batch processing at any scale</li>
+<li>Efficiently run 100,000s of computing batch jobs on AWS</li>
+<li>A “batch” job is a job with a start and an end (opposed to continuous)</li>
+<li>Batch will dynamically launch EC2 instances or Spot Instances</li>
+<li>AWS Batch provisions the right amount of compute / memory</li>
+<li>You submit or schedule batch jobs and AWS Batch does the rest!</li>
+<li>Batch jobs are defined as Docker images and run on ECS</li>
+<li>Helpful for cost optimizations and focusing less on the infrastructure</li>
+</ul>
+<h2 id="aws-batch-simplified-example">AWS Batch – Simplified Example<a class="headerlink" href="#aws-batch-simplified-example" title="Permanent link">&para;</a></h2>
+<p>AWS Batch
+EC2 Instance
+Insert
+ECS
+Amazon S3
+processed object
+Trigger
+Spot Instance
+Amazon S3</p>
+<h2 id="batch-vs-lambda">Batch vs Lambda<a class="headerlink" href="#batch-vs-lambda" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Lambda:</li>
+<li>Time limit</li>
+<li>Limited runtimes</li>
+<li>Limited temporary disk space</li>
+<li>Serverless</li>
+<li>Batch:</li>
+<li>No time limit</li>
+<li>Any runtime as long as it’s packaged as a Docker image</li>
+<li>Rely on EBS / instance store for disk space</li>
+<li>Relies on EC2 (can be managed by AWS)</li>
+</ul>
+<h2 id="amazon-appflow">Amazon AppFlow<a class="headerlink" href="#amazon-appflow" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fully managed integration service that enables you to securely transfer</li>
+</ul>
+<p>data between Software-as-a-Service (SaaS) applications and AWS
+- Sources: Salesforce, SAP, Zendesk, Slack, and ServiceNow
+- Destinations: AWS services like Amazon S3, Amazon Redshift or non-
+    - AWS such as SnowFlake and Salesforce
+- Frequency: on a schedule, in response to events, or on demand
+- Data transformation capabilities like filtering and validation
+- Encrypted over the public internet or privately over AWS PrivateLink
+- Don’t spend time writing the integrations and leverage APIs immediately</p>
+<h2 id="amazon-appflow_1">Amazon AppFlow<a class="headerlink" href="#amazon-appflow_1" title="Permanent link">&para;</a></h2>
+<p>Sources Destinations
+Amazon
+AppFlow</p>
+<h2 id="aws-amplify-web-and-mobile-applications">AWS Amplify - web and mobile applications<a class="headerlink" href="#aws-amplify-web-and-mobile-applications" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A set of tools and services that helps you develop and deploy scalable full stack web and mobile<ul>
+<li>applications</li>
+</ul>
+</li>
+<li>Authentication, Storage, API (REST, GraphQL), CI/CD, PubSub, Analytics, AI/ML Predictions,<ul>
+<li>Monitoring, …</li>
+</ul>
+</li>
+<li>Connect your source code from GitHub, AWS CodeCommit, Bitbucket, GitLab, or upload directly<ul>
+<li>connect frontend to backend configure backend
+using using
+Amplify Frontend Libraries Amplify CLI
+Amazon S3 Amazon Cognito AWS API
+build using Amplify Console …
+AppSync Gateway
+&amp; deploy
+Amazon Amazon Lex Lambda DynamoDB
+… … SageMaker
+Frontend Amplify backend
+Amplify Amazon
+Console CloudFront</li>
+</ul>
+</li>
+</ul>
+<h2 id="instance-scheduler-on-aws">Instance Scheduler on AWS<a class="headerlink" href="#instance-scheduler-on-aws" title="Permanent link">&para;</a></h2>
+<ul>
+<li>AWS solution deployed through CloudFormation<ul>
+<li>(not a service)</li>
+</ul>
+</li>
+<li>Automatically start/stop your AWS services to reduce<ul>
+<li>costs (up to 70%)</li>
+</ul>
+</li>
+<li>Example: stop company’s EC2 instances outside<ul>
+<li>business hours</li>
+</ul>
+</li>
+<li>Supports EC2 instances, EC2 Auto Scaling Groups,<ul>
+<li>and RDS instances</li>
+</ul>
+</li>
+<li>Schedules are managed in a DynamoDB table</li>
+<li>Uses resources’ tags and Lambda to stop/start<ul>
+<li>instances</li>
+</ul>
+</li>
+<li>Supports cross-account and cross-region resources</li>
+<li>https://aws.amazon.com/solutions/implementations/ins<ul>
+<li>tance-scheduler-on-aws/</li>
+</ul>
+</li>
+</ul>
+<h2 id="white-papers-architectures">White Papers &amp; Architectures<a class="headerlink" href="#white-papers-architectures" title="Permanent link">&para;</a></h2>
+<p>Well Architected Framework, Disaster Recovery, etc…</p>
+<h2 id="section-overview">Section Overview<a class="headerlink" href="#section-overview" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Well Architected Framework Whitepaper</li>
+<li>Well Architected Tool</li>
+<li>AWS Trusted Advisor</li>
+<li>Reference architectures resources (for real-world)</li>
+<li>Disaster Recovery on AWS Whitepaper</li>
+</ul>
+<h2 id="well-architected-framework">Well Architected Framework<a class="headerlink" href="#well-architected-framework" title="Permanent link">&para;</a></h2>
+<p>General Guiding Principles
+- https://aws.amazon.com/architecture/well-architected
+- Stop guessing your capacity needs
+- Test systems at production scale
+- Automate to make architectural experimentation easier
+- Allow for evolutionary architectures
+- Design based on changing requirements
+- Drive architectures using data
+- Improve through game days
+- Simulate applications for flash sale days</p>
+<h2 id="well-architected-framework_1">Well Architected Framework<a class="headerlink" href="#well-architected-framework_1" title="Permanent link">&para;</a></h2>
+<p>6 Pillars
+- 1) Operational Excellence
+- 2) Security
+- 3) Reliability
+- 4) Performance Efficiency
+- 5) Cost Optimization
+- 6) Sustainability
+- They are not something to balance, or trade-offs, they’re a synergy</p>
+<h2 id="aws-well-architected-tool">AWS Well-Architected Tool<a class="headerlink" href="#aws-well-architected-tool" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Free tool to review your architectures against the 6 pillars Well-Architected<ul>
+<li>Framework and adopt architectural best practices</li>
+</ul>
+</li>
+<li>How does it work?</li>
+<li>Select your workload and answer questions</li>
+<li>Review your answers against the 6 pillars</li>
+<li>Obtain advice: get videos and documentations, generate a report, see the results in a dashboard</li>
+<li>Let’s have a look: https://console.aws.amazon.com/wellarchitected</li>
+</ul>
+<p>https://aws.amazon.com/blogs/aws/new-aws-well-architected-tool-review-workloads-against-best-practices/</p>
+<h2 id="trusted-advisor">Trusted Advisor<a class="headerlink" href="#trusted-advisor" title="Permanent link">&para;</a></h2>
+<ul>
+<li>No need to install anything – high level<ul>
+<li>AWS account assessment</li>
+</ul>
+</li>
+<li>Analyze your AWS accounts and provides<ul>
+<li>recommendation on 6 categories:</li>
+</ul>
+</li>
+<li>Cost optimization</li>
+<li>Performance</li>
+<li>Security</li>
+<li>Fault tolerance</li>
+<li>Service limits</li>
+<li>Operational Excellence</li>
+<li>Business &amp; Enterprise Support plan</li>
+<li>Full Set of Checks</li>
+<li>Programmatic Access using AWS Support API</li>
+</ul>
+<h2 id="more-architecture-examples">More Architecture Examples<a class="headerlink" href="#more-architecture-examples" title="Permanent link">&para;</a></h2>
+<ul>
+<li>We’ve explored the most important architectural patterns:</li>
+<li>Classic: EC2, ELB, RDS, ElastiCache, etc…</li>
+<li>Serverless: S3, Lambda, DynamoDB, CloudFront, API Gateway, etc…</li>
+<li>If you want to see more AWS architectures:</li>
+<li>https://aws.amazon.com/architecture/</li>
+<li>https://aws.amazon.com/solutions/</li>
+</ul>
+<h2 id="exam-review-tips">Exam Review &amp; Tips<a class="headerlink" href="#exam-review-tips" title="Permanent link">&para;</a></h2>
+<h2 id="state-of-learning-checkpoint">State of learning checkpoint<a class="headerlink" href="#state-of-learning-checkpoint" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Let’s look how far we’ve gone on our learning journey</li>
+<li>https://aws.amazon.com/certification/certified-solutions-architect-<ul>
+<li>associate/</li>
+</ul>
+</li>
+</ul>
+<h2 id="practice-makes-perfect">Practice makes perfect<a class="headerlink" href="#practice-makes-perfect" title="Permanent link">&para;</a></h2>
+<ul>
+<li>If you’re new to AWS, take a bit of AWS practice thanks to this course<ul>
+<li>before rushing to the exam</li>
+</ul>
+</li>
+<li>The exam recommends you to have one or more years of hands-on<ul>
+<li>experience on AWS</li>
+</ul>
+</li>
+<li>Practice makes perfect!</li>
+<li>If you feel overwhelmed by the amount of knowledge you just learned,<ul>
+<li>just go through it one more time</li>
+</ul>
+</li>
+</ul>
+<h2 id="proceed-by-elimination">Proceed by elimination<a class="headerlink" href="#proceed-by-elimination" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Most questions are going to be scenario based</li>
+<li>For all the questions, rule out answers that you know for sure are wrong</li>
+<li>For the remaining answers, understand which one makes the most sense</li>
+<li>There are very few trick questions</li>
+<li>Don’t over-think it</li>
+<li>If a solution seems feasible but highly complicated, it’s probably wrong</li>
+</ul>
+<h2 id="skim-the-aws-whitepapers">Skim the AWS Whitepapers<a class="headerlink" href="#skim-the-aws-whitepapers" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You can read about some AWS White Papers here:</li>
+<li>Architecting for the Cloud: AWS Best Practices</li>
+<li>AWS Well-Architected Framework</li>
+<li>AWS Disaster Recovery (https://aws.amazon.com/disaster-recovery/)</li>
+<li>Overall we’ve explored all the most important concepts in the course</li>
+<li>It’s never bad to have a look at the whitepapers you think are<ul>
+<li>interesting!</li>
+</ul>
+</li>
+</ul>
+<h2 id="read-each-services-faq">Read each service’s FAQ<a class="headerlink" href="#read-each-services-faq" title="Permanent link">&para;</a></h2>
+<ul>
+<li>FAQ = Frequently asked questions</li>
+<li>Example: https://aws.amazon.com/vpc/faqs/</li>
+<li>FAQ cover a lot of the questions asked at the exam</li>
+<li>They help confirm your understanding of a service</li>
+</ul>
+<h2 id="get-into-the-aws-community">Get into the AWS Community<a class="headerlink" href="#get-into-the-aws-community" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Help out and discuss with other people in the course Q&amp;A</li>
+<li>Review questions asked by other people in the Q&amp;A</li>
+<li>Do the practice test in this section</li>
+<li>Read forums online</li>
+<li>Read online blogs</li>
+<li>Attend local meetups and discuss with other AWS engineers</li>
+<li>Watch re-invent videos on Youtube (AWS Conference)</li>
+</ul>
+<h2 id="how-will-the-exam-work">How will the exam work?<a class="headerlink" href="#how-will-the-exam-work" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You’ll have to register online at https://www.aws.training/</li>
+<li>Fee for the exam is 150 USD</li>
+<li>Provide one identity documents (ID, Passport, details are in emails sent to you…)</li>
+<li>No notes are allowed, no pen is allowed, no speaking</li>
+<li>65 questions will be asked in 130 minutes</li>
+<li>Use the “Flag” feature to mark questions you want to re-visit</li>
+<li>At the end you can optionally review all the questions / answers</li>
+<li>To pass you need a score of a least 720 out of 1000</li>
+<li>You will know within 5 days if you passed / failed the exams (most of the time less)</li>
+<li>You will know the overall score a few days later (email notification)</li>
+<li>You will not know which answers were right / wrong</li>
+<li>If you fail, you can retake the exam again 14 days later</li>
+</ul>
+<h2 id="your-aws-cer-tification-journey">Your AWS Cer tification journey<a class="headerlink" href="#your-aws-cer-tification-journey" title="Permanent link">&para;</a></h2>
+<p>Foundational Professional
+Knowledge-based certification for Role-based certifications that validate advanced skills
+foundational understanding of AWS Cloud. and knowledge required to design secure, optimized,
+No prior experience needed. and modernized applications and to automate processes on AWS.
+2 years of prior AWS Cloud experience recommended.
+Associate Specialty
+Role-based certifications that showcase your knowledge Dive deeper and position yourself as a trusted advisor to your
+and skills on AWS and build your credibility as an AWS Cloud professional. stakeholders and/or customers in these strategic areas.
+Prior cloud and/or strong on-premises IT experience recommended. Refer to the exam guides on the exam pages for recommended experience.</p>
+<h2 id="aws-cer-tification-paths-architecture">AWS Cer tification Paths – Architecture<a class="headerlink" href="#aws-cer-tification-paths-architecture" title="Permanent link">&para;</a></h2>
+<p>Architecture
+Solutions Architect
+Design, develop, and manage
+cloud infrastructure and assets,
+work with DevOps to migrate
+applications to the cloud
+optional for IT/ recommended for IT/cloud Dive Deep
+cloud professionals professionals to leverage AI
+Architecture
+Application Architect
+Design significant aspects of
+application architecture including
+user interface, middleware, and
+infrastructure, and ensure
+enterprise-wide scalable, reliable,
+and manageable systems optional for IT/ recommended for IT/cloud Dive Deep
+cloud professionals professionals to leverage AI
+https://d1.awsstatic.com/training-and-
+certification/docs/AWS_certification_paths.pdf</p>
+<h2 id="aws-cer-tification-paths-operations">AWS Cer tification Paths – Operations<a class="headerlink" href="#aws-cer-tification-paths-operations" title="Permanent link">&para;</a></h2>
+<p>Operations
+Systems Administrator
+Install, upgrade, and maintain
+computer components and
+software, and integrate
+automation processes
+optional for IT/ Dive Deep
+cloud professionals
+Operations
+Cloud Engineer
+Implement and operate an
+organization’s networked computing
+infrastructure and Implement
+security systems to maintain
+data safety
+optional for IT/ Dive Deep
+cloud professionals</p>
+<h2 id="aws-cer-tification-paths-devops">AWS Cer tification Paths – DevOps<a class="headerlink" href="#aws-cer-tification-paths-devops" title="Permanent link">&para;</a></h2>
+<p>DevOps
+Test Engineer
+Embed testing and quality
+best practices for software
+development from design to release,
+throughout the product life cycle
+optional for IT/
+cloud professionals
+DevOps
+Cloud DevOps Engineer
+Design, deployment, and operations
+of large-scale global hybrid
+cloud computing environment,
+advocating for end-to-end
+automated CI/CD DevOps pipelines
+optional for IT/ Optional recommended for IT/cloud Dive Deep
+cloud professionals professionals working on
+DevOps AI/ML projects
+DevSecOps Engineer
+Accelerate enterprise cloud adoption
+while enabling rapid and stable delivery
+of capabilities using CI/CD principles,
+methodologies, and technologies
+optional for IT/ recommended for IT/cloud
+cloud professionals professionals working on
+AI/ML projects</p>
+<h2 id="aws-cer-tification-paths-security">AWS Cer tification Paths – Security<a class="headerlink" href="#aws-cer-tification-paths-security" title="Permanent link">&para;</a></h2>
+<p>Security
+Cloud Security Engineer
+Design computer security architecture
+and develop detailed cyber security designs.
+Develop, execute, and track performance
+of security measures to protect information
+optional for IT/ recommended for IT/cloud Dive Deep
+cloud professionals professionals to secure
+AI/ML systems
+Security
+Cloud Security Architect
+Design and implement enterprise cloud
+solutions applying governance to identify,
+communicate, and minimize business and
+technical risks
+optional for IT/ recommended for IT/cloud Dive Deep
+cloud professionals professionals to secure
+AI/ML systems</p>
+<h2 id="aws-cer-tification-paths-development">AWS Cer tification Paths – Development &amp;<a class="headerlink" href="#aws-cer-tification-paths-development" title="Permanent link">&para;</a></h2>
+<p>Networking
+Development
+Software Development Engineer
+Develop, construct, and maintain
+software across platforms and devices
+optional for IT/ recommended for IT/cloud
+cloud professionals professionals to leverage AI
+Networking
+Network Engineer
+Design and implement computer
+and information networks, such as
+local area networks (LAN),
+wide area networks (WAN),
+optional for IT/ Dive Deep
+intranets, extranets, etc.
+cloud professionals</p>
+<h2 id="aws-cer-tification-paths-data-analytics">AWS Cer tification Paths – Data Analytics &amp;<a class="headerlink" href="#aws-cer-tification-paths-data-analytics" title="Permanent link">&para;</a></h2>
+<p>AI/ML
+Data Analytics
+Cloud Data Engineer
+Automate collection and processing
+of structured/semi-structured data
+and monitor data pipeline performance
+optional for IT/ recommended for IT/cloud Dive Deep
+cloud professionals professionals working on
+AI/ML projects
+AI/ML
+Machine Learning Engineer
+Research, build, and design artificial
+intelligence (AI) systems to automate
+predictive models, and design machine
+learning systems, models, and schemes
+optional for IT/ optional for AI/ML Dive Deep
+cloud professionals professionals</p>
+<h2 id="aws-cer-tification-paths-aiml">AWS Cer tification Paths – AI/ML<a class="headerlink" href="#aws-cer-tification-paths-aiml" title="Permanent link">&para;</a></h2>
+<p>AI/ML
+Prompt Engineer
+Design, test, and refine text
+prompts to optimize the
+performance of AI language models
+optional for IT/ Dive Deep
+cloud professionals
+AI/ML
+Machine Learning Ops Engineer
+Build and maintain AI and ML platforms
+and infrastructure. Design, implement,
+and operationally support AI/ML model
+activity and deployment infrastructure
+optional for IT/ optional for AI/ML
+cloud professionals professionals
+AI/ML
+Data Scientist
+Develop and maintain AI/ML models
+to solve business problems. Train and
+fine tune models and evaluate
+their performance
+optional for IT/ optional for AI/ML
+cloud professionals professionals</p>
+<h2 id="congratulations">Congratulations!<a class="headerlink" href="#congratulations" title="Permanent link">&para;</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

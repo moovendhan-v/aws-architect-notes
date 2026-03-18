@@ -1,0 +1,2781 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete study guide for the AWS Certified Solutions Architect Associate exam (SAA-C03)">
+      
+      
+        <meta name="author" content="AWS Study Guide">
+      
+      
+      
+        <link rel="prev" href="../monitoring/">
+      
+      
+        <link rel="next" href="../security-encryption/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Advanced Identity in AWS - AWS Certified Solutions Architect Associate (SAA-C03)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#advanced-identity-in-aws" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-header__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Certified Solutions Architect Associate (SAA-C03)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Advanced Identity in AWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-nav__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    AWS Certified Solutions Architect Associate (SAA-C03)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started with AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAM – Identity & Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-associate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Associate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Instance Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../high-availability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability & Scalability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rds-aurora-elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS, Aurora & ElastiCache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFront & Global Accelerator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage-extras/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Extras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration & Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics & ML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analytics & ML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security & Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring, Audit & Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Identity in AWS
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Identity in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Organizations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-organizations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Organizations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organizational-units-ou-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organizational Units (OU) - Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-organizations_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Organizations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scp-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCP Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scp-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCP Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-organizations-tag-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Organizations – Tag Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Conditions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-conditions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Conditions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-for-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM for S3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-policies-awsprincipalorgid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource Policies &amp; aws:PrincipalOrgID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-roles-vs-resource-based-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Roles vs Resource Based Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-roles-vs-resource-based-policies_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Roles vs Resource-Based Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge – Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-permission-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Permission Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-permission-boundaries_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Permission Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-policy-evaluation-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Policy Evaluation Logic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-iam-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example IAM Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-iam-identity-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS IAM Identity Center
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-iam-identity-center-login-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS IAM Identity Center – Login Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-iam-identity-center_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS IAM Identity Center
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-identity-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Identity Center
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-iam-identity-center_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS IAM Identity Center
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-microsoft-active-director-y-ad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Microsoft Active Director y (AD)?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-director-y-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Director y Services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-identity-center-active-director-y-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Identity Center – Active Director y Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-control-tower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Control Tower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-control-tower-guardrails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Control Tower – Guardrails
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classic-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery & Migrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solutions-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-organizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Organizations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-organizations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Organizations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organizational-units-ou-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organizational Units (OU) - Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-organizations_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Organizations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scp-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCP Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scp-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCP Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-organizations-tag-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Organizations – Tag Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Conditions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-conditions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Conditions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-for-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM for S3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-policies-awsprincipalorgid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource Policies &amp; aws:PrincipalOrgID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-roles-vs-resource-based-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Roles vs Resource Based Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-roles-vs-resource-based-policies_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Roles vs Resource-Based Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-eventbridge-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EventBridge – Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-permission-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Permission Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-permission-boundaries_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Permission Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-policy-evaluation-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Policy Evaluation Logic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-iam-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example IAM Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-iam-identity-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS IAM Identity Center
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-iam-identity-center-login-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS IAM Identity Center – Login Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-iam-identity-center_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS IAM Identity Center
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-identity-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Identity Center
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-iam-identity-center_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS IAM Identity Center
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-microsoft-active-director-y-ad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Microsoft Active Director y (AD)?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-director-y-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Director y Services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-identity-center-active-director-y-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM Identity Center – Active Director y Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-control-tower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Control Tower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-control-tower-guardrails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Control Tower – Guardrails
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="advanced-identity-in-aws">Advanced Identity in AWS<a class="headerlink" href="#advanced-identity-in-aws" title="Permanent link">&para;</a></h1>
+<h2 id="aws-organizations">AWS Organizations<a class="headerlink" href="#aws-organizations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Global service</li>
+<li>Allows to manage multiple AWS accounts</li>
+<li>The main account is the management account</li>
+<li>Other accounts are member accounts</li>
+<li>Member accounts can only be part of one organization</li>
+<li>Consolidated Billing across all accounts - single payment method</li>
+<li>Pricing benefits from aggregated usage (volume discount for EC2, S3…)</li>
+<li>Shared reserved instances and Savings Plans discounts across accounts</li>
+<li>API is available to automate AWS account creation</li>
+</ul>
+<h2 id="aws-organizations_1">AWS Organizations<a class="headerlink" href="#aws-organizations_1" title="Permanent link">&para;</a></h2>
+<p>Root Organizational Unit (OU)
+Management Account
+OU (Dev) OU (Prod)
+OU (HR) OU (Finance)
+Member Accounts</p>
+<h2 id="organizational-units-ou-examples">Organizational Units (OU) - Examples<a class="headerlink" href="#organizational-units-ou-examples" title="Permanent link">&para;</a></h2>
+<p>Business Unit Environmental Lifecycle Project-Based
+Sales Prod Project 1
+Account 1 Account 1 Account 1
+Project 1
+Sales OU Prod OU
+OU
+Sales Prod Project 1
+Account 2 Account 2 Account 2
+Retail Dev Project 2
+Account 1 Account 1 Account 1
+Management Management Management Project 2
+Retail OU Dev OU
+Account Account Account OU
+Retail Dev Project 2
+Account 2 Account 2 Account 2
+Finance Test Project 3
+Account 1 Account 1 Account 1
+Finance Project 3
+Test OU
+OU OU
+Finance Test Project 3
+Account 2 Account 2 Account 2</p>
+<h2 id="aws-organizations_2">AWS Organizations<a class="headerlink" href="#aws-organizations_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Advantages</li>
+<li>Multi Account vs One Account Multi VPC</li>
+<li>Use tagging standards for billing purposes</li>
+<li>Enable CloudTrail on all accounts, send logs to central S3 account</li>
+<li>Send CloudWatch Logs to central logging account</li>
+<li>Establish Cross Account Roles for Admin purposes</li>
+<li>Security: Service Control Policies (SCP)</li>
+<li>IAM policies applied to OU or Accounts to restrict Users and Roles</li>
+<li>They do not apply to the management account (full admin power)</li>
+<li>Must have an explicit allow from the root through each OU in the direct path</li>
+</ul>
+<p>to the target account (does not allow anything by default – like IAM)</p>
+<h2 id="scp-hierarchy">SCP Hierarchy<a class="headerlink" href="#scp-hierarchy" title="Permanent link">&para;</a></h2>
+<p>FullAWSAccess OU (Root)
+- Management Account
+- Can do anything (no SCP apply)
+- Account A
+    - Deny Athena Management Account
+- Can do anything
+    - FullAWSAccess • EXCEPT S3 (explicit Deny from
+Sandbox OU)
+FullAWSAccess + Deny S3 OU (Sandbox) OU (Workloads) • EXCEPT EC2 (explicit Deny)
+Allow EC2 • Account B &amp; C
+- Can do anything
+    - OU (Test)
+FullAWSAccess + Deny EC2 Account A • EXCEPT S3 (explicit Deny from
+Sandbox OU)
+Account D
+- Account D
+    - Account B • Can access EC2
+OU (Prod)
+- Prod OU &amp; Account E &amp; F
+    - FullAWSAccess
+Account E • Can do anything
+Account C
+Account F</p>
+<h2 id="scp-examples">SCP Examples<a class="headerlink" href="#scp-examples" title="Permanent link">&para;</a></h2>
+<p>Blocklist and Allowlist strategies
+More examples: https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_example-scps.html</p>
+<h2 id="aws-organizations-tag-policies">AWS Organizations – Tag Policies<a class="headerlink" href="#aws-organizations-tag-policies" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Helps you standardize tags across resources in an<ul>
+<li>AWS Organization</li>
+</ul>
+</li>
+<li>Ensure consistent tags, audit tagged resources,<ul>
+<li>maintain proper resources categorization, …</li>
+</ul>
+</li>
+<li>You define tag keys and their allowed values</li>
+<li>Helps with AWS Cost Allocation Tags and<ul>
+<li>Attribute-based Access Control</li>
+</ul>
+</li>
+<li>Prevent any non-compliant tagging operations on<ul>
+<li>specified services and resources (has no effect
+on resources without tags)</li>
+</ul>
+</li>
+<li>Generate a report that lists all tagged/non-<ul>
+<li>compliant resources</li>
+</ul>
+</li>
+<li>Use EventBridge to monitor non-compliant tags</li>
+</ul>
+<h2 id="iam-conditions">IAM Conditions<a class="headerlink" href="#iam-conditions" title="Permanent link">&para;</a></h2>
+<p>aws:SourceIp aws:RequestedRegion
+restrict the client IP from restrict the region the
+which the API calls are being made API calls are made to</p>
+<h2 id="iam-conditions_1">IAM Conditions<a class="headerlink" href="#iam-conditions_1" title="Permanent link">&para;</a></h2>
+<p>ec2:ResourceTag aws:MultiFactorAuthPresent
+restrict based on tags to force MFA</p>
+<h2 id="iam-for-s3">IAM for S3<a class="headerlink" href="#iam-for-s3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>s3:ListBucket permission applies to<ul>
+<li>arn:aws:s3:::test</li>
+</ul>
+</li>
+<li>=&gt; bucket level permission</li>
+<li>s3:GetObject, s3:PutObject,<ul>
+<li>s3:DeleteObject applies to
+arn:awn:s3:::test/*</li>
+</ul>
+</li>
+<li>=&gt; object level permission</li>
+</ul>
+<h2 id="resource-policies-awsprincipalorgid">Resource Policies &amp; aws:PrincipalOrgID<a class="headerlink" href="#resource-policies-awsprincipalorgid" title="Permanent link">&para;</a></h2>
+<ul>
+<li>aws:PrincipalOrgID can be used in any resource policies to restrict<ul>
+<li>access to accounts that are member of an AWS Organization
+AWS Organization
+(o-yyyyyyyyyy)
+…
+Member Accounts
+S3 Bucket
+(2022-financial-data)
+User outside Organization</li>
+</ul>
+</li>
+</ul>
+<h2 id="iam-roles-vs-resource-based-policies">IAM Roles vs Resource Based Policies<a class="headerlink" href="#iam-roles-vs-resource-based-policies" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Cross account:</li>
+<li>attaching a resource-based policy to a resource (example: S3 bucket policy)</li>
+<li>OR using a role as a proxy<ul>
+<li>User Role
+Account A Account B
+Amazon S3
+User S3 Bucket
+Account A Policy
+Amazon S3</li>
+</ul>
+</li>
+</ul>
+<h2 id="iam-roles-vs-resource-based-policies_1">IAM Roles vs Resource-Based Policies<a class="headerlink" href="#iam-roles-vs-resource-based-policies_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>When you assume a role (user, application or service), you give up your</li>
+</ul>
+<p>original permissions and take the permissions assigned to the role
+- When using a resource-based policy, the principal doesn’t have to give up his
+    - permissions
+- Example: User in account A needs to scan a DynamoDB table in Account A</p>
+<p>and dump it in an S3 bucket in Account B.
+- Supported by: Amazon S3 buckets, SNS topics, SQS queues, etc…</p>
+<h2 id="amazon-eventbridge-security">Amazon EventBridge – Security<a class="headerlink" href="#amazon-eventbridge-security" title="Permanent link">&para;</a></h2>
+<ul>
+<li>When a rule runs, it needs<ul>
+<li>permissions on the target</li>
+</ul>
+</li>
+<li>Resource-based policy: Lambda,<ul>
+<li>EventBridge
+Lambda with
+SNS, SQS, S3 buckets, API
+Rule
+Resource based Policy
+Gateway…
+e.g. Allow EventBridge</li>
+</ul>
+</li>
+<li>IAM role: EC2 Auto Scaling, IAM Role<ul>
+<li>Systems Manager Run
+Command, ECS task…
+EventBridge EC2 Auto Scaling
+Rule</li>
+</ul>
+</li>
+</ul>
+<h2 id="iam-permission-boundaries">IAM Permission Boundaries<a class="headerlink" href="#iam-permission-boundaries" title="Permanent link">&para;</a></h2>
+<ul>
+<li>IAM Permission Boundaries are supported for users and roles (not groups)</li>
+<li>Advanced feature to use a managed policy to set the maximum permissions</li>
+</ul>
+<p>an IAM entity can get.
++ =
+Example: No Permissions
+IAM Permission Boundary IAM Permissions
+Through IAM Policy</p>
+<h2 id="iam-permission-boundaries_1">IAM Permission Boundaries<a class="headerlink" href="#iam-permission-boundaries_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Can be used in combinations of Use cases<ul>
+<li>AWS Organizations SCP</li>
+</ul>
+</li>
+<li>Delegate responsibilities to non<ul>
+<li>administrators within their permission
+boundaries, for example create new IAM
+users</li>
+</ul>
+</li>
+<li>Allow developers to self-assign policies<ul>
+<li>and manage their own permissions, while
+making sure they can’t “escalate” their
+privileges (= make themselves admin)</li>
+</ul>
+</li>
+<li>Useful to restrict one specific user<ul>
+<li>(instead of a whole account using
+Organizations &amp; SCP)
+https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html</li>
+</ul>
+</li>
+</ul>
+<h2 id="iam-policy-evaluation-logic">IAM Policy Evaluation Logic<a class="headerlink" href="#iam-policy-evaluation-logic" title="Permanent link">&para;</a></h2>
+<p>https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html</p>
+<h2 id="example-iam-policy">Example IAM Policy<a class="headerlink" href="#example-iam-policy" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Can you perform sqs:CreateQueue?</li>
+<li>Can you perform sqs:DeleteQueue?</li>
+<li>Can you perform<ul>
+<li>ec2:DescribeInstances?</li>
+</ul>
+</li>
+</ul>
+<h2 id="aws-iam-identity-center">AWS IAM Identity Center<a class="headerlink" href="#aws-iam-identity-center" title="Permanent link">&para;</a></h2>
+<p>(successor to AWS Single Sign-On)
+- One login (single sign-on) for all your
+- AWS accounts in AWS Organizations
+- Business cloud applications (e.g., Salesforce, Box, Microsoft 365, …)
+- SAML2.0-enabled applications
+- EC2 Windows Instances
+- Identity providers
+- Built-in identity store in IAM Identity Center
+- 3rd party: Active Directory (AD), OneLogin, Okta…</p>
+<h2 id="aws-iam-identity-center-login-flow">AWS IAM Identity Center – Login Flow<a class="headerlink" href="#aws-iam-identity-center-login-flow" title="Permanent link">&para;</a></h2>
+<p>AWS IAM Identity Center</p>
+<h2 id="aws-iam-identity-center_1">AWS IAM Identity Center<a class="headerlink" href="#aws-iam-identity-center_1" title="Permanent link">&para;</a></h2>
+<p>AWS Cloud
+AWS IAM Identity Center
+AWS
+Windows
+SSO
+login Organization
+EC2
+Permission Sets Business Cloud Apps
+Browser Interface
+Store / retrieve
+User identities
+Active Directory
+IAM Identity Center
+Custom SAML2.0-enabled Apps
+Users &amp; groups
+Built-in Identity Store
+(On-premises, cloud)</p>
+<h2 id="iam-identity-center">IAM Identity Center<a class="headerlink" href="#iam-identity-center" title="Permanent link">&para;</a></h2>
+<p>AWS Organization
+IAM Identity Center
+(in Management account)
+Management Account
+Group (Developers)
+OU (Development) OU (Production)
+Bob Alice
+Dev Account A Prod Account A
+assign assign
+Dev Account B Prod Account B
+Permission Set
+ReadOnlyAccess
+Permission Set
+FullAccess</p>
+<h2 id="aws-iam-identity-center_2">AWS IAM Identity Center<a class="headerlink" href="#aws-iam-identity-center_2" title="Permanent link">&para;</a></h2>
+<p>Fine-grained Permissions and Assignments
+- Multi-Account Permissions
+- Manage access across AWS accounts in your AWS Organization
+    - AWS Organization
+- Permission Sets – a collection of one or more IAM Policies
+    - assigned to users and groups to define AWS access
+Dev Prod
+Account Account
+- Application Assignments
+- SSO access to many SAML 2.0 business applications (Salesforce,
+    - Box, Microsoft 365, …) RDS Aurora RDS Aurora
+- Provide required URLs, certificates, and metadata
+    - IAM Role IAM Role
+- Attribute-Based Access Control (ABAC)
+    - assume
+- Fine-grained permissions based on users’ attributes stored in Permission Sets
+    - IAM Identity Center Identity Store (DB Admins)
+- Example: cost center, title, locale, …
+    - Permission Sets
+- Use case: Define permissions once, then modify AWS access by
+    - (DB Admins)
+changing the attributes
+Database
+IAM Identity Center
+Admins</p>
+<h2 id="what-is-microsoft-active-director-y-ad">What is Microsoft Active Director y (AD)?<a class="headerlink" href="#what-is-microsoft-active-director-y-ad" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Found on any Windows Server<ul>
+<li>with AD Domain Services
+Domain Controller</li>
+</ul>
+</li>
+<li>Database of objects: User<ul>
+<li>John
+Accounts, Computers, Printers,
+Password
+File Shares, Security Groups</li>
+</ul>
+</li>
+<li>Centralized security<ul>
+<li>management, create account,
+assign permissions</li>
+</ul>
+</li>
+<li>Objects are organized in trees</li>
+<li>A group of trees is a forest</li>
+</ul>
+<h2 id="aws-director-y-services">AWS Director y Services<a class="headerlink" href="#aws-director-y-services" title="Permanent link">&para;</a></h2>
+<ul>
+<li>AWS Managed Microsoft AD<ul>
+<li>auth trust auth</li>
+</ul>
+</li>
+<li>Create your own AD in AWS, manage users<ul>
+<li>locally, supports MFA</li>
+</ul>
+</li>
+<li>Establish “trust” connections with your on-<ul>
+<li>premises AD
+On-prem AD AWS Managed AD</li>
+</ul>
+</li>
+<li>AD Connector<ul>
+<li>proxy auth</li>
+</ul>
+</li>
+<li>Directory Gateway (proxy) to redirect to on-<ul>
+<li>premises AD, supports MFA</li>
+</ul>
+</li>
+<li>Users are managed on the on-premises AD<ul>
+<li>On-prem AD AD Connector</li>
+</ul>
+</li>
+<li>Simple AD</li>
+<li>AD-compatible managed directory on AWS</li>
+<li>Cannot be joined with on-premises AD<ul>
+<li>Simple AD</li>
+</ul>
+</li>
+</ul>
+<h2 id="iam-identity-center-active-director-y-setup">IAM Identity Center – Active Director y Setup<a class="headerlink" href="#iam-identity-center-active-director-y-setup" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Connect to an AWS Managed Microsoft AD (Directory Service)</li>
+<li>Integration is out of the box<ul>
+<li>IAM Identity connect AWS Managed
+Center Microsoft AD</li>
+</ul>
+</li>
+<li>Connect to a Self-Managed Directory</li>
+<li>Create Two-way Trust Relationship using AWS Managed Microsoft AD</li>
+<li>Create an AD Connector<ul>
+<li>AWS Managed
+Microsoft AD
+connect two-way trust relationship
+IAM Identity
+Center connect
+proxy
+AD Connector</li>
+</ul>
+</li>
+</ul>
+<h2 id="aws-control-tower">AWS Control Tower<a class="headerlink" href="#aws-control-tower" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Easy way to set up and govern a secure and compliant multi-account<ul>
+<li>AWS environment based on best practices</li>
+</ul>
+</li>
+<li>AWS Control Tower uses AWS Organizations to create accounts</li>
+<li>Benefits:</li>
+<li>Automate the set up of your environment in a few clicks</li>
+<li>Automate ongoing policy management using guardrails</li>
+<li>Detect policy violations and remediate them</li>
+<li>Monitor compliance through an interactive dashboard</li>
+</ul>
+<h2 id="aws-control-tower-guardrails">AWS Control Tower – Guardrails<a class="headerlink" href="#aws-control-tower-guardrails" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Provides ongoing governance for your Control Tower environment (AWS Accounts)</li>
+<li>Preventive Guardrail – using SCPs (e.g., Restrict Regions across all your accounts)</li>
+<li>Detective Guardrail – using AWS Config (e.g., identify untagged resources)<ul>
+<li>AWS Control Tower
+Guardrail trigger notify
+(Detective) (NON_COMPLIANT)
+AWS Config
+Admin
+SNS
+monitor un-tagged
+resources invoke
+Member remediate
+Accounts (add tags)
+Lambda</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

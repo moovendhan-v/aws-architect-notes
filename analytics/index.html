@@ -1,0 +1,2945 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete study guide for the AWS Certified Solutions Architect Associate exam (SAA-C03)">
+      
+      
+        <meta name="author" content="AWS Study Guide">
+      
+      
+      
+        <link rel="prev" href="../serverless-architectures/">
+      
+      
+        <link rel="next" href="../machine-learning/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Data & Analytics - AWS Certified Solutions Architect Associate (SAA-C03)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-analytics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-header__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Certified Solutions Architect Associate (SAA-C03)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data & Analytics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-nav__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    AWS Certified Solutions Architect Associate (SAA-C03)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started with AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAM – Identity & Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-associate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Associate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Instance Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../high-availability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability & Scalability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rds-aurora-elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS, Aurora & ElastiCache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFront & Global Accelerator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage-extras/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Extras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration & Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics & ML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analytics & ML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Analytics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-athena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Athena
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-athena-performance-improvement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Athena – Performance Improvement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-athena-federated-quer-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Athena – Federated Quer y
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redshift-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redshift Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redshift-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redshift Cluster
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redshift-snapshots-dr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redshift – Snapshots &amp; DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-data-into-redshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading data into Redshift:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redshift-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redshift Spectrum
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-opensearch-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon OpenSearch Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opensearch-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenSearch patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opensearch-patterns_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenSearch patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opensearch-patterns_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenSearch patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-emr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EMR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-emr-node-types-purchasing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EMR – Node types &amp; purchasing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-quicksight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon QuickSight
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quicksight-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QuickSight Integrations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quicksight-dashboard-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QuickSight – Dashboard &amp; Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-glue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Glue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-glue-conver-t-data-into-parquet-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Glue – Conver t data into Parquet format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glue-data-catalog-catalog-of-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glue Data Catalog: catalog of datasets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glue-things-to-know-at-a-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glue – things to know at a high-level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-lake-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Lake Formation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-lake-formation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Lake Formation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-lake-formation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Lake Formation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-managed-service-for-apache-flink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Managed Service for Apache Flink
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-managed-streaming-for-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Managed Streaming for Apache
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache-kafka-at-a-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache Kafka at a high level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kinesis-data-streams-vs-amazon-msk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kinesis Data Streams vs. Amazon MSK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-msk-consumers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon MSK Consumers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#big-data-ingestion-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Big Data Ingestion Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#big-data-ingestion-pipeline_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Big Data Ingestion Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#big-data-ingestion-pipeline-discussion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Big Data Ingestion Pipeline discussion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security & Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring, Audit & Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Identity in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classic-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery & Migrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solutions-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-athena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Athena
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-athena-performance-improvement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Athena – Performance Improvement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-athena-federated-quer-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Athena – Federated Quer y
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redshift-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redshift Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redshift-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redshift Cluster
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redshift-snapshots-dr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redshift – Snapshots &amp; DR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-data-into-redshift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading data into Redshift:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redshift-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redshift Spectrum
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-opensearch-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon OpenSearch Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opensearch-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenSearch patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opensearch-patterns_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenSearch patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opensearch-patterns_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenSearch patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-emr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EMR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-emr-node-types-purchasing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EMR – Node types &amp; purchasing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-quicksight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon QuickSight
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quicksight-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QuickSight Integrations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quicksight-dashboard-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QuickSight – Dashboard &amp; Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-glue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Glue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-glue-conver-t-data-into-parquet-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Glue – Conver t data into Parquet format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glue-data-catalog-catalog-of-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glue Data Catalog: catalog of datasets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glue-things-to-know-at-a-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glue – things to know at a high-level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-lake-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Lake Formation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-lake-formation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Lake Formation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-lake-formation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Lake Formation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-managed-service-for-apache-flink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Managed Service for Apache Flink
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-managed-streaming-for-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Managed Streaming for Apache
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache-kafka-at-a-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache Kafka at a high level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kinesis-data-streams-vs-amazon-msk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kinesis Data Streams vs. Amazon MSK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-msk-consumers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon MSK Consumers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#big-data-ingestion-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Big Data Ingestion Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#big-data-ingestion-pipeline_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Big Data Ingestion Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#big-data-ingestion-pipeline-discussion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Big Data Ingestion Pipeline discussion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="data-analytics">Data &amp; Analytics<a class="headerlink" href="#data-analytics" title="Permanent link">&para;</a></h1>
+<h2 id="amazon-athena">Amazon Athena<a class="headerlink" href="#amazon-athena" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Serverless query service to analyze data stored in Amazon S3</li>
+<li>Uses standard SQL language to query the files (built on Presto)<ul>
+<li>load data</li>
+</ul>
+</li>
+<li>Supports CSV, JSON, ORC, Avro, and Parquet</li>
+<li>Pricing: $5.00 per TB of data scanned<ul>
+<li>S3 Bucket</li>
+</ul>
+</li>
+<li>Commonly used with Amazon Quicksight for<ul>
+<li>reporting/dashboards
+Query &amp; Analyze
+Amazon</li>
+</ul>
+</li>
+<li>Use cases: Business intelligence / analytics / reporting, analyze &amp;<ul>
+<li>Athena
+query VPC Flow Logs, ELB Logs, CloudTrail trails, etc...</li>
+</ul>
+</li>
+<li>Exam Tip: analyze data in S3 using serverless SQL, use Athena Reporting &amp; Dashboards<ul>
+<li>Amazon
+QuickSight</li>
+</ul>
+</li>
+</ul>
+<h2 id="amazon-athena-performance-improvement">Amazon Athena – Performance Improvement<a class="headerlink" href="#amazon-athena-performance-improvement" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use columnar data for cost-savings (less scan)</li>
+<li>Apache Parquet or ORC is recommended</li>
+<li>Huge performance improvement</li>
+<li>Use Glue to convert your data to Parquet or ORC</li>
+<li>Compress data for smaller retrievals (bzip2, gzip, lz4, snappy, zlip, zstd…)</li>
+<li>Partition datasets in S3 for easy querying on virtual columns</li>
+<li>s3://yourBucket/pathToTable<ul>
+<li>/<PARTITION_COLUMN_NAME>=<VALUE>
+/<PARTITION_COLUMN_NAME>=<VALUE>
+/<PARTITION_COLUMN_NAME>=<VALUE>
+/etc…</li>
+</ul>
+</li>
+<li>Example: s3://athena-examples/flight/parquet/year=1991/month=1/day=1/</li>
+<li>Use larger files (&gt; 128 MB) to minimize overhead</li>
+</ul>
+<h2 id="amazon-athena-federated-quer-y">Amazon Athena – Federated Quer y<a class="headerlink" href="#amazon-athena-federated-quer-y" title="Permanent link">&para;</a></h2>
+<p>Amazon
+- Allows you to run SQL queries across
+    - Athena
+data stored in relational, non-relational,
+S3 Bucket
+object, and custom data sources (AWS
+or on-premises) Lambda
+(Data Source
+ElastiCache Connector)
+- Uses Data Source Connectors that run
+    - on AWS Lambda to run Federated
+Queries (e.g., CloudWatch Logs,
+DocumentDB
+HBase in EMR
+DynamoDB, RDS, …)
+- Store the results back in Amazon S3
+    - DynamoDB
+Database
+(On-Premises)
+Redshift
+Aurora SQL Server MySQL</p>
+<h2 id="redshift-overview">Redshift Overview<a class="headerlink" href="#redshift-overview" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Redshift is based on PostgreSQL, but it’s not used for OLTP</li>
+<li>It’s OLAP – online analytical processing (analytics and data warehousing)</li>
+<li>10x better performance than other data warehouses, scale to PBs of data</li>
+<li>Columnar storage of data (instead of row based) &amp; parallel query engine</li>
+<li>Two modes: Provisioned cluster or Serverless cluster</li>
+<li>Has a SQL interface for performing the queries</li>
+<li>BI tools such as Amazon Quicksight or Tableau integrate with it</li>
+<li>vs Athena: faster queries / joins / aggregations thanks to indexes</li>
+</ul>
+<h2 id="redshift-cluster">Redshift Cluster<a class="headerlink" href="#redshift-cluster" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Leader node: for query<ul>
+<li>SELECT COUNT (*), …
+Query FROM MY_TABLE planning, results
+GROUP BY …
+aggregation
+JDBC/ODBC</li>
+</ul>
+</li>
+<li>Compute node: for<ul>
+<li>performing the queries,
+Amazon Redshift Cluster
+send results to leader
+Leader Node</li>
+</ul>
+</li>
+<li>Provisioned mode:</li>
+<li>Choose instance types<ul>
+<li>in advance
+Compute Nodes</li>
+</ul>
+</li>
+<li>Can reserve instances<ul>
+<li>for cost savings</li>
+</ul>
+</li>
+</ul>
+<h2 id="redshift-snapshots-dr">Redshift – Snapshots &amp; DR<a class="headerlink" href="#redshift-snapshots-dr" title="Permanent link">&para;</a></h2>
+<p>Region
+- Redshift has “Multi-AZ” mode for some clusters (us-east-1)
+- Snapshots are point-in-time backups of a cluster,
+    - stored internally in S3 Take Snapshot Cluster
+Snapshot
+- Snapshots are incremental (only what has
+    - changed is saved)
+Redshift Cluster
+- You can restore a snapshot into a new cluster
+    - (Original)
+- Automated: every 8 hours, every 5 GB, or on a Automated
+    - schedule. Set retention between 1 to 35 days
+/ Manual
+- Manual: snapshot is retained until you delete it Copy
+    - Region
+(eu-west-1)
+- You can configure Amazon Redshift to
+    - automatically copy snapshots (automated or
+Restore Copied
+manual) of a cluster to another AWS Region
+Snapshot
+Redshift Cluster
+(New)</p>
+<h2 id="loading-data-into-redshift">Loading data into Redshift:<a class="headerlink" href="#loading-data-into-redshift" title="Permanent link">&para;</a></h2>
+<p>Large inser ts are MUCH better
+Amazon Kinesis S3 using COPY command EC2 Instance
+Data Firehose JDBC driver
+Internet
+Without Enhanced VPC Routing
+Through VPC
+With Enhanced VPC Routing
+Amazon Kinesis Amazon Redshift
+S3 Bucket Amazon Redshift EC2 Instance Amazon Redshift
+Data Firehose Cluster
+(mybucket) Cluster Cluster
+(through S3 copy) Better to write
+Data in batches
+copy customer
+from 's3://mybucket/mydata’
+iam_role 'arn:aws:iam::0123456789012:role/MyRedshiftRole';</p>
+<h2 id="redshift-spectrum">Redshift Spectrum<a class="headerlink" href="#redshift-spectrum" title="Permanent link">&para;</a></h2>
+<p>SELECT COUNT (*), …
+Query FROM S3.EXT_TABLE
+GROUP BY …
+JDBC/ODBC
+- Query data that is already in
+    - Amazon Redshift Cluster
+S3 without loading it
+Leader Node
+- Must have a Redshift cluster
+    - available to start the query
+- The query is then submitted Compute Nodes
+    - to thousands of Redshift
+Spectrum nodes
+Redshift Spectrum
+1 2 …. N
+Amazon S3</p>
+<h2 id="amazon-opensearch-service">Amazon OpenSearch Service<a class="headerlink" href="#amazon-opensearch-service" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Amazon OpenSearch is successor to Amazon ElasticSearch</li>
+<li>In DynamoDB, queries only exist by primary key or indexes…</li>
+<li>With OpenSearch, you can search any field, even partially matches</li>
+<li>It’s common to use OpenSearch as a complement to another database</li>
+<li>Two modes: managed cluster or serverless cluster</li>
+<li>Does not natively support SQL (can be enabled via a plugin)</li>
+<li>Ingestion from Kinesis Data Firehose, AWS IoT, and CloudWatch Logs</li>
+<li>Security through Cognito &amp; IAM, KMS encryption, TLS</li>
+<li>Comes with OpenSearch Dashboards (visualization)</li>
+</ul>
+<h2 id="opensearch-patterns">OpenSearch patterns<a class="headerlink" href="#opensearch-patterns" title="Permanent link">&para;</a></h2>
+<p>DynamoDB
+CRUD
+DynamoDB Table DynamoDB Stream Lambda Function Amazon OpenSearch
+API to search items
+API to retrieve items</p>
+<h2 id="opensearch-patterns_1">OpenSearch patterns<a class="headerlink" href="#opensearch-patterns_1" title="Permanent link">&para;</a></h2>
+<p>CloudWatch Logs
+Real time
+CloudWatch Logs Subscription Filter Lambda Function Amazon OpenSearch
+(managed by AWS)
+Near Real Time
+CloudWatch Logs Subscription Filter Kinesis Data Firehose Amazon OpenSearch</p>
+<h2 id="opensearch-patterns_2">OpenSearch patterns<a class="headerlink" href="#opensearch-patterns_2" title="Permanent link">&para;</a></h2>
+<p>Kinesis Data Streams &amp; Kinesis Data Firehose
+Kinesis Data
+Kinesis Data
+Streams
+Streams
+Lambda
+Function
+Kinesis Data
+data Lambda
+Firehose
+transformation
+Function
+(near real time)
+(real time)
+Amazon
+Amazon
+OpenSearch
+OpenSearch</p>
+<h2 id="amazon-emr">Amazon EMR<a class="headerlink" href="#amazon-emr" title="Permanent link">&para;</a></h2>
+<ul>
+<li>EMR stands for “Elastic MapReduce”</li>
+<li>EMR helps creating Hadoop clusters (Big Data) to analyze and process<ul>
+<li>vast amount of data</li>
+</ul>
+</li>
+<li>The clusters can be made of hundreds of EC2 instances</li>
+<li>EMR comes bundled with Apache Spark, HBase, Presto, Flink…</li>
+<li>EMR takes care of all the provisioning and configuration</li>
+<li>Auto-scaling and integrated with Spot instances</li>
+<li>Use cases: data processing, machine learning, web indexing, big data…</li>
+</ul>
+<h2 id="amazon-emr-node-types-purchasing">Amazon EMR – Node types &amp; purchasing<a class="headerlink" href="#amazon-emr-node-types-purchasing" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Master Node: Manage the cluster, coordinate, manage health – long running</li>
+<li>Core Node: Run tasks and store data – long running</li>
+<li>Task Node (optional): Just to run tasks – usually Spot</li>
+<li>Purchasing options:</li>
+<li>On-demand: reliable, predictable, won’t be terminated</li>
+<li>Reserved (min 1 year): cost savings (EMR will automatically use if available)</li>
+<li>Spot Instances: cheaper, can be terminated, less reliable</li>
+<li>Can have long-running cluster, or transient (temporary) cluster</li>
+</ul>
+<h2 id="amazon-quicksight">Amazon QuickSight<a class="headerlink" href="#amazon-quicksight" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Serverless machine learning-powered business intelligence service to create<ul>
+<li>interactive dashboards</li>
+</ul>
+</li>
+<li>Fast, automatically scalable, embeddable, with per-session pricing</li>
+<li>Use cases:</li>
+<li>Business analytics</li>
+<li>Building visualizations</li>
+<li>Perform ad-hoc analysis</li>
+<li>Get business insights using data</li>
+<li>Integrated with RDS, Aurora,<ul>
+<li>Athena, Redshift, S3…</li>
+</ul>
+</li>
+<li>In-memory computation using SPICE<ul>
+<li>engine if data is imported into QuickSight</li>
+</ul>
+</li>
+<li>Enterprise edition: Possibility to setup<ul>
+<li>Column-Level security (CLS)
+https://aws.amazon.com/quicksight/</li>
+</ul>
+</li>
+</ul>
+<h2 id="quicksight-integrations">QuickSight Integrations<a class="headerlink" href="#quicksight-integrations" title="Permanent link">&para;</a></h2>
+<p>Data Sources (AWS Services)
+On-Premises
+QuickSight
+Databases (JDBC)
+RDS Aurora Redshift
+Data Sources (Imports)
+Athena S3 OpenSearch
+Data Sources (SaaS)
+ELF &amp; CLF
+Timestream
+(Log Format)</p>
+<h2 id="quicksight-dashboard-analysis">QuickSight – Dashboard &amp; Analysis<a class="headerlink" href="#quicksight-dashboard-analysis" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Define Users (standard versions) and Groups (enterprise version)</li>
+<li>These users &amp; groups only exist within QuickSight, not IAM !!</li>
+<li>A dashboard…</li>
+<li>is a read-only snapshot of an analysis that you can share</li>
+<li>preserves the configuration of the analysis (filtering, parameters, controls, sort)</li>
+<li>You can share the analysis or the dashboard with Users or Groups</li>
+<li>To share a dashboard, you must first publish it</li>
+<li>Users who see the dashboard can also see the underlying data</li>
+</ul>
+<h2 id="aws-glue">AWS Glue<a class="headerlink" href="#aws-glue" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Managed extract, transform, and load (ETL) service</li>
+<li>Useful to prepare and transform data for analytics</li>
+<li>Fully serverless service<ul>
+<li>Glue ETL
+S3 Bucket
+Extract Load
+Amazon RDS Redshift
+Transform
+Data Warehouse</li>
+</ul>
+</li>
+</ul>
+<h2 id="aws-glue-conver-t-data-into-parquet-format">AWS Glue – Conver t data into Parquet format<a class="headerlink" href="#aws-glue-conver-t-data-into-parquet-format" title="Permanent link">&para;</a></h2>
+<p>Glue ETL
+Import CSV
+S3 Put Parquet Analyze
+Amazon
+Athena
+Input Output
+S3 Bucket S3 Bucket
+Trigger
+Glue ETL Job
+Event notifications
+On S3 PUT
+Lambda Function
+(EventBridge works as an alternative)</p>
+<h2 id="glue-data-catalog-catalog-of-datasets">Glue Data Catalog: catalog of datasets<a class="headerlink" href="#glue-data-catalog-catalog-of-datasets" title="Permanent link">&para;</a></h2>
+<p>Glue Jobs (ETL)
+Amazon Athena
+Amazon S3
+Data discovery
+Writes Metadata
+AWS Glue
+Amazon RDS
+Data Catalog
+Amazon
+AWS Glue
+Redshift
+Data Crawler Database Database
+Spectrum
+Amazon DynamoDB
+JDBC Tables Tables
+(Metadata) (Metadata)
+Amazon EMR</p>
+<h2 id="glue-things-to-know-at-a-high-level">Glue – things to know at a high-level<a class="headerlink" href="#glue-things-to-know-at-a-high-level" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Glue Job Bookmarks: prevent re-processing old data</li>
+<li>Glue DataBrew: clean and normalize data using pre-built transformation</li>
+<li>Glue Studio: new GUI to create, run and monitor ETL jobs in Glue</li>
+<li>Glue Streaming ETL (built on Apache Spark Structured Streaming):</li>
+</ul>
+<p>compatible with Kinesis Data Streaming, Kafka, MSK (managed Kafka)</p>
+<h2 id="aws-lake-formation">AWS Lake Formation<a class="headerlink" href="#aws-lake-formation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Data lake = central place to have all your data for analytics purposes</li>
+<li>Fully managed service that makes it easy to setup a data lake in days</li>
+<li>Discover, cleanse, transform, and ingest data into your Data Lake</li>
+<li>It automates many complex manual steps (collecting, cleansing, moving,<ul>
+<li>cataloging data, …) and de-duplicate (using ML Transforms)</li>
+</ul>
+</li>
+<li>Combine structured and unstructured data in the data lake</li>
+<li>Out-of-the-box source blueprints: S3, RDS, Relational &amp; NoSQL DB…</li>
+<li>Fine-grained Access Control for your applications (row and column-level)</li>
+<li>Built on top of AWS Glue</li>
+</ul>
+<h2 id="aws-lake-formation_1">AWS Lake Formation<a class="headerlink" href="#aws-lake-formation_1" title="Permanent link">&para;</a></h2>
+<p>Data Sources
+Athena
+Source Crawlers
+Amazon S3 ETL and Data Prep.
+ingest
+Data Catalog Redshift
+Security Settings Users
+RDS Aurora
+Access Control
+EMR
+AWS Lake Formation
+On-Premises
+Database (SQL &amp; NoSQL)
+Data Lake
+(stored in S3)</p>
+<h2 id="aws-lake-formation_2">AWS Lake Formation<a class="headerlink" href="#aws-lake-formation_2" title="Permanent link">&para;</a></h2>
+<p>Centralized Permissions Example
+Data Sources
+ingest
+Access Control
+Amazon S3
+Column-level security
+Athena Users
+AWS Lake Formation Quicksight
+RDS Aurora
+Data Lake
+(stored in S3)</p>
+<h2 id="amazon-managed-service-for-apache-flink">Amazon Managed Service for Apache Flink<a class="headerlink" href="#amazon-managed-service-for-apache-flink" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Previously named: Kinesis Data Analytics for Apache Flink</li>
+<li>Flink (Java, Scala or SQL) is a framework for processing data streams<ul>
+<li>Kinesis Data
+Streams
+Amazon MSK
+Amazon Managed Service
+(Apache Kafka)
+for Apache Flink</li>
+</ul>
+</li>
+<li>Run any Apache Flink application on a managed cluster on AWS</li>
+<li>Provisioned compute resources, parallel computation, automatic scaling</li>
+<li>Application backups (implemented as checkpoints and snapshots)</li>
+<li>Use any Apache Flink programming features to transform data</li>
+<li>Important: Flink does not read from Amazon Data Firehose</li>
+</ul>
+<h2 id="amazon-managed-streaming-for-apache">Amazon Managed Streaming for Apache<a class="headerlink" href="#amazon-managed-streaming-for-apache" title="Permanent link">&para;</a></h2>
+<p>Kafka (Amazon MSK)
+- Alternative to Amazon Kinesis
+- Fully managed Apache Kafka on AWS
+- Allow you to create, update, delete clusters
+- MSK creates &amp; manages Kafka brokers nodes &amp; Zookeeper nodes for you
+- Deploy the MSK cluster in your VPC, multi-AZ (up to 3 for HA)
+- Automatic recovery from common Apache Kafka failures
+- Data is stored on EBS volumes for as long as you want
+- MSK Serverless
+- Run Apache Kafka on MSK without managing the capacity
+- MSK automatically provisions resources and scales compute &amp; storage</p>
+<h2 id="apache-kafka-at-a-high-level">Apache Kafka at a high level<a class="headerlink" href="#apache-kafka-at-a-high-level" title="Permanent link">&para;</a></h2>
+<p>EMR
+MSK Cluster
+Kinesis
+n S3
+o
+ti
+a Broker 2
+c
+pli
+e
+r
+IoT
+SageMaker
+Producers Write to topic Poll from topic Consumers
+(your code) (your code)
+Broker 1
+r
+e
+p
+RDS lic Kinesis
+a
+t
+io
+n
+Etc…
+RDS
+Broker 3
+Etc…</p>
+<h2 id="kinesis-data-streams-vs-amazon-msk">Kinesis Data Streams vs. Amazon MSK<a class="headerlink" href="#kinesis-data-streams-vs-amazon-msk" title="Permanent link">&para;</a></h2>
+<p>Kinesis Data Streams Amazon MSK
+- 1 MB message size limit • 1MB default, configure for higher (ex: 10MB)
+- Data Streams with Shards • Kafka Topics with Partitions
+- Shard Splitting &amp; Merging • Can only add partitions to a topic
+- TLS In-flight encryption • PLAINTEXT or TLS In-flight Encryption
+- KMS at-rest encryption • KMS at-rest encryption</p>
+<h2 id="amazon-msk-consumers">Amazon MSK Consumers<a class="headerlink" href="#amazon-msk-consumers" title="Permanent link">&para;</a></h2>
+<p>Kinesis Data Analytics
+for Apache Flink
+AWS Glue
+Streaming ETL Jobs
+Powered by Apache Spark Streaming
+Lambda
+Amazon MSK
+Applications Running on
+Amazon EC2 ECS EKS</p>
+<h2 id="big-data-ingestion-pipeline">Big Data Ingestion Pipeline<a class="headerlink" href="#big-data-ingestion-pipeline" title="Permanent link">&para;</a></h2>
+<ul>
+<li>We want the ingestion pipeline to be fully serverless</li>
+<li>We want to collect data in real time</li>
+<li>We want to transform the data</li>
+<li>We want to query the transformed data using SQL</li>
+<li>The reports created using the queries should be in S3</li>
+<li>We want to load that data into a warehouse and create dashboards</li>
+</ul>
+<h2 id="big-data-ingestion-pipeline_1">Big Data Ingestion Pipeline<a class="headerlink" href="#big-data-ingestion-pipeline_1" title="Permanent link">&para;</a></h2>
+<p>Pull data
+IoT Devices
+Real-time Reporting
+Ingestion
+Every 1 minute Bucket
+Bucket
+trigger
+Amazon Kinesis Data Amazon Kinesis Data Amazon Simple Storage Amazon Simple Queue AWS Lambda Amazon Athena Amazon Simple Storage
+Streams Firehose Service (S3) Service Service (S3)
+(optional)
+AWS Lambda
+Amazon QuickSight
+Amazon Redshift
+Serverless</p>
+<h2 id="big-data-ingestion-pipeline-discussion">Big Data Ingestion Pipeline discussion<a class="headerlink" href="#big-data-ingestion-pipeline-discussion" title="Permanent link">&para;</a></h2>
+<ul>
+<li>IoT Core allows you to harvest data from IoT devices</li>
+<li>Kinesis is great for real-time data collection</li>
+<li>Firehose helps with data delivery to S3 in near real-time (1 minute)</li>
+<li>Lambda can help Firehose with data transformations</li>
+<li>Amazon S3 can trigger notifications to SQS</li>
+<li>Lambda can subscribe to SQS (we could have connecter S3 to Lambda)</li>
+<li>Athena is a serverless SQL service and results are stored in S3</li>
+<li>The reporting bucket contains analyzed data and can be used by<ul>
+<li>reporting tool such as AWS QuickSight, Redshift, etc…</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

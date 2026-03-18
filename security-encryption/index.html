@@ -1,0 +1,3594 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete study guide for the AWS Certified Solutions Architect Associate exam (SAA-C03)">
+      
+      
+        <meta name="author" content="AWS Study Guide">
+      
+      
+      
+        <link rel="prev" href="../advanced-identity/">
+      
+      
+        <link rel="next" href="../classic-architecture/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Security & Encryption - AWS Certified Solutions Architect Associate (SAA-C03)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#security-encryption" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-header__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Certified Solutions Architect Associate (SAA-C03)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Security & Encryption
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-nav__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    AWS Certified Solutions Architect Associate (SAA-C03)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started with AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAM – Identity & Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-associate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Associate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Instance Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../high-availability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability & Scalability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rds-aurora-elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS, Aurora & ElastiCache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFront & Global Accelerator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage-extras/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Extras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration & Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics & ML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analytics & ML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security & Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring, Audit & Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Identity in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Encryption
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why encryption?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-encryption_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why encryption?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-encryption_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why encryption?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-kms-key-management-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS KMS (Key Management Service)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kms-keys-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMS Keys Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-kms-key-management-service_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS KMS (Key Management Service)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-snapshots-across-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copying Snapshots across regions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kms-key-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMS Key Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-snapshots-across-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copying Snapshots across accounts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kms-multi-region-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMS Multi-Region Keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kms-multi-region-keys_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMS Multi-Region Keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamodb-global-tables-and-kms-multi-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DynamoDB Global Tables and KMS Multi-
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-aurora-and-kms-multi-region-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Aurora and KMS Multi-Region Keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-replication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Replication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ami-sharing-process-encr-ypted-via-kms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMI Sharing Process Encr ypted via KMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssm-parameter-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSM Parameter Store
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssm-parameter-store-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSM Parameter Store Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-and-advanced-parameter-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard and advanced parameter tiers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters-policies-for-advanced-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters Policies (for advanced parameters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-secrets-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Secrets Manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-secrets-manager-multi-region-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Secrets Manager – Multi-Region Secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tificate-manager-acm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tificate Manager (ACM)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acm-requesting-public-cer-tificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACM – Requesting Public Cer tificates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acm-impor-ting-public-cer-tificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACM – Impor ting Public Cer tificates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acm-integration-with-alb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACM – Integration with ALB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-gateway-endpoint-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Gateway - Endpoint Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acm-integration-with-api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACM – Integration with API Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm-high-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM – High Availability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm-integration-with-aws-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM – Integration with AWS Services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm-vs-kms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM vs. KMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm-vs-kms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM vs. KMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-waf-web-application-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS WAF – Web Application Firewall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-waf-web-application-firewall_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS WAF – Web Application Firewall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waf-fixed-ip-while-using-waf-with-a-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WAF – Fixed IP while using WAF with a Load
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-shield-protect-from-ddos-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Shield: protect from DDoS attack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-firewall-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Firewall Manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waf-vs-firewall-manager-vs-shield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WAF vs. Firewall Manager vs. Shield
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-best-practices-for-ddos-resiliency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Best Practices for DDoS Resiliency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-best-practices-for-ddos-resiliency_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Best Practices for DDoS Resiliency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-best-practices-for-ddos-resiliency_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Best Practices for DDoS Resiliency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-best-practices-for-ddos-resiliency_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Best Practices for DDoS Resiliency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-guardduty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon GuardDuty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-guardduty_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon GuardDuty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-inspector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Inspector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-amazon-inspector-evaluate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does Amazon Inspector evaluate?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-macie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Macie
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classic-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery & Migrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solutions-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why encryption?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-encryption_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why encryption?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-encryption_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why encryption?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-kms-key-management-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS KMS (Key Management Service)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kms-keys-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMS Keys Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-kms-key-management-service_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS KMS (Key Management Service)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-snapshots-across-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copying Snapshots across regions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kms-key-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMS Key Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-snapshots-across-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copying Snapshots across accounts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kms-multi-region-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMS Multi-Region Keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kms-multi-region-keys_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMS Multi-Region Keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamodb-global-tables-and-kms-multi-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DynamoDB Global Tables and KMS Multi-
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-aurora-and-kms-multi-region-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Aurora and KMS Multi-Region Keys
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-replication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Replication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ami-sharing-process-encr-ypted-via-kms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMI Sharing Process Encr ypted via KMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssm-parameter-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSM Parameter Store
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssm-parameter-store-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSM Parameter Store Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-and-advanced-parameter-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard and advanced parameter tiers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters-policies-for-advanced-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters Policies (for advanced parameters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-secrets-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Secrets Manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-secrets-manager-multi-region-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Secrets Manager – Multi-Region Secrets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cer-tificate-manager-acm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Cer tificate Manager (ACM)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acm-requesting-public-cer-tificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACM – Requesting Public Cer tificates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acm-impor-ting-public-cer-tificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACM – Impor ting Public Cer tificates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acm-integration-with-alb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACM – Integration with ALB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-gateway-endpoint-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Gateway - Endpoint Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acm-integration-with-api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACM – Integration with API Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm-high-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM – High Availability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm-integration-with-aws-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM – Integration with AWS Services
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm-vs-kms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM vs. KMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudhsm-vs-kms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudHSM vs. KMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-waf-web-application-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS WAF – Web Application Firewall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-waf-web-application-firewall_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS WAF – Web Application Firewall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waf-fixed-ip-while-using-waf-with-a-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WAF – Fixed IP while using WAF with a Load
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-shield-protect-from-ddos-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Shield: protect from DDoS attack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-firewall-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Firewall Manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waf-vs-firewall-manager-vs-shield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WAF vs. Firewall Manager vs. Shield
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-best-practices-for-ddos-resiliency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Best Practices for DDoS Resiliency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-best-practices-for-ddos-resiliency_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Best Practices for DDoS Resiliency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-best-practices-for-ddos-resiliency_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Best Practices for DDoS Resiliency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-best-practices-for-ddos-resiliency_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Best Practices for DDoS Resiliency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-guardduty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon GuardDuty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-guardduty_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon GuardDuty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-inspector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Inspector
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-amazon-inspector-evaluate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does Amazon Inspector evaluate?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-macie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Macie
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="security-encryption">Security &amp; Encryption<a class="headerlink" href="#security-encryption" title="Permanent link">&para;</a></h1>
+<h2 id="why-encryption">Why encryption?<a class="headerlink" href="#why-encryption" title="Permanent link">&para;</a></h2>
+<p>Encryption in flight (TLS / SSL)
+- Data is encrypted before sending and decrypted after receiving
+- TLS certificates help with encryption (HTTPS)
+- Encryption in flight ensures no MITM (man in the middle attack) can
+    - happen
+Username: admin aGVsbG8gd29 Username: admin
+Password: supersecret ybGQgZWh… Password: supersecret
+TLS Encryption TLS Decryption
+Client
+HTTPS Website
+Client Server</p>
+<h2 id="why-encryption_1">Why encryption?<a class="headerlink" href="#why-encryption_1" title="Permanent link">&para;</a></h2>
+<p>Ser ver-side encryption at rest
+- Data is encrypted after being received by the server
+- Data is decrypted before being sent
+- It is stored in an encrypted form thanks to a key (usually a data key)
+- The encryption / decryption keys must be managed somewhere, and
+    - the server must have access to it
+Encryption Decryption
++ +
+HTTP(S) HTTP(S)
+Object Object
+Data key Data key
+AWS Service (e.g., S3)</p>
+<h2 id="why-encryption_2">Why encryption?<a class="headerlink" href="#why-encryption_2" title="Permanent link">&para;</a></h2>
+<p>Client-side encryption
+- Data is encrypted by the client and never decrypted by the server
+- Data will be decrypted by a receiving client
+- The server should not be able to decrypt the data
+- Could leverage Envelope Encryption
+    - store
+Encryption
++
+Data key
+Object
+(client-side)
+retrieve
++ Encrypted object
+Decryption
+Data key
+Object
+(client-side)
+Any storage service
+(FTP, S3, …)
+Client</p>
+<h2 id="aws-kms-key-management-service">AWS KMS (Key Management Service)<a class="headerlink" href="#aws-kms-key-management-service" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Anytime you hear “encryption” for an AWS service, it’s most likely KMS</li>
+<li>AWS manages encryption keys for us</li>
+<li>Fully integrated with IAM for authorization</li>
+<li>Easy way to control access to your data</li>
+<li>Able to audit KMS Key usage using CloudTrail</li>
+<li>Seamlessly integrated into most AWS services (EBS, S3, RDS, SSM…)</li>
+<li>Never ever store your secrets in plaintext, especially in your code!</li>
+<li>KMS Key Encryption also available through API calls (SDK, CLI)</li>
+<li>Encrypted secrets can be stored in the code / environment variables</li>
+</ul>
+<h2 id="kms-keys-types">KMS Keys Types<a class="headerlink" href="#kms-keys-types" title="Permanent link">&para;</a></h2>
+<ul>
+<li>KMS Keys is the new name of KMS Customer Master Key</li>
+<li>Symmetric (AES-256 keys)</li>
+<li>Single encryption key that is used to Encrypt and Decrypt</li>
+<li>AWS services that are integrated with KMS use Symmetric CMKs</li>
+<li>You never get access to the KMS Key unencrypted (must call KMS API to use)</li>
+<li>Asymmetric (RSA &amp; ECC key pairs)</li>
+<li>Public (Encrypt) and Private Key (Decrypt) pair</li>
+<li>Used for Encrypt/Decrypt, or Sign/Verify operations</li>
+<li>The public key is downloadable, but you can’t access the Private Key unencrypted</li>
+<li>Use case: encryption outside of AWS by users who can’t call the KMS API</li>
+</ul>
+<h2 id="aws-kms-key-management-service_1">AWS KMS (Key Management Service)<a class="headerlink" href="#aws-kms-key-management-service_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Types of KMS Keys:</li>
+<li>AWS Owned Keys (free): SSE-S3, SSE-SQS, SSE-DDB (default key)</li>
+<li>AWS Managed Key: free (aws/service-name, example: aws/rds or aws/ebs)</li>
+<li>Customer managed keys created in KMS: $1 / month</li>
+<li>Customer managed keys imported: $1 / month</li>
+<li>
+<ul>
+<li>pay for API call to KMS ($0.03 / 10000 calls)</li>
+</ul>
+</li>
+<li>Automatic Key rotation:</li>
+<li>AWS-managed KMS Key: automatic every 1 year</li>
+<li>Customer-managed KMS Key: (must be enabled) automatic &amp; on-demand</li>
+<li>Imported KMS Key: only manual rotation possible using alias</li>
+</ul>
+<h2 id="copying-snapshots-across-regions">Copying Snapshots across regions<a class="headerlink" href="#copying-snapshots-across-regions" title="Permanent link">&para;</a></h2>
+<p>Region eu-west-2 Region ap-southeast-2
+EBS Volume EBS Volume
+Encrypted Encrypted
+With KMS KMS Key A With KMS KMS Key B
+EBS Snapshot EBS Snapshot
+Encrypted Encrypted
+With KMS With KMS
+KMS Key A KMS Key B
+KMS ReEncrypt with KMS Key B</p>
+<h2 id="kms-key-policies">KMS Key Policies<a class="headerlink" href="#kms-key-policies" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Control access to KMS keys, “similar” to S3 bucket policies</li>
+<li>Difference: you cannot control access without them</li>
+<li>Default KMS Key Policy:</li>
+<li>Created if you don’t provide a specific KMS Key Policy</li>
+<li>Complete access to the key to the root user = entire AWS account</li>
+<li>Custom KMS Key Policy:</li>
+<li>Define users, roles that can access the KMS key</li>
+<li>Define who can administer the key</li>
+<li>Useful for cross-account access of your KMS key</li>
+</ul>
+<h2 id="copying-snapshots-across-accounts">Copying Snapshots across accounts<a class="headerlink" href="#copying-snapshots-across-accounts" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Create a Snapshot, encrypted with
+your own KMS Key (Customer
+Managed Key)</li>
+<li>Attach a KMS Key Policy to
+authorize cross-account access</li>
+<li>Share the encrypted snapshot</li>
+<li>(in target) Create a copy of the
+Snapshot, encrypt it with a CMK in
+your account</li>
+<li>Create a volume from the snapshot
+KMS Key Policy</li>
+</ol>
+<h2 id="kms-multi-region-keys">KMS Multi-Region Keys<a class="headerlink" href="#kms-multi-region-keys" title="Permanent link">&para;</a></h2>
+<p>AWS KMS
+us-west-2
+multi-Region Replica key
+arn:aws:kms:us-west-2:111122223333:
+key/mrk-1234abcd12ab34cd56ef1234567890ab
+us-east-1 eu-west-1
+sync
+multi-Region Primary key multi-Region Replica key
+arn:aws:kms:us-east-1:111122223333: arn:aws:kms:eu-west-1:111122223333:
+key/mrk-1234abcd12ab34cd56ef1234567890ab key/mrk-1234abcd12ab34cd56ef1234567890ab
+ap-southeast-2
+multi-Region Replica key
+arn:aws:kms:ap-southeast-2:111122223333:
+key/mrk-1234abcd12ab34cd56ef1234567890ab</p>
+<h2 id="kms-multi-region-keys_1">KMS Multi-Region Keys<a class="headerlink" href="#kms-multi-region-keys_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Identical KMS keys in different AWS Regions that can be used interchangeably</li>
+<li>Multi-Region keys have the same key ID, key material, automatic rotation…</li>
+<li>Encrypt in one Region and decrypt in other Regions</li>
+<li>No need to re-encrypt or making cross-Region API calls</li>
+<li>KMS Multi-Region are NOT global (Primary + Replicas)</li>
+<li>Each Multi-Region key is managed independently</li>
+<li>Use cases: global client-side encryption, encryption on Global DynamoDB, Global Aurora</li>
+</ul>
+<h2 id="dynamodb-global-tables-and-kms-multi-">DynamoDB Global Tables and KMS Multi-<a class="headerlink" href="#dynamodb-global-tables-and-kms-multi-" title="Permanent link">&para;</a></h2>
+<p>Region Keys Client-Side encryption
+- We can encrypt specific attributes client-side
+    - us-east-1
+KMS
+in our DynamoDB table using the Amazon
+DynamoDB Encryption Client 1. Encrypt attribute
+with primary MRK
+- Combined with Global Tables, the client-side
+2. Put encrypted Attr
+MRK
+encrypted data is replicated to other regions
+attribute (SSN)
+- If we use a multi-region key, replicated in the Client App DDB Table
+    - same region as the DynamoDB Global table,
+3. Global Table
+then clients in these regions can use low-
+Replication
+latency API calls to KMS in their region to
+ap-southeast-2
+decrypt the data client-side
+- Using client-side encryption we can protect 4. Get encrypted Attr
+    - attribute (SSN)
+specific fields and guarantee only decryption
+MRK
+Client App DDB Table
+if the client has access to an API key
+5. Decrypt attribute
+with replica MRK
+KMS
+replication</p>
+<h2 id="global-aurora-and-kms-multi-region-keys">Global Aurora and KMS Multi-Region Keys<a class="headerlink" href="#global-aurora-and-kms-multi-region-keys" title="Permanent link">&para;</a></h2>
+<p>Client-Side encryption
+- We can encrypt specific attributes client-side
+    - us-east-1
+in our Aurora table using the AWS KMS
+Encryption SDK
+1. Encrypt attribute
+with primary MRK
+- Combined with Aurora Global Tables, the</p>
+<p>client-side encrypted data is replicated to 2. Put encrypted Col
+MRK
+other regions column (SSN)
+Client App Table
+- If we use a multi-region key, replicated in the
+    - same region as the Global Aurora DB, then
+3. Global DB
+clients in these regions can use low-latency
+Replication
+API calls to KMS in their region to decrypt
+the data client-side ap-southeast-2
+- Using client-side encryption we can protect
+4. Get encrypted Col
+specific fields and guarantee only decryption column (SSN)
+MRK
+if the client has access to an API key, we can
+Client App Table
+protect specific fields even from database
+5. Decrypt attribute
+admins with replica MRK
+KMS
+replication</p>
+<h2 id="s3-replication">S3 Replication<a class="headerlink" href="#s3-replication" title="Permanent link">&para;</a></h2>
+<p>Encryption Considerations
+- Unencrypted objects and objects encrypted with SSE-S3 are replicated by default
+- Objects encrypted with SSE-C (customer provided key) can be replicated
+- For objects encrypted with SSE-KMS, you need to enable the option
+- Specify which KMS Key to encrypt the objects within the target bucket
+- Adapt the KMS Key Policy for the target key
+- An IAM Role with kms:Decrypt for the source KMS Key and kms:Encrypt for the target KMS Key
+- You might get KMS throttling errors, in which case you can ask for a Service Quotas increase
+- You can use multi-region AWS KMS Keys, but they are currently treated as</p>
+<p>independent keys by Amazon S3 (the object will still be decrypted and then
+encrypted)</p>
+<h2 id="ami-sharing-process-encr-ypted-via-kms">AMI Sharing Process Encr ypted via KMS<a class="headerlink" href="#ami-sharing-process-encr-ypted-via-kms" title="Permanent link">&para;</a></h2>
+<ol>
+<li>AMI in Source Account is encrypted with KMS Key
+Account - A
+from Source Account KMS</li>
+<li>Must modify the image attribute to add a Launch
+Permission which corresponds to the specified target
+AWS account
+AMI Key</li>
+<li>Must share the KMS Keys used to encrypted the
+snapshot the AMI references with the target account
+/ IAM Role
+share share</li>
+<li>The IAM Role/User in the target account must have
+the permissions to DescribeKey, ReEncrypt*,
+Account - B
+CreateGrant, Decrypt</li>
+<li>When launching an EC2 instance from the AMI,
+launch
+optionally the target account can specify a new KMS
+key in its own account to re-encrypt the volumes
+AMI EC2 Instance</li>
+</ol>
+<h2 id="ssm-parameter-store">SSM Parameter Store<a class="headerlink" href="#ssm-parameter-store" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Secure storage for configuration and secrets</li>
+<li>Optional Seamless Encryption using KMS<ul>
+<li>Applications</li>
+</ul>
+</li>
+<li>Serverless, scalable, durable, easy SDK<ul>
+<li>Plaintext Encrypted</li>
+</ul>
+</li>
+<li>Version tracking of configurations / secrets<ul>
+<li>configuration configuration</li>
+</ul>
+</li>
+<li>Security through IAM</li>
+<li>Notifications with Amazon EventBridge SSM Parameter<ul>
+<li>Check IAM Store
+permissions</li>
+</ul>
+</li>
+<li>Integration with CloudFormation<ul>
+<li>Decryption
+Service
+AWS KMS</li>
+</ul>
+</li>
+</ul>
+<h2 id="ssm-parameter-store-hierarchy">SSM Parameter Store Hierarchy<a class="headerlink" href="#ssm-parameter-store-hierarchy" title="Permanent link">&para;</a></h2>
+<ul>
+<li>/my-department/</li>
+<li>my-app/<ul>
+<li>GetParameters or</li>
+</ul>
+</li>
+<li>dev/ GetParametersByPath API</li>
+<li>db-url<ul>
+<li>Dev Lambda</li>
+</ul>
+</li>
+<li>db-password<ul>
+<li>Function</li>
+</ul>
+</li>
+<li>prod/</li>
+<li>db-url<ul>
+<li>Prod Lambda</li>
+</ul>
+</li>
+<li>db-password<ul>
+<li>Function</li>
+</ul>
+</li>
+<li>other-app/</li>
+<li>/other-department/</li>
+<li>/aws/reference/secretsmanager/secret_ID_in_Secrets_Manager</li>
+<li>/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 (public)</li>
+</ul>
+<h2 id="standard-and-advanced-parameter-tiers">Standard and advanced parameter tiers<a class="headerlink" href="#standard-and-advanced-parameter-tiers" title="Permanent link">&para;</a></h2>
+<p>Standard Advanced
+Total number of parameters 10,000 100,000
+allowed
+(per AWS account and
+Region)
+Maximum size of a 4 KB 8 KB
+parameter value
+Parameter policies available No Yes
+Cost No additional charge Charges apply
+Storage Pricing Free $0.05 per advanced parameter per
+month</p>
+<h2 id="parameters-policies-for-advanced-parameters">Parameters Policies (for advanced parameters)<a class="headerlink" href="#parameters-policies-for-advanced-parameters" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Allow to assign a TTL to a parameter (expiration date) to force<ul>
+<li>updating or deleting sensitive data such as passwords</li>
+</ul>
+</li>
+<li>Can assign multiple policies at a time</li>
+</ul>
+<p>Expiration (to delete a parameter) ExpirationNotification (EventBridge) NoChangeNotification (EventBridge)</p>
+<h2 id="aws-secrets-manager">AWS Secrets Manager<a class="headerlink" href="#aws-secrets-manager" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Newer service, meant for storing secrets</li>
+<li>Capability to force rotation of secrets every X days</li>
+<li>Automate generation of secrets on rotation (uses Lambda)</li>
+<li>Integration with Amazon RDS (MySQL, PostgreSQL, Aurora)</li>
+<li>Secrets are encrypted using KMS</li>
+<li>Mostly meant for RDS integration</li>
+</ul>
+<h2 id="aws-secrets-manager-multi-region-secrets">AWS Secrets Manager – Multi-Region Secrets<a class="headerlink" href="#aws-secrets-manager-multi-region-secrets" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Replicate Secrets across multiple AWS Regions</li>
+<li>Secrets Manager keeps read replicas in sync with the primary Secret</li>
+<li>Ability to promote a read replica Secret to a standalone Secret</li>
+<li>Use cases: multi-region apps, disaster recovery strategies, multi-region DB…<ul>
+<li>us-east-1 (Primary) us-west-2 (Secondary)
+Secrets replicate Secrets
+Manager Manager
+MySecret-A MySecret-A
+(primary) (replica)</li>
+</ul>
+</li>
+</ul>
+<h2 id="aws-cer-tificate-manager-acm">AWS Cer tificate Manager (ACM)<a class="headerlink" href="#aws-cer-tificate-manager-acm" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Easily provision, manage, and deploy TLS Certificates</li>
+<li>Provide in-flight encryption for websites (HTTPS)<ul>
+<li>HTTPS</li>
+</ul>
+</li>
+<li>Supports both public and private TLS certificates<ul>
+<li>provision and</li>
+</ul>
+</li>
+<li>Free of charge for public TLS certificates<ul>
+<li>Application
+maintain TLS certs
+Load</li>
+</ul>
+</li>
+<li>Automatic TLS certificate renewal<ul>
+<li>Balancer</li>
+</ul>
+</li>
+<li>Integrations with (load TLS certificates on) AWS Certificate Manager</li>
+<li>Elastic Load Balancers (CLB, ALB, NLB)<ul>
+<li>HTTP</li>
+</ul>
+</li>
+<li>CloudFront Distributions</li>
+<li>APIs on API Gateway<ul>
+<li>Auto Scaling group</li>
+</ul>
+</li>
+<li>Cannot use ACM with EC2 (can’t be extracted)<ul>
+<li>EC2 Instance EC2 Instance</li>
+</ul>
+</li>
+</ul>
+<h2 id="acm-requesting-public-cer-tificates">ACM – Requesting Public Cer tificates<a class="headerlink" href="#acm-requesting-public-cer-tificates" title="Permanent link">&para;</a></h2>
+<ol>
+<li>List domain names to be included in the certificate</li>
+<li>Fully Qualified Domain Name (FQDN): corp.example.com</li>
+<li>Wildcard Domain: *.example.com</li>
+<li>Select Validation Method: DNS Validation or Email validation</li>
+<li>DNS Validation is preferred for automation purposes</li>
+<li>Email validation will send emails to contact addresses in the WHOIS database</li>
+<li>DNS Validation will leverage a CNAME record to DNS config (ex: Route 53)</li>
+<li>It will take a few hours to get verified</li>
+<li>The Public Certificate will be enrolled for automatic renewal</li>
+<li>ACM automatically renews ACM-generated certificates 60 days before expiry</li>
+</ol>
+<h2 id="acm-impor-ting-public-cer-tificates">ACM – Impor ting Public Cer tificates<a class="headerlink" href="#acm-impor-ting-public-cer-tificates" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Option to generate the certificate<ul>
+<li>outside of ACM and then import it
+ACM</li>
+</ul>
+</li>
+<li>No automatic renewal, must import a<ul>
+<li>ACM Events:
+new certificate before expiry Daily Certificate Expiry
+Lambda</li>
+</ul>
+</li>
+<li>ACM sends daily expiration events<ul>
+<li>starting 45 days prior to expiration</li>
+</ul>
+</li>
+<li>The # of days can be configured Rule check<ul>
+<li>SNS</li>
+</ul>
+</li>
+<li>Events are appearing in EventBridge<ul>
+<li>EventBridge</li>
+</ul>
+</li>
+<li>AWS Config has a managed rule<ul>
+<li>Rule events:
+named acm-certificate-expiration-check Non-compliance
+SQS
+to check for expiring certificates
+AWS Config
+(configurable number of days)</li>
+</ul>
+</li>
+</ul>
+<h2 id="acm-integration-with-alb">ACM – Integration with ALB<a class="headerlink" href="#acm-integration-with-alb" title="Permanent link">&para;</a></h2>
+<p>Application Load Balancer
+With HTTP -&gt; HTTPS redirect rule
+HTTP
+Auto Scaling group
+Redirect to HTTPS
+HTTPS
+EC2 Instance EC2 Instance
+provision and
+maintain TLS certs
+AWS Certificate Manager</p>
+<h2 id="api-gateway-endpoint-types">API Gateway - Endpoint Types<a class="headerlink" href="#api-gateway-endpoint-types" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Edge-Optimized (default): For global clients</li>
+<li>Requests are routed through the CloudFront Edge locations (improves latency)</li>
+<li>The API Gateway still lives in only one region</li>
+<li>Regional:</li>
+<li>For clients within the same region</li>
+<li>Could manually combine with CloudFront (more control over the caching<ul>
+<li>strategies and the distribution)</li>
+</ul>
+</li>
+<li>Private:</li>
+<li>Can only be accessed from your VPC using an interface VPC endpoint (ENI)</li>
+<li>Use a resource policy to define access</li>
+</ul>
+<h2 id="acm-integration-with-api-gateway">ACM – Integration with API Gateway<a class="headerlink" href="#acm-integration-with-api-gateway" title="Permanent link">&para;</a></h2>
+<p>us-east-1
+- Create a Custom Domain Name in API Gateway
+- Edge-Optimized (default): For global clients
+    - linked
+- Requests are routed through the CloudFront Edge locations certificate
+    - (improves latency)
+CloudFront ACM
+- The API Gateway still lives in only one region
+- The TLS Certificate must be in the same region as
+    - CloudFront, in us-east-1
+API Gateway
+- Then setup CNAME or (better) A-Alias record in Route 53 Edge-Optimized
+- Regional:
+- For clients within the same region
+    - ap-southeast-2
+- The TLS Certificate must be imported on API Gateway, in
+    - the same region as the API Stage
+linked
+- Then setup CNAME or (better) A-Alias record in Route 53 certificate
+    - API Gateway ACM
+Regional</p>
+<h2 id="cloudhsm">CloudHSM<a class="headerlink" href="#cloudhsm" title="Permanent link">&para;</a></h2>
+<ul>
+<li>KMS =&gt; AWS manages the software for encryption</li>
+<li>CloudHSM =&gt; AWS provisions encryption hardware</li>
+<li>Dedicated Hardware (HSM = Hardware Security Module)</li>
+<li>You manage your own encryption keys entirely (not AWS)</li>
+<li>HSM device is tamper resistant, FIPS 140-2 Level 3 compliance</li>
+<li>Supports both symmetric and asymmetric encryption (SSL/TLS keys)</li>
+<li>No free tier available</li>
+<li>Must use the CloudHSM Client Software</li>
+<li>Redshift supports CloudHSM for database encryption and key management</li>
+<li>Good option to use with SSE-C encryption</li>
+</ul>
+<h2 id="cloudhsm-diagram">CloudHSM Diagram<a class="headerlink" href="#cloudhsm-diagram" title="Permanent link">&para;</a></h2>
+<p>AWS manages the Hardware
+SSL Connection
+User manages the Keys
+AWS CloudHSM
+CloudHSM Client
+IAM permissions: CloudHSM Software:
+- CRUD an HSM Cluster • Manage the Keys
+- Manage the Users</p>
+<h2 id="cloudhsm-high-availability">CloudHSM – High Availability<a class="headerlink" href="#cloudhsm-high-availability" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CloudHSM clusters are spread across Multi AZ (HA)</li>
+<li>Great for availability and durability<ul>
+<li>Availability Zone 1
+CloudHSM 1
+Availability Zone 2
+CloudHSM Client
+CloudHSM 2</li>
+</ul>
+</li>
+</ul>
+<h2 id="cloudhsm-integration-with-aws-services">CloudHSM – Integration with AWS Services<a class="headerlink" href="#cloudhsm-integration-with-aws-services" title="Permanent link">&para;</a></h2>
+<p>CloudHSM
+- Through integration with
+    - AWS KMS
+- Configure KMS Custom
+    - Connector
+Key Store with
+RDS DB
+CloudHSM Instance
+KMS Encryption
+EBS Volume
+- Example: EBS, S3, RDS …
+    - AWS KMS
+(Custom Key Store)
+CloudTrail
+keys usage logs</p>
+<h2 id="cloudhsm-vs-kms">CloudHSM vs. KMS<a class="headerlink" href="#cloudhsm-vs-kms" title="Permanent link">&para;</a></h2>
+<p>Feature AWS KMS AWS CloudHSM
+Tenancy Multi-Tenant Single-Tenant
+Standard FIPS 140-2 Level 3 FIPS 140-2 Level 3
+Master Keys • AWS Owned CMK Customer Managed CMK
+- AWS Managed CMK
+- Customer Managed CMK
+    - Key Types • Symmetric • Symmetric
+- Asymmetric • Asymmetric
+- Digital Signing • Digital Signing &amp; Hashing</p>
+<p>Key Accessibility Accessible in multiple AWS regions (can’t • Deployed and managed in a VPC
+access keys outside the region it’s created in) • Can be shared across VPCs (VPC Peering)
+Cryptographic None • SSL/TLS Acceleration
+Acceleration • Oracle TDE Acceleration
+Access &amp; AWS IAM You create users and manage their permissions
+Authentication</p>
+<h2 id="cloudhsm-vs-kms_1">CloudHSM vs. KMS<a class="headerlink" href="#cloudhsm-vs-kms_1" title="Permanent link">&para;</a></h2>
+<p>Feature AWS KMS AWS CloudHSM
+High Availability AWS Managed Service Add multiple HSMs over different AZs
+Audit Capability • CloudTrail • CloudTrail
+- CloudWatch • CloudWatch
+- MFA support
+    - Free Tier Yes No</p>
+<h2 id="aws-waf-web-application-firewall">AWS WAF – Web Application Firewall<a class="headerlink" href="#aws-waf-web-application-firewall" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Protects your web applications from common web exploits (Layer 7)</li>
+<li>Layer 7 is HTTP (vs Layer 4 is TCP/UDP)</li>
+<li>Deploy on</li>
+<li>Application Load Balancer</li>
+<li>API Gateway</li>
+<li>CloudFront</li>
+<li>AppSync GraphQL API</li>
+<li>Cognito User Pool</li>
+</ul>
+<h2 id="aws-waf-web-application-firewall_1">AWS WAF – Web Application Firewall<a class="headerlink" href="#aws-waf-web-application-firewall_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Define Web ACL (Web Access Control List) Rules:</li>
+<li>IP Set: up to 10,000 IP addresses – use multiple Rules for more IPs</li>
+<li>HTTP headers, HTTP body, or URI strings Protects from common attack - SQL<ul>
+<li>injection and Cross-Site Scripting (XSS)</li>
+</ul>
+</li>
+<li>Size constraints, geo-match (block countries)</li>
+<li>Rate-based rules (to count occurrences of events) – for DDoS protection</li>
+<li>Web ACL are Regional except for CloudFront</li>
+<li>A rule group is a reusable set of rules that you can add to a web ACL</li>
+</ul>
+<h2 id="waf-fixed-ip-while-using-waf-with-a-load">WAF – Fixed IP while using WAF with a Load<a class="headerlink" href="#waf-fixed-ip-while-using-waf-with-a-load" title="Permanent link">&para;</a></h2>
+<p>Balancer
+- WAF does not support the Network Load Balancer (Layer 4)
+- We can use Global Accelerator for fixed IP and WAF on the ALB
+    - us-east-1
+Application Load
+Balancer
+Users
+EC2 Instances
+Global Accelerator
+attached
+Fixed IPv4: 1.2.3.4
+WebACL
+WebACL must be in the same
+AWS WAF
+AWS Region as ALB</p>
+<h2 id="aws-shield-protect-from-ddos-attack">AWS Shield: protect from DDoS attack<a class="headerlink" href="#aws-shield-protect-from-ddos-attack" title="Permanent link">&para;</a></h2>
+<ul>
+<li>DDoS: Distributed Denial of Service – many requests at the same time</li>
+<li>AWS Shield Standard:</li>
+<li>Free service that is activated for every AWS customer</li>
+<li>Provides protection from attacks such as SYN/UDP Floods, Reflection attacks and other<ul>
+<li>layer 3/layer 4 attacks</li>
+</ul>
+</li>
+<li>AWS Shield Advanced:</li>
+<li>Optional DDoS mitigation service ($3,000 per month per organization)</li>
+<li>Protect against more sophisticated attack on Amazon EC2, Elastic Load Balancing (ELB),<ul>
+<li>Amazon CloudFront, AWS Global Accelerator, and Route 53</li>
+</ul>
+</li>
+<li>24/7 access to AWS DDoS response team (DRP)</li>
+<li>Protect against higher fees during usage spikes due to DDoS</li>
+<li>Shield Advanced automatic application layer DDoS mitigation automatically creates,</li>
+</ul>
+<p>evaluates and deploys AWS WAF rules to mitigate layer 7 attacks</p>
+<h2 id="aws-firewall-manager">AWS Firewall Manager<a class="headerlink" href="#aws-firewall-manager" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Manage rules in all accounts of an AWS Organization</li>
+<li>Security policy: common set of security rules</li>
+<li>WAF rules (Application Load Balancer, API Gateways, CloudFront)</li>
+<li>AWS Shield Advanced (ALB, CLB, NLB, Elastic IP, CloudFront)</li>
+<li>Security Groups for EC2, Application Load BAlancer and ENI resources in VPC</li>
+<li>AWS Network Firewall (VPC Level)</li>
+<li>Amazon Route 53 Resolver DNS Firewall</li>
+<li>Policies are created at the region level</li>
+<li>Rules are applied to new resources as they are created (good for</li>
+</ul>
+<p>compliance) across all and future accounts in your Organization</p>
+<h2 id="waf-vs-firewall-manager-vs-shield">WAF vs. Firewall Manager vs. Shield<a class="headerlink" href="#waf-vs-firewall-manager-vs-shield" title="Permanent link">&para;</a></h2>
+<p>AWS WAF AWS Firewall Manager AWS Shield
+- WAF, Shield and Firewall Manager are used together for comprehensive protection
+- Define your Web ACL rules in WAF
+- For granular protection of your resources, WAF alone is the correct choice
+- If you want to use AWS WAF across accounts, accelerate WAF configuration,</p>
+<p>automate the protection of new resources, use Firewall Manager with AWS WAF
+- Shield Advanced adds additional features on top of AWS WAF, such as dedicated</p>
+<p>support from the Shield Response Team (SRT) and advanced reporting.
+- If you’re prone to frequent DDoS attacks, consider purchasing Shield Advanced</p>
+<h2 id="aws-best-practices-for-ddos-resiliency">AWS Best Practices for DDoS Resiliency<a class="headerlink" href="#aws-best-practices-for-ddos-resiliency" title="Permanent link">&para;</a></h2>
+<p>Edge Location Mitigation (BP1, BP3)
+- BP1 – CloudFront
+- Web Application delivery at
+    - the edge
+- Protect from DDoS Common
+    - Attacks (SYN floods, UDP
+reflection…)
+- BP1 – Global Accelerator
+- Access your application from
+    - the edge
+- Integration with Shield for
+    - DDoS protection
+- Helpful if your backend is not
+    - compatible with CloudFront
+- BP3 – Route 53
+- Domain Name Resolution at
+    - the edge
+- DDoS Protection mechanism</p>
+<h2 id="aws-best-practices-for-ddos-resiliency_1">AWS Best Practices for DDoS Resiliency<a class="headerlink" href="#aws-best-practices-for-ddos-resiliency_1" title="Permanent link">&para;</a></h2>
+<p>Best pratices for DDoS mitigation
+- Infrastructure layer defense (BP1,
+    - BP3, BP6)
+- Protect Amazon EC2 against high
+    - traffic
+- That includes using Global
+    - Accelerator, Route 53,
+CloudFront, Elastic Load Balancing
+- Amazon EC2 with Auto Scaling
+    - (BP7)
+- Helps scale in case of sudden
+    - traffic surges including a flash
+crowd or a DDoS attack
+- Elastic Load Balancing (BP6)
+- Elastic Load Balancing scales with
+    - the traffic increases and will
+distribute the traffic to many EC2
+instances</p>
+<h2 id="aws-best-practices-for-ddos-resiliency_2">AWS Best Practices for DDoS Resiliency<a class="headerlink" href="#aws-best-practices-for-ddos-resiliency_2" title="Permanent link">&para;</a></h2>
+<p>Application Layer Defense
+- Detect and filter malicious web
+    - requests (BP1, BP2)
+- CloudFront cache static content and
+    - serve it from edge locations, protecting
+your backend
+- AWS WAF is used on top of
+    - CloudFront and Application Load
+Balancer to filter and block requests
+based on request signatures
+- WAF rate-based rules can
+    - automatically block the IPs of bad
+actors
+- Use managed rules on WAF to block
+    - attacks based on IP reputation, or
+block anonymous Ips
+- CloudFront can block specific
+    - geographies
+- Shield Advanced (BP1, BP2, BP6)
+- Shield Advanced automatic application
+    - layer DDoS mitigation automatically
+creates, evaluates and deploys AWS
+WAF rules to mitigate layer 7 attacks</p>
+<h2 id="aws-best-practices-for-ddos-resiliency_3">AWS Best Practices for DDoS Resiliency<a class="headerlink" href="#aws-best-practices-for-ddos-resiliency_3" title="Permanent link">&para;</a></h2>
+<p>Attack surface reduction
+- Obfuscating AWS resources (BP1,
+    - BP4, BP6)
+- Using CloudFront, API Gateway, Elastic
+    - Load Balancing to hide your backend
+resources (Lambda functions, EC2
+instances)
+- Security groups and Network ACLs
+    - (BP5)
+- Use security groups and NACLs to
+    - filter traffic based on specific IP at the
+subnet or ENI-level
+- Elastic IP are protected by AWS Shield
+    - Advanced
+- Protecting API endpoints (BP4)
+- Hide EC2, Lambda, elsewhere
+- Edge-optimized mode, or CloudFront
+    - + regional mode (more control for
+DDoS)
+- WAF + API Gateway: burst limits,
+    - headers filtering, use API keys</p>
+<h2 id="amazon-guardduty">Amazon GuardDuty<a class="headerlink" href="#amazon-guardduty" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Intelligent Threat discovery to protect your AWS Account</li>
+<li>Uses Machine Learning algorithms, anomaly detection, 3rd party data</li>
+<li>One click to enable (30 days trial), no need to install software</li>
+<li>Input data includes:</li>
+<li>CloudTrail Events Logs – unusual API calls, unauthorized deployments</li>
+<li>CloudTrail Management Events – create VPC subnet, create trail, …</li>
+<li>CloudTrail S3 Data Events – get object, list objects, delete object, …</li>
+<li>VPC Flow Logs – unusual internal traffic, unusual IP address</li>
+<li>DNS Logs – compromised EC2 instances sending encoded data within DNS queries</li>
+<li>Optional Features – EKS Audit Logs, RDS &amp; Aurora, EBS, Lambda, S3 Data Events…</li>
+<li>Can setup EventBridge rules to be notified in case of findings</li>
+<li>EventBridge rules can target AWS Lambda or SNS</li>
+<li>Can protect against CryptoCurrency attacks (has a dedicated “finding” for it)</li>
+</ul>
+<h2 id="amazon-guardduty_1">Amazon GuardDuty<a class="headerlink" href="#amazon-guardduty_1" title="Permanent link">&para;</a></h2>
+<p>VPC Flow Logs
+CloudTrail Logs
+DNS Logs (AWS DNS) SNS
+GuardDuty
+Optional Features
+S3 Logs EBS Volumes
+EventBridge
+Lambda
+Lambda Network RDS &amp; Aurora
+Activity Login Activity
+EKS Audit Logs &amp;
+Runtime Monitoring</p>
+<h2 id="amazon-inspector">Amazon Inspector<a class="headerlink" href="#amazon-inspector" title="Permanent link">&para;</a></h2>
+<p>SSM Agent
+- Automated Security Assessments Lambda
+    - Function
+- For EC2 instances
+- Leveraging the AWS System Manager (SSM) agent
+- Analyze against unintended network accessibility
+- Analyze the running OS against known vulnerabilities
+    - Amazon
+- For Container Images push to Amazon ECR
+    - Inspector
+- Assessment of Container Images as they are pushed
+    - Amazon ECR
+- For Lambda Functions
+    - Container Image
+- Identifies software vulnerabilities in function code and package
+    - dependencies
+- Assessment of functions as they are deployed assessment run state
+    - &amp; findings
+- Reporting &amp; integration with AWS Security Hub
+- Send findings to Amazon Event Bridge
+    - Security Hub EventBridge</p>
+<h2 id="what-does-amazon-inspector-evaluate">What does Amazon Inspector evaluate?<a class="headerlink" href="#what-does-amazon-inspector-evaluate" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Remember: only for EC2 instances, Container Images &amp; Lambda functions</li>
+<li>Continuous scanning of the infrastructure, only when needed</li>
+<li>Package vulnerabilities (EC2, ECR &amp; Lambda) – database of CVE</li>
+<li>Network reachability (EC2)</li>
+<li>A risk score is associated with all vulnerabilities for prioritization</li>
+</ul>
+<h2 id="aws-macie">AWS Macie<a class="headerlink" href="#aws-macie" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Amazon Macie is a fully managed data security and data privacy service</li>
+</ul>
+<p>that uses machine learning and pattern matching to discover and
+protect your sensitive data in AWS.
+- Macie helps identify and alert you to sensitive data, such as personally
+    - identifiable information (PII)
+analyze notify integrations
+S3 Buckets Macie Amazon
+Discover Sensitive Data (PII) EventBridge</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

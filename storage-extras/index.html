@@ -1,0 +1,2664 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete study guide for the AWS Certified Solutions Architect Associate exam (SAA-C03)">
+      
+      
+        <meta name="author" content="AWS Study Guide">
+      
+      
+      
+        <link rel="prev" href="../s3-security/">
+      
+      
+        <link rel="next" href="../messaging/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Storage Extras - AWS Certified Solutions Architect Associate (SAA-C03)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aws-storage-extras" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-header__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Certified Solutions Architect Associate (SAA-C03)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Storage Extras
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-nav__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    AWS Certified Solutions Architect Associate (SAA-C03)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started with AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAM – Identity & Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-associate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Associate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Instance Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../high-availability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability & Scalability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rds-aurora-elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS, Aurora & ElastiCache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFront & Global Accelerator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Extras
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Extras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-snowball" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Snowball
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-migrations-with-snowball" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Migrations with Snowball
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-edge-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Edge Computing?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-architecture-snowball-into-glacier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution Architecture: Snowball into Glacier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon FSx – Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-windows-file-ser-ver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon FSx for Windows (File Ser ver)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-lustre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon FSx for Lustre
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fsx-lustre-file-system-deployment-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSx Lustre - File System Deployment Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-netapp-ontap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon FSx for NetApp ONTAP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-openzfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon FSx for OpenZFS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hybrid-cloud-for-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hybrid Cloud for Storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-storage-cloud-native-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Storage Cloud Native Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-storage-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Storage Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-file-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 File Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volume-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Volume Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tape-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tape Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-storage-gateway_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Storage Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-transfer-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Transfer Family
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-transfer-family_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Transfer Family
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-datasync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS DataSync
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-datasync_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS DataSync
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-datasync_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS DataSync
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration & Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics & ML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analytics & ML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security & Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring, Audit & Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Identity in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classic-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery & Migrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solutions-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-snowball" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Snowball
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-migrations-with-snowball" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Migrations with Snowball
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrams
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-edge-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Edge Computing?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-architecture-snowball-into-glacier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution Architecture: Snowball into Glacier
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon FSx – Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-windows-file-ser-ver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon FSx for Windows (File Ser ver)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-lustre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon FSx for Lustre
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fsx-lustre-file-system-deployment-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSx Lustre - File System Deployment Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-netapp-ontap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon FSx for NetApp ONTAP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-fsx-for-openzfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon FSx for OpenZFS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hybrid-cloud-for-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hybrid Cloud for Storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-storage-cloud-native-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Storage Cloud Native Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-storage-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Storage Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-file-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 File Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volume-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Volume Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tape-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tape Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-storage-gateway_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Storage Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-transfer-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Transfer Family
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-transfer-family_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Transfer Family
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-datasync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS DataSync
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-datasync_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS DataSync
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-datasync_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS DataSync
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aws-storage-extras">AWS Storage Extras<a class="headerlink" href="#aws-storage-extras" title="Permanent link">&para;</a></h1>
+<h2 id="aws-snowball">AWS Snowball<a class="headerlink" href="#aws-snowball" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Highly-secure, portable devices to collect and process data at the<ul>
+<li>edge, and migrate data into and out of AWS</li>
+</ul>
+</li>
+<li>Helps migrate up to Petabytes of data<ul>
+<li>Device Compute Memory Storage (SSD)
+Snowball Edge Storage Optimized 104 vCPUs 416 GB 210 TB
+Snowball Edge Compute Optimized 104 vCPUs 416 GB 28 TB
+Snowball Edge</li>
+</ul>
+</li>
+</ul>
+<h2 id="data-migrations-with-snowball">Data Migrations with Snowball<a class="headerlink" href="#data-migrations-with-snowball" title="Permanent link">&para;</a></h2>
+<p>Challenges:
+- Limited connectivity
+    - Time to Transfer
+- Limited bandwidth
+    - 100 Mbps 1Gbps 10Gbps
+10 TB 12 days 30 hours 3 hours • High network cost
+100 TB 124 days 12 days 30 hours • Shared bandwidth (can’t
+maximize the line)
+1 PB 3 years 124 days 12 days
+- Connection stability
+    - AWS Snowball: offline devices to perform data migrations
+If it takes more than a week to transfer over the network, use Snowball devices!</p>
+<h2 id="diagrams">Diagrams<a class="headerlink" href="#diagrams" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Direct upload to S3:<ul>
+<li>www: 10Gbit/s
+client Amazon S3
+bucket</li>
+</ul>
+</li>
+<li>With Snowball:<ul>
+<li>ship
+AWS AWS import/ Amazon S3
+client
+Snowball Snowball export bucket</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-edge-computing">What is Edge Computing?<a class="headerlink" href="#what-is-edge-computing" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Process data while it’s being created on an edge location</li>
+<li>A truck on the road, a ship on the sea, a mining station underground...</li>
+<li>These locations may have limited internet and no access to computing power</li>
+<li>We setup a Snowball Edge device to do edge computing</li>
+<li>Snowball Edge Compute Optimized (dedicated for that use case) &amp; Storage Optimized</li>
+<li>Run EC2 Instances or Lambda functions at the edge</li>
+<li>Use cases: preprocess data, machine learning, transcoding media</li>
+</ul>
+<h2 id="solution-architecture-snowball-into-glacier">Solution Architecture: Snowball into Glacier<a class="headerlink" href="#solution-architecture-snowball-into-glacier" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Snowball cannot import to Glacier directly</li>
+<li>You must use Amazon S3 first, in combination with an S3 lifecycle policy<ul>
+<li>import S3 lifecycle policy
+Snowball Amazon S3 Amazon Glacier</li>
+</ul>
+</li>
+</ul>
+<h2 id="amazon-fsx-overview">Amazon FSx – Overview<a class="headerlink" href="#amazon-fsx-overview" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Launch 3rd party high-performance file systems on AWS</li>
+<li>Fully managed service<ul>
+<li>FSx for
+FSx for Lustre
+NetApp ONTAP
+FSx for Windows FSx for
+File Server OpenZFS</li>
+</ul>
+</li>
+</ul>
+<h2 id="amazon-fsx-for-windows-file-ser-ver">Amazon FSx for Windows (File Ser ver)<a class="headerlink" href="#amazon-fsx-for-windows-file-ser-ver" title="Permanent link">&para;</a></h2>
+<ul>
+<li>FSx for Windows is a fully managed Windows file system share drive</li>
+<li>Supports SMB protocol &amp; Windows NTFS</li>
+<li>Microsoft Active Directory integration, ACLs, user quotas</li>
+<li>Can be mounted on Linux EC2 instances</li>
+<li>Supports Microsoft's Distributed File System (DFS) Namespaces (group files across multiple FS)</li>
+<li>Scale up to 10s of GB/s, millions of IOPS, 100s PB of data</li>
+<li>Storage Options:</li>
+<li>SSD – latency sensitive workloads (databases, media processing, data analytics, …)</li>
+<li>HDD – broad spectrum of workloads (home directory, CMS, …)</li>
+<li>Can be accessed from your on-premises infrastructure (VPN or Direct Connect)</li>
+<li>Can be configured to be Multi-AZ (high availability)</li>
+<li>Data is backed-up daily to S3</li>
+</ul>
+<h2 id="amazon-fsx-for-lustre">Amazon FSx for Lustre<a class="headerlink" href="#amazon-fsx-for-lustre" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Lustre is a type of parallel distributed file system, for large-scale computing</li>
+<li>The name Lustre is derived from “Linux” and “cluster</li>
+<li>Machine Learning, High Performance Computing (HPC)</li>
+<li>Video Processing, Financial Modeling, Electronic Design Automation</li>
+<li>Scales up to 100s GB/s, millions of IOPS, sub-ms latencies</li>
+<li>Storage Options:</li>
+<li>SSD – low-latency, IOPS intensive workloads, small &amp; random file operations</li>
+<li>HDD – throughput-intensive workloads, large &amp; sequential file operations</li>
+<li>Seamless integration with S3</li>
+<li>Can “read S3” as a file system (through FSx)</li>
+<li>Can write the output of the computations back to S3 (through FSx)</li>
+<li>Can be used from on-premises servers (VPN or Direct Connect)</li>
+</ul>
+<h2 id="fsx-lustre-file-system-deployment-options">FSx Lustre - File System Deployment Options<a class="headerlink" href="#fsx-lustre-file-system-deployment-options" title="Permanent link">&para;</a></h2>
+<p>Region
+- Scratch File System
+    - Availability Zone 1 Availability Zone 2
+- Temporary storage ENI
+    - Compute Compute
+instances instances
+- Data is not replicated (doesn’t persist if file
+    - server fails)
+- High burst (6x faster, 200MBps per TiB)
+    - FSx For Lustre S3 bucket
+- Usage: short-term processing, optimize
+    - (Scratch file system) (optional data repository)
+costs
+Region
+- Persistent File System
+    - Availability Zone 1 Availability Zone 2
+- Long-term storage ENI
+    - Compute Compute
+- Data is replicated within same AZ instances instances
+- Replace failed files within minutes
+- Usage: long-term processing, sensitive data
+    - FSx For Lustre S3 bucket
+(Persistent file system) (optional data repository)</p>
+<h2 id="amazon-fsx-for-netapp-ontap">Amazon FSx for NetApp ONTAP<a class="headerlink" href="#amazon-fsx-for-netapp-ontap" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Managed NetApp ONTAP on AWS</li>
+<li>File System compatible with NFS, SMB, iSCSI protocol<ul>
+<li>Amazon FSx for</li>
+</ul>
+</li>
+<li>Move workloads running on ONTAP or NAS to AWS<ul>
+<li>NetApp ONTAP FS</li>
+</ul>
+</li>
+<li>Works with:</li>
+<li>Linux</li>
+<li>Windows<ul>
+<li>NFS, SMB, iSCSI</li>
+</ul>
+</li>
+<li>MacOS</li>
+<li>VMware Cloud on AWS</li>
+<li>Amazon Workspaces &amp; AppStream 2.0</li>
+<li>Amazon EC2, ECS and EKS</li>
+<li>Storage shrinks or grows automatically</li>
+<li>Snapshots, replication, low-cost, compression and data EC2 ECS EKS<ul>
+<li>de-duplication</li>
+</ul>
+</li>
+<li>Point-in-time instantaneous cloning (helpful for testing<ul>
+<li>new workloads)
+VMware Cloud Amazon Amazon On-premises
+on AWS AppStream 2.0 WorkSpaces Server</li>
+</ul>
+</li>
+</ul>
+<h2 id="amazon-fsx-for-openzfs">Amazon FSx for OpenZFS<a class="headerlink" href="#amazon-fsx-for-openzfs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Managed OpenZFS file system on AWS</li>
+<li>File System compatible with NFS (v3, v4, v4.1, v4.2)<ul>
+<li>Amazon FSx</li>
+</ul>
+</li>
+<li>Move workloads running on ZFS to AWS for OpenZFS</li>
+<li>Works with:</li>
+<li>Linux</li>
+<li>Windows NFS (v3, v4, v4.1, v4.2)</li>
+<li>MacOS</li>
+<li>VMware Cloud on AWS</li>
+<li>Amazon Workspaces &amp; AppStream 2.0</li>
+<li>Amazon EC2, ECS and EKS</li>
+<li>Up to 1,000,000 IOPS with &lt; 0.5ms latency<ul>
+<li>EC2 ECS EKS</li>
+</ul>
+</li>
+<li>Snapshots, compression and low-cost</li>
+<li>Point-in-time instantaneous cloning (helpful for<ul>
+<li>testing new workloads)
+VMware Cloud Amazon Amazon On-premises
+on AWS AppStream 2.0 WorkSpaces Server</li>
+</ul>
+</li>
+</ul>
+<h2 id="hybrid-cloud-for-storage">Hybrid Cloud for Storage<a class="headerlink" href="#hybrid-cloud-for-storage" title="Permanent link">&para;</a></h2>
+<ul>
+<li>AWS is pushing for ”hybrid cloud”</li>
+<li>Part of your infrastructure is on the cloud</li>
+<li>Part of your infrastructure is on-premises</li>
+<li>This can be due to</li>
+<li>Long cloud migrations</li>
+<li>Security requirements</li>
+<li>Compliance requirements</li>
+<li>IT strategy</li>
+<li>S3 is a proprietary storage technology (unlike EFS / NFS), so how do<ul>
+<li>you expose the S3 data on-premises?</li>
+</ul>
+</li>
+<li>AWS Storage Gateway!</li>
+</ul>
+<h2 id="aws-storage-cloud-native-options">AWS Storage Cloud Native Options<a class="headerlink" href="#aws-storage-cloud-native-options" title="Permanent link">&para;</a></h2>
+<p>Block File Object
+Amazon EBS EC2 Instance Amazon EFS Amazon FSx Amazon S3 Amazon Glacier
+Store</p>
+<h2 id="aws-storage-gateway">AWS Storage Gateway<a class="headerlink" href="#aws-storage-gateway" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Bridge between on-premises data and cloud data</li>
+<li>Use cases:</li>
+<li>disaster recovery</li>
+<li>backup &amp; restore<ul>
+<li>Storage Gateway</li>
+</ul>
+</li>
+<li>tiered storage</li>
+<li>on-premises cache &amp; low-latency files access</li>
+<li>Types of Storage Gateway:</li>
+<li>S3 File Gateway</li>
+<li>Volume Gateway</li>
+<li>Tape Gateway</li>
+</ul>
+<h2 id="amazon-s3-file-gateway">Amazon S3 File Gateway<a class="headerlink" href="#amazon-s3-file-gateway" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Configured S3 buckets are accessible using the NFS and SMB protocol</li>
+<li>Most recently used data is cached in the file gateway</li>
+<li>Supports S3 Standard, S3 Standard IA, S3 One Zone A, S3 Intelligent Tiering</li>
+<li>Transition to S3 Glacier using a Lifecycle Policy</li>
+<li>Bucket access using IAM roles for each File Gateway</li>
+<li>SMB Protocol has integration with Active Directory (AD) for user authentication</li>
+</ul>
+<p>Corporate AWS Cloud .
+Data Center
+S3 Standard Lifecycle
+HTTPS
+S3 Standard-IA policy
+S3 One Zone-IA
+NFS or SMB
+S3 Intelligent-Tiering
+S3 Glacier
+Application S3 File
+Server Gateway</p>
+<h2 id="volume-gateway">Volume Gateway<a class="headerlink" href="#volume-gateway" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Block storage using iSCSI protocol backed by S3</li>
+<li>Backed by EBS snapshots which can help restore on-premises volumes!</li>
+<li>Cached volumes: low latency access to most recent data</li>
+<li>Stored volumes: entire dataset is on premise, scheduled backups to S3<ul>
+<li>Corporate AWS Cloud
+Data Center
+Region
+iSCSI HTTPS
+Application Volume Gateway S3 Bucket Amazon EBS
+Snapshots
+Server</li>
+</ul>
+</li>
+</ul>
+<h2 id="tape-gateway">Tape Gateway<a class="headerlink" href="#tape-gateway" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Some companies have backup processes using physical tapes (!)</li>
+<li>With Tape Gateway, companies use the same processes but, in the cloud</li>
+<li>Virtual Tape Library (VTL) backed by Amazon S3 and Glacier</li>
+<li>Back up data using existing tape-based processes (and iSCSI interface)</li>
+<li>Works with leading backup software vendors<ul>
+<li>Corporate AWS Cloud
+Data Center
+Region
+Media
+iSCSI Changer HTTPS
+Virtual Tapes Archived Tapes
+Tape Tape
+Backup
+stored in stored in
+Drive Gateway
+Server Amazon S3 Amazon Glacier</li>
+</ul>
+</li>
+</ul>
+<h2 id="aws-storage-gateway_1">AWS Storage Gateway<a class="headerlink" href="#aws-storage-gateway_1" title="Permanent link">&para;</a></h2>
+<p>On-Premises AWS Cloud
+NFS/SMB
+Any S3 Storage Class
+User/group file shares File Gateway Amazon S3
+Including Glacier
+local cache excluding Glacier &amp;
+Glacier Deep Archive
+iSCSI Encryption in Transit
+Internet or Direct Connect
+Application Server Volume Gateway Amazon S3 AWS EBS
+local cache Storage Gateway
+Eject from backup application
+iSCSI VTL
+Tape Archive
+Amazon S3
+Backup Application Tape Gateway Tape Library Glacier &amp;
+Glacier Deep Archive
+local cache
+Gateway Deployment Options
+VM(VMware, Hyper-V, KVM)</p>
+<h2 id="aws-transfer-family">AWS Transfer Family<a class="headerlink" href="#aws-transfer-family" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A fully-managed service for file transfers into and out of Amazon S3 or<ul>
+<li>Amazon EFS using the FTP protocol</li>
+</ul>
+</li>
+<li>Supported Protocols</li>
+<li>AWS Transfer for FTP (File Transfer Protocol (FTP))</li>
+<li>AWS Transfer for FTPS (File Transfer Protocol over SSL (FTPS))</li>
+<li>AWS Transfer for SFTP (Secure File Transfer Protocol (SFTP))</li>
+<li>Managed infrastructure, Scalable, Reliable, Highly Available (multi-AZ)</li>
+<li>Pay per provisioned endpoint per hour + data transfers in GB</li>
+<li>Store and manage users’ credentials within the service</li>
+<li>Integrate with existing authentication systems (Microsoft Active Directory,<ul>
+<li>LDAP, Okta, Amazon Cognito, custom)</li>
+</ul>
+</li>
+<li>Usage: sharing files, public datasets, CRM, ERP, …</li>
+</ul>
+<h2 id="aws-transfer-family_1">AWS Transfer Family<a class="headerlink" href="#aws-transfer-family_1" title="Permanent link">&para;</a></h2>
+<p>MS Active Directory
+authenticate
+LDAP
+… AWS Transfer for SFTP
+Amazon S3
+IAM Role
+AWS Transfer for FTPS
+Users
+Route 53
+(FTP client)
+(optional) AWS Transfer for FTP
+(only within VPC)
+Amazon EFS
+AWS Transfer Family</p>
+<h2 id="aws-datasync">AWS DataSync<a class="headerlink" href="#aws-datasync" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Move large amount of data to and from</li>
+<li>On-premises / other cloud to AWS (NFS, SMB, HDFS, S3 API…) – needs agent</li>
+<li>AWS to AWS (different storage services) – no agent needed</li>
+<li>Can synchronize to:</li>
+<li>Amazon S3 (any storage classes – including Glacier)</li>
+<li>Amazon EFS</li>
+<li>Amazon FSx (Windows, Lustre, NetApp, OpenZFS...)</li>
+<li>Replication tasks can be scheduled hourly, daily, weekly</li>
+<li>File permissions and metadata are preserved (NFS POSIX, SMB…)</li>
+<li>One agent task can use 10 Gbps, can setup a bandwidth limit</li>
+</ul>
+<h2 id="aws-datasync_1">AWS DataSync<a class="headerlink" href="#aws-datasync_1" title="Permanent link">&para;</a></h2>
+<p>NFS / SMB to AWS (S3, EFS, FSx…)
+Region
+On-Premises
+AWS Storage Resources
+NFS or SMB TLS S3 Standard S3 Intelligent- S3 Standard-IA
+Tiering
+NFS or SMB AWS DataSync
+AWS S3 One S3 Glacier S3 Glacier
+Server Agent Zone-IA Deep Archive
+DataSync
+AWS Snowcone
+(agent pre-installed)
+AWS EFS Amazon FSx</p>
+<h2 id="aws-datasync_2">AWS DataSync<a class="headerlink" href="#aws-datasync_2" title="Permanent link">&para;</a></h2>
+<p>Transfer between AWS storage services
+Amazon S3 Amazon S3
+Amazon EFS Amazon EFS
+AWS DataSync
+copy data and metadata
+between AWS Storage Services
+Amazon FSx Amazon FSx</p>
+<h2 id="storage-comparison">Storage Comparison<a class="headerlink" href="#storage-comparison" title="Permanent link">&para;</a></h2>
+<ul>
+<li>S3: Object Storage</li>
+<li>S3 Glacier: Object Archival</li>
+<li>EBS volumes: Network storage for one EC2 instance at a time</li>
+<li>Instance Storage: Physical storage for your EC2 instance (high IOPS)</li>
+<li>EFS: Network File System for Linux instances, POSIX filesystem</li>
+<li>FSx for Windows: Network File System for Windows servers</li>
+<li>FSx for Lustre: High Performance Computing Linux file system</li>
+<li>FSx for NetApp ONTAP: High OS Compatibility</li>
+<li>FSx for OpenZFS: Managed ZFS file system</li>
+<li>Storage Gateway: S3 &amp; FSx File Gateway, Volume Gateway (cache &amp; stored), Tape Gateway</li>
+<li>Transfer Family: FTP, FTPS, SFTP interface on top of Amazon S3 or Amazon EFS</li>
+<li>DataSync: Schedule data sync from on-premises to AWS, or AWS to AWS</li>
+<li>Snowcone / Snowball / Snowmobile: to move large amount of data to the cloud, physically</li>
+<li>Database: for specific workloads, usually with indexing and querying</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

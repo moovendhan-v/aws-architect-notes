@@ -1,0 +1,3311 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete study guide for the AWS Certified Solutions Architect Associate exam (SAA-C03)">
+      
+      
+        <meta name="author" content="AWS Study Guide">
+      
+      
+      
+        <link rel="prev" href="../databases/">
+      
+      
+        <link rel="next" href="../cloudfront/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Amazon Route 53 - AWS Certified Solutions Architect Associate (SAA-C03)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#amazon-route-53" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-header__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Certified Solutions Architect Associate (SAA-C03)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Amazon Route 53
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-nav__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    AWS Certified Solutions Architect Associate (SAA-C03)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started with AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAM – Identity & Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-associate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Associate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Instance Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../high-availability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability & Scalability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rds-aurora-elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS, Aurora & ElastiCache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon Route 53
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is DNS?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-terminologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS Terminologies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-dns-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How DNS Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-route-53_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Route 53
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-record-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Record Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-hosted-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Hosted Zones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-public-vs-private-hosted-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Public vs. Private Hosted Zones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-records-ttl-time-to-live" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Records TTL (Time To Live)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-high-ttl-eg-24-hr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - High TTL – e.g., 24 hr
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cname-vs-alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CNAME vs Alias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-alias-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Alias Records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-alias-records-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Alias Records Targets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-routing-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Routing Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Simple
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-weighted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Weighted
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-latency-based" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Latency-based
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Health Checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks-monitor-an-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health Checks – Monitor an Endpoint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-calculated-health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Calculated Health Checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks-private-hosted-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health Checks – Private Hosted Zones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-failover-active-passive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Failover (Active-Passive)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-geolocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Geolocation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-geoproximity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Geoproximity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-geoproximity_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Geoproximity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-geoproximity_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Geoproximity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-ip-based-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – IP-based Routing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-multi-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Multi-Value
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domain-registar-vs-dns-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain Registar vs. DNS Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#godaddy-as-registrar-route-53-as-dns-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GoDaddy as Registrar &amp; Route 53 as DNS Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3rd-par-ty-registrar-with-amazon-route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3rd Par ty Registrar with Amazon Route 53
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-hybrid-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Hybrid DNS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-resolver-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Resolver Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-resolver-endpoints_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Resolver Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFront & Global Accelerator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage-extras/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Extras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration & Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics & ML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analytics & ML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security & Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring, Audit & Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Identity in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classic-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery & Migrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solutions-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is DNS?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-terminologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNS Terminologies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-dns-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How DNS Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-route-53_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Route 53
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-record-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Record Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-hosted-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Hosted Zones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-public-vs-private-hosted-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Public vs. Private Hosted Zones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-records-ttl-time-to-live" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Records TTL (Time To Live)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-high-ttl-eg-24-hr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - High TTL – e.g., 24 hr
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cname-vs-alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CNAME vs Alias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-alias-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Alias Records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-alias-records-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Alias Records Targets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-routing-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Routing Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Simple
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-weighted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Weighted
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-latency-based" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Latency-based
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Health Checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks-monitor-an-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health Checks – Monitor an Endpoint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-calculated-health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Calculated Health Checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks-private-hosted-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health Checks – Private Hosted Zones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-failover-active-passive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Failover (Active-Passive)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-geolocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Geolocation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-geoproximity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Geoproximity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-geoproximity_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Geoproximity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-geoproximity_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Geoproximity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-ip-based-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – IP-based Routing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-policies-multi-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routing Policies – Multi-Value
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domain-registar-vs-dns-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain Registar vs. DNS Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#godaddy-as-registrar-route-53-as-dns-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GoDaddy as Registrar &amp; Route 53 as DNS Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3rd-par-ty-registrar-with-amazon-route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3rd Par ty Registrar with Amazon Route 53
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-hybrid-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Hybrid DNS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-resolver-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Resolver Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53-resolver-endpoints_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route 53 – Resolver Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="amazon-route-53">Amazon Route 53<a class="headerlink" href="#amazon-route-53" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-dns">What is DNS?<a class="headerlink" href="#what-is-dns" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Domain Name System which translates the human friendly hostnames<ul>
+<li>into the machine IP addresses</li>
+</ul>
+</li>
+<li>www.google.com =&gt; 172.217.18.36</li>
+<li>DNS is the backbone of the Internet</li>
+<li>DNS uses hierarchical naming structure<ul>
+<li>com
+.
+example.com
+www.example.com
+api.example.com</li>
+</ul>
+</li>
+</ul>
+<h2 id="dns-terminologies">DNS Terminologies<a class="headerlink" href="#dns-terminologies" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Domain Registrar: Amazon Route 53, GoDaddy, …</li>
+<li>DNS Records: A, AAAA, CNAME, NS, …</li>
+<li>Zone File: contains DNS records</li>
+<li>Name Server: resolves DNS queries (Authoritative or Non-Authoritative)</li>
+<li>Top Level Domain (TLD): .com, .us, .in, .gov, .org, …</li>
+<li>Second Level Domain (SLD): amazon.com, google.com, …<ul>
+<li>URL
+http://api.www.example.com.
+Root
+Protocol TLD
+SLD
+Sub Domain
+FQDN (Fully Qualified Domain Name)</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-dns-works">How DNS Works<a class="headerlink" href="#how-dns-works" title="Permanent link">&para;</a></h2>
+<p>Web Server
+(example.com)
+(IP: 9.10.11.12)
+Managed by ICANN
+m?
+mple.co
+exa
+Root DNS Server
+m
+NS
+1.2.3.4
+.co
+example.com?
+example.com?
+Managed by IANA
+9.10.11.12
+(Branch of ICANN)
+TTL
+example.com NS 5.6.7.8
+TTL
+Web Browser
+TLD DNS Server
+You want to access Local DNS Server exam
+(.com)
+example.com exam
+ple.com
+?
+Assigned and Managed by ple.com
+your
+y
+c
+o
+o
+u
+m
+r
+p
+IS
+a
+P
+n
+d
+y
+y
+o
+n
+r
+a
+a
+m
+ss
+ic
+ig
+a
+n
+ll
+e
+y
+d by
+IP
+9.10.11.12
+Managed by Domain Registrar
+(e.g., Amazon Registrar, Inc.)
+SLD DNS Server
+(example.com)</p>
+<h2 id="amazon-route-53_1">Amazon Route 53<a class="headerlink" href="#amazon-route-53_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A highly available, scalable, fully<ul>
+<li>example.com?
+managed and Authoritative DNS Amazon
+Route 53</li>
+</ul>
+</li>
+<li>Authoritative = the customer (you)
+54.22.33.44
+Client
+can update the DNS records</li>
+<li>Route 53 is also a Domain Registrar</li>
+<li>Ability to check the health of your<ul>
+<li>resources
+AWS Cloud</li>
+</ul>
+</li>
+<li>The only AWS service which<ul>
+<li>Public IP
+provides 100% availability SLA
+54.22.33.44</li>
+</ul>
+</li>
+<li>Why Route 53? 53 is a reference to EC2 Instance<ul>
+<li>the traditional DNS port</li>
+</ul>
+</li>
+</ul>
+<h2 id="route-53-records">Route 53 – Records<a class="headerlink" href="#route-53-records" title="Permanent link">&para;</a></h2>
+<ul>
+<li>How you want to route traffic for a domain</li>
+<li>Each record contains:</li>
+<li>Domain/subdomain Name – e.g., example.com</li>
+<li>Record Type – e.g., A or AAAA</li>
+<li>Value – e.g., 12.34.56.78</li>
+<li>Routing Policy – how Route 53 responds to queries</li>
+<li>TTL – amount of time the record cached at DNS Resolvers</li>
+<li>Route 53 supports the following DNS record types:</li>
+<li>(must know) A / AAAA / CNAME / NS</li>
+<li>(advanced) CAA / DS / MX / NAPTR / PTR / SOA / TXT / SPF / SRV</li>
+</ul>
+<h2 id="route-53-record-types">Route 53 – Record Types<a class="headerlink" href="#route-53-record-types" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A – maps a hostname to IPv4</li>
+<li>AAAA – maps a hostname to IPv6</li>
+<li>CNAME – maps a hostname to another hostname</li>
+<li>The target is a domain name which must have an A or AAAA record</li>
+<li>Can’t create a CNAME record for the top node of a DNS namespace (Zone<ul>
+<li>Apex)</li>
+</ul>
+</li>
+<li>Example: you can’t create for example.com, but you can create for<ul>
+<li>www.example.com</li>
+</ul>
+</li>
+<li>NS – Name Servers for the Hosted Zone</li>
+<li>Control how traffic is routed for a domain</li>
+</ul>
+<h2 id="route-53-hosted-zones">Route 53 – Hosted Zones<a class="headerlink" href="#route-53-hosted-zones" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A container for records that define how to route traffic to a domain and<ul>
+<li>its subdomains</li>
+</ul>
+</li>
+<li>Public Hosted Zones – contains records that specify how to route<ul>
+<li>traffic on the Internet (public domain names)
+application1.mypublicdomain.com</li>
+</ul>
+</li>
+<li>Private Hosted Zones – contain records that specify how you route<ul>
+<li>traffic within one or more VPCs (private domain names)
+application1.company.internal</li>
+</ul>
+</li>
+<li>You pay $0.50 per month per hosted zone</li>
+</ul>
+<h2 id="route-53-public-vs-private-hosted-zones">Route 53 – Public vs. Private Hosted Zones<a class="headerlink" href="#route-53-public-vs-private-hosted-zones" title="Permanent link">&para;</a></h2>
+<p>example.com?
+VPC
+54.22.33.44
+Private Hosted Zone
+Client
+Public Hosted Zone
+?
+al
+n
+r
+e
+t
+n
+.i 0
+e 1
+pl
+0
+.
+m 0 . DB Instance
+a .
+VPC x 0
+e 1
+. (db.example.internal)
+pi
+a (Private IP)
+S3 Bucket Amazon EC2 Instance Application EC2 Instance EC2 Instance
+CloudFront (Public IP) Load Balancer (webapp.example.internal) (api.example.internal)
+(Private IP) (Private IP)
+?lanretni.elpmaxe.bd
+53.0.0.01
+Public Hosted Zone Private Hosted Zone</p>
+<h2 id="route-53-records-ttl-time-to-live">Route 53 – Records TTL (Time To Live)<a class="headerlink" href="#route-53-records-ttl-time-to-live" title="Permanent link">&para;</a></h2>
+<h2 id="-high-ttl-eg-24-hr">- High TTL – e.g., 24 hr<a class="headerlink" href="#-high-ttl-eg-24-hr" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<ul>
+<li>L
+Po
+es
+s
+s
+s ib
+tr
+ly
+a ff
+o
+ic
+u t
+o
+d
+n
+a t
+R
+e
+o
+d
+u
+r
+t
+e
+e
+c
+5
+o
+3
+rds mya
+D
+p
+N
+p.
+S
+e x
+R
+a
+e
+m
+qu
+p
+e
+le
+s
+.
+t com?</li>
+</ul>
+</li>
+<li>Low TTL – e.g., 60 sec.<ul>
+<li>Amazon
+A 12.34.56.78 Route 53</li>
+</ul>
+</li>
+<li>More traffic on Route 53 ($$)<ul>
+<li>(with TTL)
+TTL</li>
+</ul>
+</li>
+<li>Records are outdated for less<ul>
+<li>time
+Client
+HTTP
+Request</li>
+</ul>
+</li>
+<li>Easy to change records<ul>
+<li>W
+T
+i
+h
+ll
+e
+c a
+T
+c
+T
+h
+L
+e
+o
+t
+f
+h
+t
+e
+h e
+re
+r
+s
+e
+u
+c
+l
+o
+t
+r
+f
+d
+or HTTP
+Response</li>
+</ul>
+</li>
+<li>Except for Alias records, TTL<ul>
+<li>is mandatory for each DNS
+record
+Web Server</li>
+</ul>
+</li>
+</ul>
+<h2 id="cname-vs-alias">CNAME vs Alias<a class="headerlink" href="#cname-vs-alias" title="Permanent link">&para;</a></h2>
+<ul>
+<li>AWS Resources (Load Balancer, CloudFront...) expose an AWS hostname:</li>
+<li>lb1-1234.us-east-2.elb.amazonaws.com and you want myapp.mydomain.com</li>
+<li>CNAME:</li>
+<li>Points a hostname to any other hostname. (app.mydomain.com =&gt; blabla.anything.com)</li>
+<li>ONLY FOR NON ROOT DOMAIN (aka. something.mydomain.com)</li>
+<li>Alias:</li>
+<li>Points a hostname to an AWS Resource (app.mydomain.com =&gt; blabla.amazonaws.com)</li>
+<li>Works for ROOT DOMAIN and NON ROOT DOMAIN (aka mydomain.com)</li>
+<li>Free of charge</li>
+<li>Native health check</li>
+</ul>
+<h2 id="route-53-alias-records">Route 53 – Alias Records<a class="headerlink" href="#route-53-alias-records" title="Permanent link">&para;</a></h2>
+<p>Amazon
+Route 53
+- Maps a hostname to an AWS resource
+- An extension to DNS functionality
+- Automatically recognizes changes in the Alias Record (Enabled)
+    - Record Name Type Value
+resource’s IP addresses
+example.com A MyALB-123456789.us-
+east-
+- Unlike CNAME, it can be used for the top node
+1.elb.amazonaws.com
+of a DNS namespace (Zone Apex), e.g.:
+example.com
+- Alias Record is always of type A/AAAA for
+    - MyALB-123456789.us-east-1.elb.amazonaws.com
+AWS resources (IPv4 / IPv6)
+AWS-Managed
+(IP Addresses might change)
+- You can’t set the TTL
+    - Application
+Load Balancer</p>
+<h2 id="route-53-alias-records-targets">Route 53 – Alias Records Targets<a class="headerlink" href="#route-53-alias-records-targets" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Elastic Load Balancers</li>
+<li>CloudFront Distributions<ul>
+<li>Elastic Amazon Amazon</li>
+</ul>
+</li>
+<li>API Gateway<ul>
+<li>Load Balancer CloudFront API Gateway</li>
+</ul>
+</li>
+<li>Elastic Beanstalk environments</li>
+<li>S3 Websites</li>
+<li>VPC Interface Endpoints Elastic Beanstalk S3 Websites VPC Interface<ul>
+<li>Endpoints</li>
+</ul>
+</li>
+<li>Global Accelerator accelerator</li>
+<li>Route 53 record in the same hosted zone<ul>
+<li>Global Accelerator Route 53 Record</li>
+</ul>
+</li>
+<li>You cannot set an ALIAS record for an EC2 DNS name (same Hosted Zone)</li>
+</ul>
+<h2 id="route-53-routing-policies">Route 53 – Routing Policies<a class="headerlink" href="#route-53-routing-policies" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Define how Route 53 responds to DNS queries</li>
+<li>Don’t get confused by the word “Routing”</li>
+<li>It’s not the same as Load balancer routing which routes the traffic</li>
+<li>DNS does not route any traffic, it only responds to the DNS queries</li>
+<li>Route 53 Supports the following Routing Policies</li>
+<li>Simple</li>
+<li>Weighted</li>
+<li>Failover</li>
+<li>Latency based</li>
+<li>Geolocation</li>
+<li>Multi-Value Answer</li>
+<li>Geoproximity (using Route 53 Traffic Flow feature)</li>
+</ul>
+<h2 id="routing-policies-simple">Routing Policies – Simple<a class="headerlink" href="#routing-policies-simple" title="Permanent link">&para;</a></h2>
+<p>Single Value
+- Typically, route traffic to a single
+    - foo.example.com
+resource
+A 11.22.33.44
+- Can specify multiple values in the
+    - Client
+same record Amazon
+Route 53
+- If multiple values are returned, a
+    - random one is chosen by the client
+Multiple Value
+- When Alias enabled, specify only
+    - one AWS resource
+foo.example.com
+- Can’t be associated with Health
+    - Checks
+A 11.22.33.44
+Client
+A 55.66.77.88
+Amazon
+A 99.11.22.33
+chooses
+Route 53
+a random value</p>
+<h2 id="routing-policies-weighted">Routing Policies – Weighted<a class="headerlink" href="#routing-policies-weighted" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Control the % of the requests that go to each<ul>
+<li>specific resource</li>
+</ul>
+</li>
+<li>Assign each record a relative weight:<ul>
+<li>% Weight: 70
+0
+7
+!"#$%&amp; ()<em> + ,-".#(#. </em>".)*/</li>
+</ul>
+</li>
+<li>𝑡𝑟𝑎𝑓𝑓𝑖𝑐 (%) =<ul>
+<li>012 )( +33 &amp;%" 4"#$%&amp;, ()<em> +33 </em>".)*/,</li>
+</ul>
+</li>
+<li>Weights don’t need to sum up to 100</li>
+<li>DNS records must have the same name and type</li>
+<li>Can be associated with Health Checks 20%</li>
+<li>Use cases: load balancing between regions, testing<ul>
+<li>new application versions…
+Amazon Weight: 20
+Route 53</li>
+</ul>
+</li>
+<li>Assign a weight of 0 to a record to stop sending<ul>
+<li>1
+0
+traffic to a resource %</li>
+</ul>
+</li>
+<li>If all records have weight of 0, then all records will<ul>
+<li>be returned equally
+Weight: 10</li>
+</ul>
+</li>
+</ul>
+<h2 id="routing-policies-latency-based">Routing Policies – Latency-based<a class="headerlink" href="#routing-policies-latency-based" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Redirect to the resource that<ul>
+<li>has the least latency close to us</li>
+</ul>
+</li>
+<li>Super helpful when latency for<ul>
+<li>users is a priority</li>
+</ul>
+</li>
+<li>Latency is based on traffic<ul>
+<li>between users and AWS
+Regions
+ALB</li>
+</ul>
+</li>
+<li>Germany users may be<ul>
+<li>(us-east-1)
+directed to the US (if that’s the
+lowest latency)
+ALB
+(ap-southeast-1)</li>
+</ul>
+</li>
+<li>Can be associated with Health<ul>
+<li>Checks (has a failover
+capability)</li>
+</ul>
+</li>
+</ul>
+<h2 id="route-53-health-checks">Route 53 – Health Checks<a class="headerlink" href="#route-53-health-checks" title="Permanent link">&para;</a></h2>
+<p>Amazon Route 53
+DNS Record
+- HTTP Health Checks are only for public
+    - (latency, geoproximity, …)
+resources
+- Health Check =&gt; Automated DNS Failover:
+    - Health Check Health Check
+1. Health checks that monitor an endpoint
+(application, server, other AWS resource)
+2. Health checks that monitor other health
+us-east-1 eu-west-1
+checks (Calculated Health Checks)
+3. Health checks that monitor CloudWatch
+Alarms (full control !!) – e.g., throttles of
+ALB ALB
+DynamoDB, alarms on RDS, custom metrics,
+… (helpful for private resources)
+Auto Scaling group Auto Scaling group
+- Health Checks are integrated with CW
+    - metrics
+EC2 Instance EC2 Instance</p>
+<h2 id="health-checks-monitor-an-endpoint">Health Checks – Monitor an Endpoint<a class="headerlink" href="#health-checks-monitor-an-endpoint" title="Permanent link">&para;</a></h2>
+<ul>
+<li>About 15 global health checkers will check the Health Checker Health Checker Health Checker<ul>
+<li>endpoint health (us-east-1) (us-west-1) (sa-east-1)</li>
+</ul>
+</li>
+<li>Healthy/Unhealthy Threshold – 3 (default) H<ul>
+<li>t T
+o T</li>
+</ul>
+</li>
+<li>Interval – 30 sec (can set to 10 sec – higher cost) P<ul>
+<li>/ 2 h r
+0 e e</li>
+</ul>
+</li>
+<li>Supported protocol: HTTP, HTTPS and TCP 0 a q<ul>
+<li>c
+l
+t
+u
+o h e</li>
+</ul>
+</li>
+<li>If &gt; 18% of health checkers report the endpoint is d s t<ul>
+<li>e
+healthy, Route 53 considers it Healthy. Otherwise, it’s
+Unhealthy
+eu-west-1</li>
+</ul>
+</li>
+<li>Ability to choose which locations you want Route 53 to Must allow incoming<ul>
+<li>use requests from Route 53
+Health Checkers IP</li>
+</ul>
+</li>
+<li>Health Checks pass only when the endpoint<ul>
+<li>address range
+ALB
+responds with the 2xx and 3xx status codes</li>
+</ul>
+</li>
+<li>Health Checks can be setup to pass / fail based on<ul>
+<li>the text in the first 5120 bytes of the response
+Auto Scaling group</li>
+</ul>
+</li>
+<li>Configure you router/firewall to allow incoming<ul>
+<li>requests from Route 53 Health Checkers
+EC2 Instance
+https://ip-ranges.amazonaws.com/ip-ranges.json</li>
+</ul>
+</li>
+</ul>
+<h2 id="route-53-calculated-health-checks">Route 53 – Calculated Health Checks<a class="headerlink" href="#route-53-calculated-health-checks" title="Permanent link">&para;</a></h2>
+<p>Amazon Route 53
+- Combine the results of multiple Health
+    - Checks into a single Health Check
+Health Check
+- You can use OR, AND, or NOT
+    - (Parent)
+- Can monitor up to 256 Child Health Checks
+- Specify how many of the health checks need
+    - to pass to make the parent pass
+Health Check Health Check Health Check
+- Usage: perform maintenance to your website
+    - (Child) (Child) (Child)
+without causing all health checks to fail
+monitor monitor monitor
+EC2 Instance EC2 Instance EC2 Instance</p>
+<h2 id="health-checks-private-hosted-zones">Health Checks – Private Hosted Zones<a class="headerlink" href="#health-checks-private-hosted-zones" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Route 53 health checkers are outside the<ul>
+<li>VPC
+VPC</li>
+</ul>
+</li>
+<li>They can’t access private endpoints<ul>
+<li>Private subnet
+(private VPC or on-premises resource)
+Health Checker
+(us-east-1)</li>
+</ul>
+</li>
+<li>You can create a CloudWatch Metric and<ul>
+<li>monitor
+associate a CloudWatch Alarm, then
+create a Health Check that checks the
+monitor
+alarm itself
+CloudWatch
+Alarm</li>
+</ul>
+</li>
+</ul>
+<h2 id="routing-policies-failover-active-passive">Routing Policies – Failover (Active-Passive)<a class="headerlink" href="#routing-policies-failover-active-passive" title="Permanent link">&para;</a></h2>
+<p>EC2 Instance
+(Primary)
+Health Check
+(mandatory)
+DNS Requests
+Failover
+Client
+Amazon
+Route 53
+EC2 Instance
+(Secondary – Disaster Recovery)</p>
+<h2 id="routing-policies-geolocation">Routing Policies – Geolocation<a class="headerlink" href="#routing-policies-geolocation" title="Permanent link">&para;</a></h2>
+<p>A 11.22.33.44
+- Different from Latency-based!
+- This routing is based on user location
+- Specify location by Continent, Country
+    - or by US State (if there’s overlapping,
+most precise location selected)
+Default
+A 99.11.22.33
+- Should create a “Default” record (in
+    - case there’s no match on location)
+- Use cases: website localization, restrict
+    - content distribution, load balancing, …
+- Can be associated with Health Checks
+    - A 55.66.77.88</p>
+<h2 id="routing-policies-geoproximity">Routing Policies – Geoproximity<a class="headerlink" href="#routing-policies-geoproximity" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Route traffic to your resources based on the geographic location of users and<ul>
+<li>resources</li>
+</ul>
+</li>
+<li>Ability to shift more traffic to resources based on the defined bias</li>
+<li>To change the size of the geographic region, specify bias values:</li>
+<li>To expand (1 to 99) – more traffic to the resource</li>
+<li>To shrink (-1 to -99) – less traffic to the resource</li>
+<li>Resources can be:</li>
+<li>AWS resources (specify AWS region)</li>
+<li>Non-AWS resources (specify Latitude and Longitude)</li>
+<li>You must use Route 53 Traffic Flow to use this feature</li>
+</ul>
+<h2 id="routing-policies-geoproximity_1">Routing Policies – Geoproximity<a class="headerlink" href="#routing-policies-geoproximity_1" title="Permanent link">&para;</a></h2>
+<p>us-west-1 us-east-1
+Bias: 0 Bias: 0</p>
+<h2 id="routing-policies-geoproximity_2">Routing Policies – Geoproximity<a class="headerlink" href="#routing-policies-geoproximity_2" title="Permanent link">&para;</a></h2>
+<p>us-west-1 us-east-1
+Bias: 0 Bias: 50
+Higher bias in us-east-1</p>
+<h2 id="routing-policies-ip-based-routing">Routing Policies – IP-based Routing<a class="headerlink" href="#routing-policies-ip-based-routing" title="Permanent link">&para;</a></h2>
+<p>User B User A
+- Routing is based on clients’ IP addresses (200.5.4.100) (203.0.113.56)
+- You provide a list of CIDRs for your clients
+    - and the corresponding endpoints/locations
+Route 53
+(user-IP-to-endpoint mappings)
+CIDR Collection
+- Use cases: Optimize performance, reduce
+    - Locations CIDR blocks
+network costs… location-1 203.0.113.0/24
+location-2 200.5.4.0/24
+- Example: route end users from a particular
+    - Records
+ISP to a specific endpoint Record Name Value IP-based
+example.com 1.2.3.4 location-1
+example.com 5.6.7.8 location-2
+EC2 Instance EC2 Instance
+(5.6.7.8) (1.2.3.4)</p>
+<h2 id="routing-policies-multi-value">Routing Policies – Multi-Value<a class="headerlink" href="#routing-policies-multi-value" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use when routing traffic to multiple resources</li>
+<li>Route 53 return multiple values/resources</li>
+<li>Can be associated with Health Checks (return only values for healthy resources)</li>
+<li>Up to 8 healthy records are returned for each Multi-Value query</li>
+<li>Multi-Value is not a substitute for having an ELB</li>
+</ul>
+<h2 id="domain-registar-vs-dns-service">Domain Registar vs. DNS Service<a class="headerlink" href="#domain-registar-vs-dns-service" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You buy or register your domain name with a Domain Registrar typically by</li>
+</ul>
+<p>paying annual charges (e.g., GoDaddy, Amazon Registrar Inc., …)
+- The Domain Registrar usually provides you with a DNS service to manage
+    - your DNS records
+- But you can use another DNS service to manage your DNS records
+- Example: purchase the domain from GoDaddy and use Route 53 to manage
+    - your DNS records
+purchase
+example.com manage DNS records
+User
+Amazon
+Route 53</p>
+<h2 id="godaddy-as-registrar-route-53-as-dns-service">GoDaddy as Registrar &amp; Route 53 as DNS Service<a class="headerlink" href="#godaddy-as-registrar-route-53-as-dns-service" title="Permanent link">&para;</a></h2>
+<p>Amazon Public Hosted Zone
+Route 53 stephanetheteacher.com</p>
+<h2 id="3rd-par-ty-registrar-with-amazon-route-53">3rd Par ty Registrar with Amazon Route 53<a class="headerlink" href="#3rd-par-ty-registrar-with-amazon-route-53" title="Permanent link">&para;</a></h2>
+<ul>
+<li>If you buy your domain on a 3rd party registrar, you can still use Route<ul>
+<li>53 as the DNS Service provider</li>
+</ul>
+</li>
+<li>Create a Hosted Zone in Route 53</li>
+<li>Update NS Records on 3rd party website to use Route 53 Name
+Servers</li>
+<li>Domain Registrar != DNS Service</li>
+<li>But every Domain Registrar usually comes with some DNS features</li>
+</ul>
+<h2 id="route-53-hybrid-dns">Route 53 – Hybrid DNS<a class="headerlink" href="#route-53-hybrid-dns" title="Permanent link">&para;</a></h2>
+<ul>
+<li>By default, Route 53 Resolver<ul>
+<li>automatically answers DNS queries for:
+Public Name Server</li>
+</ul>
+</li>
+<li>Local domain names for EC2 instances</li>
+<li>Records in Private Hosted Zones</li>
+<li>Records in public Name Servers<ul>
+<li>Region</li>
+</ul>
+</li>
+<li>Hybrid DNS – resolving DNS queries<ul>
+<li>VPC
+between VPC (Route 53 Resolver) and
+Private Hosted Zone
+your networks (other DNS Resolvers)</li>
+</ul>
+</li>
+<li>Networks can be:<ul>
+<li>Route 53</li>
+</ul>
+</li>
+<li>VPC itself / Peered VPC<ul>
+<li>Resolver EC2 Instance</li>
+</ul>
+</li>
+<li>On-premises Network (connected through (ec2-192-0-2-44.compute-1.amazonaws.com)<ul>
+<li>Direct Connect or AWS VPN)</li>
+</ul>
+</li>
+</ul>
+<h2 id="route-53-resolver-endpoints">Route 53 – Resolver Endpoints<a class="headerlink" href="#route-53-resolver-endpoints" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Inbound Endpoint – allows your DNS Resolvers to resolve domain names for</li>
+</ul>
+<p>AWS resources (e.g., EC2 instances) and records in Private Hosted Zones
+us-east-1 On-Premises Data Center
+Private Hosted Zone
+(aws.private)
+VPC
+lookup
+DNS
+Query
+app.aws.private?
+Private Subnet
+DNS Resolvers
+Resolver (onpremise.private) Route 53
+EC2 Instance Inbound Endpoint
+Resolver
+DNS Query
+(app.aws.private)
+app.aws.private?
+VPN or DX connection
+Server
+(web.onpremise.private)</p>
+<h2 id="route-53-resolver-endpoints_1">Route 53 – Resolver Endpoints<a class="headerlink" href="#route-53-resolver-endpoints_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Outbound Endpoint</li>
+<li>Route 53 Resolver forwards DNS queries to your DNS Resolvers<ul>
+<li>us-east-1 On-Premises Data Center
+Private Hosted Zone
+(aws.private)
+VPC
+web.o D np N r S e Q m u is e e r . y p
+P
+r
+r
+iv
+iv
+a
+a
+t
+t
+e
+e
+?
+Subnet
+(a E p C p 2 .a I w n s s .p ta ri n va c t e e) web.on D p N r S e m
+Qu
+is
+e
+e
+r
+.
+y
+private? DNS Resolvers
+(onpremise.private)
+Resolver
+Route 53
+Outbound Endpoint
+Resolver
+VPN or DX connection
+Server
+(web.onpremise.private)</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

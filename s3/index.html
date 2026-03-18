@@ -1,0 +1,2657 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete study guide for the AWS Certified Solutions Architect Associate exam (SAA-C03)">
+      
+      
+        <meta name="author" content="AWS Study Guide">
+      
+      
+      
+        <link rel="prev" href="../vpc/">
+      
+      
+        <link rel="next" href="../s3-advanced/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Amazon S3 - AWS Certified Solutions Architect Associate (SAA-C03)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#amazon-s3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-header__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Certified Solutions Architect Associate (SAA-C03)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Amazon S3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AWS Certified Solutions Architect Associate (SAA-C03)" class="md-nav__button md-logo" aria-label="AWS Certified Solutions Architect Associate (SAA-C03)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20m-12-2h12q1.05 0 1.77-.73.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1m5.5-6"/></svg>
+
+    </a>
+    AWS Certified Solutions Architect Associate (SAA-C03)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started with AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAM – Identity & Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-associate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Associate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EC2 Instance Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../high-availability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability & Scalability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rds-aurora-elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS, Aurora & ElastiCache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFront & Global Accelerator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#section-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 Use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-buckets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 - Buckets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 - Objects
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-objects-cont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 – Objects (cont.)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 – Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-bucket-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Bucket Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-public-access-use-bucket-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Public Access - Use Bucket Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-user-access-to-s3-iam-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: User Access to S3 – IAM permissions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-ec2-instance-access-use-iam-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: EC2 instance access - Use IAM Roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-cross-account-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced: Cross-Account Access –
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucket-settings-for-block-public-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bucket settings for Block Public Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-static-website-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 – Static Website Hosting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 - Versioning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-replication-crr-srr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 – Replication (CRR &amp; SRR)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-replication-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 – Replication (Notes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-storage-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Storage Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-durability-and-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Durability and Availability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-standard-general-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Standard – General Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-storage-classes-infrequent-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Storage Classes – Infrequent Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-glacier-storage-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 Glacier Storage Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-intelligent-tiering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Intelligent-Tiering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-storage-classes-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Storage Classes Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-storage-classes-price-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Storage Classes – Price Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-express-one-zone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Express One Zone
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon S3 Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage-extras/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Extras
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration & Messaging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serverless-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analytics & ML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analytics & ML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security & Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring, Audit & Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Identity in AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classic-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../disaster-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery & Migrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solutions-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solutions Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#section-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Section introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 Use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-buckets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 - Buckets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 - Objects
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-objects-cont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 – Objects (cont.)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 – Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-bucket-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Bucket Policies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-public-access-use-bucket-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Public Access - Use Bucket Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-user-access-to-s3-iam-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: User Access to S3 – IAM permissions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-ec2-instance-access-use-iam-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: EC2 instance access - Use IAM Roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-cross-account-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced: Cross-Account Access –
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucket-settings-for-block-public-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bucket settings for Block Public Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-static-website-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 – Static Website Hosting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 - Versioning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-replication-crr-srr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 – Replication (CRR &amp; SRR)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-replication-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 – Replication (Notes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-storage-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Storage Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-durability-and-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Durability and Availability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-standard-general-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Standard – General Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-storage-classes-infrequent-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Storage Classes – Infrequent Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-glacier-storage-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3 Glacier Storage Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-intelligent-tiering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Intelligent-Tiering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-storage-classes-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Storage Classes Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-storage-classes-price-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Storage Classes – Price Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-express-one-zone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 Express One Zone
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="amazon-s3">Amazon S3<a class="headerlink" href="#amazon-s3" title="Permanent link">&para;</a></h1>
+<h2 id="section-introduction">Section introduction<a class="headerlink" href="#section-introduction" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Amazon S3 is one of the main building blocks of AWS</li>
+<li>It’s advertised as ”infinitely scaling” storage</li>
+<li>Many websites use Amazon S3 as a backbone</li>
+<li>Many AWS services use Amazon S3 as an integration as well</li>
+<li>We’ll have a step-by-step approach to S3</li>
+</ul>
+<h2 id="amazon-s3-use-cases">Amazon S3 Use cases<a class="headerlink" href="#amazon-s3-use-cases" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Backup and storage</li>
+<li>Disaster Recovery</li>
+<li>Archive<ul>
+<li>Nasdaq stores 7 years of
+data into S3 Glacier</li>
+</ul>
+</li>
+<li>Hybrid Cloud storage</li>
+<li>Application hosting</li>
+<li>Media hosting</li>
+<li>Data lakes &amp; big data analytics<ul>
+<li>Sysco runs analytics on</li>
+</ul>
+</li>
+<li>Software delivery<ul>
+<li>its data and gain business
+insights</li>
+</ul>
+</li>
+<li>Static website</li>
+</ul>
+<h2 id="amazon-s3-buckets">Amazon S3 - Buckets<a class="headerlink" href="#amazon-s3-buckets" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Amazon S3 allows people to store objects (files) in “buckets” (directories)</li>
+<li>Buckets must have a globally unique name (across all regions all accounts)</li>
+<li>Buckets are defined at the region level</li>
+<li>S3 looks like a global service but buckets are created in a region</li>
+<li>Naming convention</li>
+<li>No uppercase, No underscore</li>
+<li>3-63 characters long</li>
+<li>Not an IP</li>
+<li>Must start with lowercase letter or number</li>
+<li>Must NOT start with the prefix xn--<ul>
+<li>S3 Bucket</li>
+</ul>
+</li>
+<li>Must NOT end with the suffix -s3alias</li>
+</ul>
+<h2 id="amazon-s3-objects">Amazon S3 - Objects<a class="headerlink" href="#amazon-s3-objects" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Objects (files) have a Key</li>
+<li>The key is the FULL path:</li>
+<li>s3://my-bucket/my_file.txt</li>
+<li>s3://my-bucket/my_folder1/another_folder/my_file.txt<ul>
+<li>Object</li>
+</ul>
+</li>
+<li>The key is composed of prefix + object name</li>
+<li>s3://my-bucket/my_folder1/another_folder/my_file.txt</li>
+<li>There’s no concept of “directories” within buckets<ul>
+<li>(although the UI will trick you to think otherwise)
+S3 Bucket</li>
+</ul>
+</li>
+<li>Just keys with very long names that contain slashes (“/”)<ul>
+<li>with Objects</li>
+</ul>
+</li>
+</ul>
+<h2 id="amazon-s3-objects-cont">Amazon S3 – Objects (cont.)<a class="headerlink" href="#amazon-s3-objects-cont" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Object values are the content of the body:</li>
+<li>Max. Object Size is 5TB (5000GB)</li>
+<li>If uploading more than 5GB, must use “multi-part upload”</li>
+<li>Metadata (list of text key / value pairs – system or user metadata)</li>
+<li>Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle</li>
+<li>Version ID (if versioning is enabled)</li>
+</ul>
+<h2 id="amazon-s3-security">Amazon S3 – Security<a class="headerlink" href="#amazon-s3-security" title="Permanent link">&para;</a></h2>
+<ul>
+<li>User-Based</li>
+<li>IAM Policies – which API calls should be allowed for a specific user from IAM</li>
+<li>Resource-Based</li>
+<li>Bucket Policies – bucket wide rules from the S3 console - allows cross account</li>
+<li>Object Access Control List (ACL) – finer grain (can be disabled)</li>
+<li>Bucket Access Control List (ACL) – less common (can be disabled)</li>
+<li>Note: an IAM principal can access an S3 object if</li>
+<li>The user IAM permissions ALLOW it OR the resource policy ALLOWS it</li>
+<li>AND there’s no explicit DENY</li>
+<li>Encryption: encrypt objects in Amazon S3 using encryption keys</li>
+</ul>
+<h2 id="s3-bucket-policies">S3 Bucket Policies<a class="headerlink" href="#s3-bucket-policies" title="Permanent link">&para;</a></h2>
+<ul>
+<li>JSON based policies</li>
+<li>Resources: buckets and objects</li>
+<li>Effect: Allow / Deny</li>
+<li>Actions: Set of API to Allow or Deny</li>
+<li>Principal: The account or user to apply the<ul>
+<li>policy to</li>
+</ul>
+</li>
+<li>Use S3 bucket for policy to:</li>
+<li>Grant public access to the bucket</li>
+<li>Force objects to be encrypted at upload</li>
+<li>Grant access to another account (Cross<ul>
+<li>Account)</li>
+</ul>
+</li>
+</ul>
+<h2 id="example-public-access-use-bucket-policy">Example: Public Access - Use Bucket Policy<a class="headerlink" href="#example-public-access-use-bucket-policy" title="Permanent link">&para;</a></h2>
+<p>S3 Bucket Policy
+Allows Public Access
+Anonymous www website visitor S3 Bucket</p>
+<h2 id="example-user-access-to-s3-iam-permissions">Example: User Access to S3 – IAM permissions<a class="headerlink" href="#example-user-access-to-s3-iam-permissions" title="Permanent link">&para;</a></h2>
+<p>IAM Policy
+IAM User
+S3 Bucket</p>
+<h2 id="example-ec2-instance-access-use-iam-roles">Example: EC2 instance access - Use IAM Roles<a class="headerlink" href="#example-ec2-instance-access-use-iam-roles" title="Permanent link">&para;</a></h2>
+<p>IAM permissions
+EC2 Instance Role
+EC2 Instance
+S3 Bucket</p>
+<h2 id="advanced-cross-account-access">Advanced: Cross-Account Access –<a class="headerlink" href="#advanced-cross-account-access" title="Permanent link">&para;</a></h2>
+<p>Use Bucket Policy
+S3 Bucket Policy
+Allows Cross-Account
+IAM User
+Other AWS account
+S3 Bucket</p>
+<h2 id="bucket-settings-for-block-public-access">Bucket settings for Block Public Access<a class="headerlink" href="#bucket-settings-for-block-public-access" title="Permanent link">&para;</a></h2>
+<ul>
+<li>These settings were created to prevent company data leaks</li>
+<li>If you know your bucket should never be public, leave these on</li>
+<li>Can be set at the account level</li>
+</ul>
+<h2 id="amazon-s3-static-website-hosting">Amazon S3 – Static Website Hosting<a class="headerlink" href="#amazon-s3-static-website-hosting" title="Permanent link">&para;</a></h2>
+<p>User
+- S3 can host static websites and have them accessible on
+    - the Internet
+http://demo-bucket.s3-website-us-west-2.amazonaws.com
+http://demo-bucket.s3-website.us-west-2.amazonaws.com
+- The website URL will be (depending on the region)
+- http://bucket-name.s3-website-aws-region.amazonaws.com
+    - OR us-west-2
+- http://bucket-name.s3-website.aws-region.amazonaws.com
+    - S3 Bucket
+- If you get a 403 Forbidden error, make sure the bucket
+    - (demo-bucket)
+policy allows public reads!</p>
+<h2 id="amazon-s3-versioning">Amazon S3 - Versioning<a class="headerlink" href="#amazon-s3-versioning" title="Permanent link">&para;</a></h2>
+<p>User
+- You can version your files in Amazon S3
+- It is enabled at the bucket level
+    - upload
+- Same key overwrite will change the “version”: 1, 2, 3….
+- It is best practice to version your buckets
+- Protect against unintended deletes (ability to restore a version) S3 Bucket
+    - (my-bucket)
+- Easy roll back to previous version
+    - Version 1 Version 2
+- Notes:
+    - Version 3
+- Any file that is not versioned prior to enabling versioning will
+    - have version “null”
+s3://my-bucket/my-file.docx
+- Suspending versioning does not delete the previous versions</p>
+<h2 id="amazon-s3-replication-crr-srr">Amazon S3 – Replication (CRR &amp; SRR)<a class="headerlink" href="#amazon-s3-replication-crr-srr" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Must enable Versioning in source and destination buckets</li>
+<li>Cross-Region Replication (CRR)<ul>
+<li>S3 Bucket</li>
+</ul>
+</li>
+<li>Same-Region Replication (SRR)<ul>
+<li>(eu-west-1)</li>
+</ul>
+</li>
+<li>Buckets can be in different AWS accounts</li>
+<li>Copying is asynchronous<ul>
+<li>asynchronous</li>
+</ul>
+</li>
+<li>Must give proper IAM permissions to S3<ul>
+<li>replication</li>
+</ul>
+</li>
+<li>Use cases:<ul>
+<li>S3 Bucket</li>
+</ul>
+</li>
+<li>CRR – compliance, lower latency access, replication across accounts<ul>
+<li>(us-east-2)</li>
+</ul>
+</li>
+<li>SRR – log aggregation, live replication between production and test<ul>
+<li>accounts</li>
+</ul>
+</li>
+</ul>
+<h2 id="amazon-s3-replication-notes">Amazon S3 – Replication (Notes)<a class="headerlink" href="#amazon-s3-replication-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>After you enable Replication, only new objects are replicated</li>
+<li>Optionally, you can replicate existing objects using S3 Batch Replication</li>
+<li>Replicates existing objects and objects that failed replication</li>
+<li>For DELETE operations</li>
+<li>Can replicate delete markers from source to target (optional setting)</li>
+<li>Deletions with a version ID are not replicated (to avoid malicious deletes)</li>
+<li>There is no “chaining” of replication</li>
+<li>If bucket 1 has replication into bucket 2, which has replication into bucket 3</li>
+<li>Then objects created in bucket 1 are not replicated to bucket 3</li>
+</ul>
+<h2 id="s3-storage-classes">S3 Storage Classes<a class="headerlink" href="#s3-storage-classes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Amazon S3 Standard - General Purpose</li>
+<li>Amazon S3 Standard-Infrequent Access (IA)</li>
+<li>Amazon S3 One Zone-Infrequent Access</li>
+<li>Amazon S3 Glacier Instant Retrieval</li>
+<li>Amazon S3 Glacier Flexible Retrieval</li>
+<li>Amazon S3 Glacier Deep Archive</li>
+<li>Amazon S3 Intelligent Tiering</li>
+<li>Can move between classes manually or using S3 Lifecycle configurations</li>
+</ul>
+<h2 id="s3-durability-and-availability">S3 Durability and Availability<a class="headerlink" href="#s3-durability-and-availability" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Durability:</li>
+<li>High durability (99.999999999%, 11 9’s) of objects across multiple AZ</li>
+<li>If you store 10,000,000 objects with Amazon S3, you can on average expect to<ul>
+<li>incur a loss of a single object once every 10,000 years</li>
+</ul>
+</li>
+<li>Same for all storage classes</li>
+<li>Availability:</li>
+<li>Measures how readily available a service is</li>
+<li>Varies depending on storage class</li>
+<li>Example: S3 standard has 99.99% availability = not available 53 minutes a year</li>
+</ul>
+<h2 id="s3-standard-general-purpose">S3 Standard – General Purpose<a class="headerlink" href="#s3-standard-general-purpose" title="Permanent link">&para;</a></h2>
+<ul>
+<li>99.99% Availability</li>
+<li>Used for frequently accessed data</li>
+<li>Low latency and high throughput</li>
+<li>Sustain 2 concurrent facility failures</li>
+<li>Use Cases: Big Data analytics, mobile &amp; gaming applications, content<ul>
+<li>distribution…</li>
+</ul>
+</li>
+</ul>
+<h2 id="s3-storage-classes-infrequent-access">S3 Storage Classes – Infrequent Access<a class="headerlink" href="#s3-storage-classes-infrequent-access" title="Permanent link">&para;</a></h2>
+<ul>
+<li>For data that is less frequently accessed, but requires rapid access when needed</li>
+<li>Lower cost than S3 Standard</li>
+<li>Amazon S3 Standard-Infrequent Access (S3 Standard-IA)</li>
+<li>99.9% Availability</li>
+<li>Use cases: Disaster Recovery, backups</li>
+<li>Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA)</li>
+<li>High durability (99.999999999%) in a single AZ; data lost when AZ is destroyed</li>
+<li>99.5% Availability</li>
+<li>Use Cases: Storing secondary backup copies of on-premises data, or data you can recreate</li>
+</ul>
+<h2 id="amazon-s3-glacier-storage-classes">Amazon S3 Glacier Storage Classes<a class="headerlink" href="#amazon-s3-glacier-storage-classes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Low-cost object storage meant for archiving / backup</li>
+<li>Pricing: price for storage + object retrieval cost</li>
+<li>Amazon S3 Glacier Instant Retrieval</li>
+<li>Millisecond retrieval, great for data accessed once a quarter</li>
+<li>Minimum storage duration of 90 days</li>
+<li>Amazon S3 Glacier Flexible Retrieval (formerly Amazon S3 Glacier):</li>
+<li>Expedited (1 to 5 minutes), Standard (3 to 5 hours), Bulk (5 to 12 hours) – free</li>
+<li>Minimum storage duration of 90 days</li>
+<li>Amazon S3 Glacier Deep Archive – for long term storage:</li>
+<li>Standard (12 hours), Bulk (48 hours)</li>
+<li>Minimum storage duration of 180 days</li>
+</ul>
+<h2 id="s3-intelligent-tiering">S3 Intelligent-Tiering<a class="headerlink" href="#s3-intelligent-tiering" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Small monthly monitoring and auto-tiering fee</li>
+<li>Moves objects automatically between Access Tiers based on usage</li>
+<li>There are no retrieval charges in S3 Intelligent-Tiering</li>
+<li>Frequent Access tier (automatic): default tier</li>
+<li>Infrequent Access tier (automatic): objects not accessed for 30 days</li>
+<li>Archive Instant Access tier (automatic): objects not accessed for 90 days</li>
+<li>Archive Access tier (optional): configurable from 90 days to 700+ days</li>
+<li>Deep Archive Access tier (optional): config. from 180 days to 700+ days</li>
+</ul>
+<h2 id="s3-storage-classes-comparison">S3 Storage Classes Comparison<a class="headerlink" href="#s3-storage-classes-comparison" title="Permanent link">&para;</a></h2>
+<p>Intelligent- Glacier Instant Glacier Flexible Glacier Deep
+Standard Standard-IA One Zone-IA
+Tiering Retrieval Retrieval Archive
+Durability 99.999999999% == (11 9’s)
+Availability 99.99% 99.9% 99.9% 99.5% 99.9% 99.99% 99.99%
+Availability SLA 99.9% 99% 99% 99% 99% 99.9% 99.9%
+Availability</p>
+<blockquote>
+<p>= 3 &gt;= 3 &gt;= 3 1 &gt;= 3 &gt;= 3 &gt;= 3
+Zones
+Min. Storage
+None None 30 Days 30 Days 90 Days 90 Days 180 Days
+Duration Charge
+Min. Billable
+None None 128 KB 128 KB 128 KB 40 KB 40 KB
+Object Size
+Retrieval Fee None None Per GB retrieved Per GB retrieved Per GB retrieved Per GB retrieved Per GB retrieved
+https://aws.amazon.com/s3/storage-classes/</p>
+</blockquote>
+<h2 id="s3-storage-classes-price-comparison">S3 Storage Classes – Price Comparison<a class="headerlink" href="#s3-storage-classes-price-comparison" title="Permanent link">&para;</a></h2>
+<p>Example: us-east-1
+Glacier Instant Glacier Flexible Glacier Deep
+Standard Intelligent-Tiering Standard-IA One Zone-IA
+Retrieval Retrieval Archive
+Storage Cost
+$0.023 $0.0025 - $0.023 $0.0125 $0.01 $0.004 $0.0036 $0.00099
+(per GB per month)
+GET: $0.0004
+GET: $0.0004
+POST: $0.03
+POST: $0.05
+Retrieval Cost GET: $0.0004 GET: $0.0004 GET: $0.001 GET: $0.001 GET: $0.01
+(per 1000 request) POST: $0.005 POST: $0.005 POST: $0.01 POST: $0.01 POST: $0.02 Expedited: $10
+Standard: $0.10
+Standard: $0.05
+Bulk: $0.025
+Bulk: free
+Expedited (1 – 5 mins)
+Standard (12 hours)
+Retrieval Time Instantaneous Standard (3 – 5 hours)
+Bulk (48 hours)
+Bulk (5 – 12 hours)
+Monitoring Cost
+$0.0025
+(per 1000 objects)
+https://aws.amazon.com/s3/pricing/</p>
+<h2 id="s3-express-one-zone">S3 Express One Zone<a class="headerlink" href="#s3-express-one-zone" title="Permanent link">&para;</a></h2>
+<ul>
+<li>High performance, single Availability Zone storage class</li>
+<li>Objects stored in a Directory Bucket (bucket in a single AZ)</li>
+<li>Handle 100,000s requests per second with single-digit millisecond<ul>
+<li>Region (us-east-1)
+latency</li>
+</ul>
+</li>
+<li>Up to 10x better performance than S3 Standard (50% lower<ul>
+<li>Availability Zone (AZ 4)
+costs)</li>
+</ul>
+</li>
+<li>High Durability (99.999999999%) and Availability (99.95%)</li>
+<li>Co-locate your storage and compute resources in the same AZ<ul>
+<li>(reduces latency)</li>
+</ul>
+</li>
+<li>Use cases: latency-sensitive apps, data-intensive apps, AI &amp; ML stephane--use1-az4--x-s3<ul>
+<li>training, financial modeling, media processing, HPC…</li>
+</ul>
+</li>
+<li>Best integrated with SageMaker Model Training, Athena, EMR,<ul>
+<li>Glue…</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
